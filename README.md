@@ -114,17 +114,17 @@ More specifically, four datasets are used. These are:
     naturalearthdata.com.
 
 These data are combined, projected and simplified with a 10m tolerance
-using the CoastlineVx_x.R script (add link here once the repo is up,
-will have a “scripts” folder). A final set of shapefiles is produced and
-available here (link to data repo url) and through the
-*load_Coastline()* function of the CCAMLRGIS R package (Not yet
-implemented). The following script shows how to plot the coastline while
-color-coding the data sources and types:
+using the [CoastlineVx_x.R
+script](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Coastline).
+A final set of shapefiles is produced and available here (link to data
+repo url) and through the *load_Coastline()* function of the CCAMLRGIS R
+package (Not yet implemented). The following script shows how to plot
+the coastline while color-coding the data sources and types:
 
 ``` r
 library(CCAMLRGIS)
 
-#Load Coastline
+#Load Coastline from a local source
 Coast=st_read("Scripts/Coastline/CCAMLR_Coastline_V1_0.shp",quiet = T)
 
 #Plot

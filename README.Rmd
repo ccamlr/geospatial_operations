@@ -109,7 +109,7 @@ These data are combined, projected and simplified with a 10m tolerance using the
 ```{r, message=F,eval=T,echo=T}
 library(CCAMLRGIS)
 
-#Load Coastline
+#Load Coastline from a local source
 Coast=st_read("Scripts/Coastline/CCAMLR_Coastline_V1_0.shp",quiet = T)
 
 #Plot
