@@ -36,14 +36,15 @@ requested by the Scientific Committee.
 
 1)  geographical information system (GIS) objects use the EPSG
     [6932](https://epsg.org/crs_6932/WGS-84-NSIDC-EASE-Grid-2-0-South.html)
-    projection,
+    projection (*South Pole Lambert Azimuthal Equal-Area projection*),
 
 2)  lines of more than 0.1 degree of longitude be densified,
 
 3)  polygon vertices be given clockwise in decimal degrees with at least
     five decimal places,
 
-4)  vertices be added where polygons meet (see WG-FSA-2023 Figure 1),
+4)  vertices be added where polygons meet (see
+    [WG-FSA-2023](https://meetings.ccamlr.org/wg-fsa-2023) Figure 1),
 
 5)  inland vertices be used for polygons that are bound by any coastline
     (continent and islands),
@@ -112,18 +113,19 @@ More specifically, four datasets are used. These are:
   - Citation: Made with Natural Earth. Free vector and raster map data @
     naturalearthdata.com.
 
-These data are combined and projected using the Coastline.R script (add
-link here once the repo is up, will have a “scripts” folder). A final
-set of shapefiles is produced and available here (link to data repo url)
-and through the *load_Coastline()* function of the CCAMLRGIS R package.
-The following script shows how to plot the coastline while color-coding
-the data sources and types:
+These data are combined, projected and simplified with a 10m tolerance
+using the CoastlineVx_x.R script (add link here once the repo is up,
+will have a “scripts” folder). A final set of shapefiles is produced and
+available here (link to data repo url) and through the
+*load_Coastline()* function of the CCAMLRGIS R package (Not yet
+implemented). The following script shows how to plot the coastline while
+color-coding the data sources and types:
 
 ``` r
 library(CCAMLRGIS)
 
 #Load Coastline
-Coast=st_read("I:/Science/Team/Stephane/Coastline/Coast_10.shp",quiet = T)
+Coast=st_read("Scripts/Coastline/CCAMLR_Coastline_V1_0.shp",quiet = T)
 
 #Plot
 png(filename="Figures/Coastline.png",width=3000,height=3000,res=600)
@@ -142,14 +144,23 @@ dev.off()
 #>   2
 ```
 
-<img src="Figures/Coastline.png" width="80%" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+
+<img src="Figures/Coastline.png" alt="Figure 1. CCAMLR coastline with elements color-coded by source. Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="80%" />
+<p class="caption">
+Figure 1. CCAMLR coastline with elements color-coded by source. Sources:
+UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932.
+</p>
+
+</div>
 
 <br>
 
 <br>
 
-The data contained in the shapefile is structured as follows, with each
-row per set of polygons:
+The data contained in the shapefile is structured as follows (where
+*Version* is the version of the CCAMLR coastline), with a row per set of
+polygons:
 
 | Version | Source        | SrcVrsn                                         | Layer       | Surface |
 |:--------|:--------------|:------------------------------------------------|:------------|:--------|
@@ -167,8 +178,8 @@ The following script shows how to plot a specific subset of the data
 ``` r
 library(CCAMLRGIS)
 
-#Load Coastline
-Coast=st_read("I:/Science/Team/Stephane/Coastline/Coast_10.shp",quiet = T)
+#Load Coastline from a local source
+Coast=st_read("Scripts/Coastline/CCAMLR_Coastline_V1_0.shp",quiet = T)
 
 #Load ASDs
 ASDs=load_ASDs()
@@ -198,12 +209,25 @@ plot(st_geometry(R_coast[R_coast$Surface=="Ice",]),col="white",add=T)
 add_RefGrid(bb=bb,ResLat = 2.5,ResLon = 5,lwd=1,fontsize = 0.75)
 plot(bx,lwd=2,add=T,xpd=T)
 
+legend(x=250000,y=2050000,
+       legend=c('Subarea 48.1','Ocean','Land', 'Ice Shelves'),
+       fill=c("palegreen","lightblue","grey","white"),
+       xpd=T)
+
 dev.off()
 #> png 
 #>   2
 ```
 
-<img src="Figures/Coastline_481.png" width="60%" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+
+<img src="Figures/Coastline_481.png" alt="Figure 2. CCAMLR coastline for Subarea 48.1. Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="60%" />
+<p class="caption">
+Figure 2. CCAMLR coastline for Subarea 48.1. Sources: UK Polar Data
+Centre/BAS and Natural Earth. Projection: EPSG 6932.
+</p>
+
+</div>
 
 <br>
 
