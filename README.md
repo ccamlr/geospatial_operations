@@ -265,8 +265,8 @@ vertices for 3 polygons in Subarea 48.6 (the corresponding csv file is
 
 <br>
 
-Let’s plot these coordinates as they are, and connect them with lines,
-for each polygon:
+Plotting these coordinates as they are, and connecting them with lines
+for each polygon, gives:
 
 ``` r
 #Read the file
@@ -285,7 +285,7 @@ text(15,-63.2,"P3",col="blue",cex=2)
 
 <div class="figure" style="text-align: center">
 
-<img src="README_files/figure-gfm/unnamed-chunk-8-1.png" alt="Figure 3.1. Polygon coordinates as they are given in the 'My_Polygons_Form.csv' file." width="80%" />
+<img src="README_files/figure-gfm/Fig3.1-1.png" alt="Figure 3.1. Polygon coordinates as they are given in the 'My_Polygons_Form.csv' file." width="80%" />
 <p class="caption">
 Figure 3.1. Polygon coordinates as they are given in the
 ‘My_Polygons_Form.csv’ file.
@@ -323,9 +323,163 @@ Vertices were added to the table, as indicated below:
 | P2   | -63.00000 |   3.00000 |           |
 | P2   | -63.00000 |   9.00000 |           |
 | P2   | -68.00000 |   9.00000 |           |
-| P2   | -68.00000 |   3.00000 | \<= Added |
-| P2   | -65.00000 |   3.00000 |           |
+| P2   | -68.00000 |   3.00000 |           |
+| P2   | -65.00000 |   3.00000 | \<= Added |
 | P3   | -61.00000 |  10.00000 |           |
 | P3   | -61.00000 |  20.00000 |           |
 | P3   | -65.54321 |  20.00000 |           |
 | P3   | -65.54321 |  10.00000 |           |
+
+<br>
+
+#### Step 2 - Build polygons
+
+Now that the table of vertices is complete, the
+[create_Polys()](https://github.com/ccamlr/CCAMLRGIS#create-polygons)
+function of the CCAMLRGIS R package can be used to create densified and
+projected polygons:
+
+``` r
+library(CCAMLRGIS)
+
+MyPolygons=create_Polys(MyVertices)
+
+#Plot
+png(filename='Figures/MyPolygons1.png',width=2000,height=2000,res=300)
+par(mai=rep(0.1,4)) #margins
+
+plot(st_geometry(MyPolygons)) #Plot all polygons to set axes limits
+plot(st_geometry(MyPolygons[MyPolygons$ID=="P1",]),border="red",lwd=3,add=T)
+plot(st_geometry(MyPolygons[MyPolygons$ID=="P2",]),border="green",add=T)
+plot(st_geometry(MyPolygons[MyPolygons$ID=="P3",]),border="blue",add=T)
+
+text(MyPolygons$Labx,MyPolygons$Laby,MyPolygons$ID,col=c("red","green","blue"),cex=2)
+
+dev.off()
+#> png 
+#>   2
+```
+
+<div class="figure" style="text-align: center">
+
+<img src="Figures/MyPolygons1.png" alt="Figure 3.3. Densified and projected polygons." width="60%" />
+<p class="caption">
+Figure 3.3. Densified and projected polygons.
+</p>
+
+</div>
+
+<br>
+
+#### Step 3 - Clip polygons to all coastlines
+
+To clip polygons to the coastlines, use the coastline as generated in
+Section 2 above. Note that the coastline dataset includes ice shelves,
+while polygons must be clipped to the land:
+
+``` r
+#Load Coastline from a local source
+Coast=st_read("Scripts/Coastline/CCAMLR_Coastline_V1_0.shp",quiet = T)
+
+#Isolate land and merge (union) polygons into one:
+Land=Coast[Coast$Surface=="Land",]
+Land=st_union(Land)
+
+#Clip polygons
+MyPolygons=suppressWarnings( st_difference(MyPolygons,Land) )
+
+#Plot
+png(filename='Figures/MyPolygons2.png',width=2000,height=2000,res=300)
+par(mai=rep(0.1,4)) #margins
+
+plot(st_geometry(MyPolygons)) #Plot all polygons to set axes limits
+plot(st_geometry(MyPolygons[MyPolygons$ID=="P1",]),border="red",lwd=3,add=T)
+plot(st_geometry(MyPolygons[MyPolygons$ID=="P2",]),border="green",add=T)
+plot(st_geometry(MyPolygons[MyPolygons$ID=="P3",]),border="blue",add=T)
+
+text(MyPolygons$Labx,MyPolygons$Laby,MyPolygons$ID,col=c("red","green","blue"),cex=2)
+
+dev.off()
+#> png 
+#>   2
+```
+
+<div class="figure" style="text-align: center">
+
+<img src="Figures/MyPolygons2.png" alt="Figure 3.4. Polygons clipped to the coastline." width="60%" />
+<p class="caption">
+Figure 3.4. Polygons clipped to the coastline.
+</p>
+
+</div>
+
+<br>
+
+#### Step 4 - Update Metadata
+
+The spatial object that was created (*MyPolygons*) contains data in
+addition to the shapes of polygons:
+
+| ID  |  AreaKm2 |      Labx |    Laby | geometry                     |
+|:----|---------:|----------:|--------:|:-----------------------------|
+| P1  | 355139.0 | -107352.1 | 2399447 | POLYGON ((-390093.2 2740938… |
+| P2  | 154794.3 |  284451.7 | 2706377 | POLYGON ((161468.4 2981429,… |
+| P3  | 254156.2 |  765798.0 | 2857997 | POLYGON ((561536.3 3152447,… |
+
+Each row corresponds to a polygon, the columns are:
+
+- ID: Polygon identifier, taken from the “Name” column in the table of
+  vertices,
+
+- AreaKm2: Polygon area in square kilometers, calculated during
+  creation,
+
+- Labx and Laby: Location of polygon centers, calculated during creation
+  and used to label polygons,
+
+- geometry: POLYGON list of projected vertices (*i.e.*, the shape and
+  location of polygons)
+
+Since polygons were clipped to the coastline after their creation, their
+areas and centers must be recalculated. Also, at this point, additional
+information may be added in the spatial object such as a reference to
+the paper describing these polygons:
+
+``` r
+#Update Areas
+Ar=round(st_area(MyPolygons)/1000000,1)
+MyPolygons$AreaKm2=as.numeric(Ar)
+#Get labels locations
+labs=st_coordinates(st_centroid(st_geometry(MyPolygons)))
+MyPolygons$Labx=labs[,1]
+MyPolygons$Laby=labs[,2]
+#Add Reference
+MyPolygons$Reference="WG-SAM-2023/xx Fig. z"
+```
+
+| ID  |  AreaKm2 |      Labx |    Laby | geometry                     | Reference             |
+|:----|---------:|----------:|--------:|:-----------------------------|:----------------------|
+| P1  | 317949.4 | -109064.8 | 2439867 | POLYGON ((-390093.2 2740938… | WG-SAM-2023/xx Fig. z |
+| P2  | 154794.3 |  284451.7 | 2706377 | POLYGON ((161468.4 2981429,… | WG-SAM-2023/xx Fig. z |
+| P3  | 254156.2 |  765798.0 | 2857997 | POLYGON ((561536.3 3152447,… | WG-SAM-2023/xx Fig. z |
+
+<br>
+
+#### Step 5 - Export shapefiles
+
+The polygons are now completed and may be exported:
+
+``` r
+#Export Shapefiles
+st_write(MyPolygons,"Scripts/Polygons/Completed_Polygons.shp",append = F,quiet = T)
+```
+
+Four files are generated, ending in “.dbf”, “.prj”, “.shp” and “.shx”.
+These can be zipped together, shared, and submitted along with the
+corresponding proposal.
+
+#### Step 6 - Plot map
+
+The script below provides some elements to produce a map. Other examples
+are given
+[here](https://github.com/ccamlr/CCAMLRGIS/blob/master/Basemaps/Basemaps.md).
