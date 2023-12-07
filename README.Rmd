@@ -207,3 +207,11 @@ More examples can be found [here](https://github.com/ccamlr/CCAMLRGIS/blob/maste
 
 ### 3. Polygons
 
+[CCAMLRGIS R package]:https://CRAN.R-project.org/package=CCAMLRGIS
+
+The following tutorial contains step-by-step instructions to build polygons while following the Geospatial Rules. Polygons may be used to represent areas (*e.g.*, Research Blocks or Marine Protected Areas) or to subset data spatially (*e.g.* finding fishing locations that fall within a chosen area). Some of the operations used rely on the [CCAMLRGIS R package] which functions may be accessed and reviewed [here](https://github.com/ccamlr/CCAMLRGIS/tree/master/R).
+
+
+#### Step 1 - Build a table of vertices
+
+Download the Blank Polygon Form, which is a .csv file with three columns (*Name*, *Latitude* and *Longitude*). While the name of these columns can be changed, these columns must be in that order. 
