@@ -140,16 +140,15 @@ legend("bottomleft",legend=c('Natural Earth land','BAS land','BAS ice shelves','
        seg.len=0,cex=0.75,
        xpd=TRUE)
 dev.off()
-#> png 
-#>   2
 ```
 
 <div class="figure" style="text-align: center">
 
-<img src="Figures/Coastline.png" alt="Figure 1. CCAMLR coastline with elements color-coded by source. Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="80%" />
+<img src="Figures/Coastline.png" alt="Figure 2.1. CCAMLR coastline with elements color-coded by source. Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="80%" />
 <p class="caption">
-Figure 1. CCAMLR coastline with elements color-coded by source. Sources:
-UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932.
+Figure 2.1. CCAMLR coastline with elements color-coded by source.
+Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG
+6932.
 </p>
 
 </div>
@@ -161,14 +160,6 @@ UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932.
 The data contained in the shapefile is structured as follows (where
 *Version* is the version of the CCAMLR coastline), with a row per set of
 polygons:
-
-| Version | Source        | SrcVrsn                                         | Layer       | Surface |
-|:--------|:--------------|:------------------------------------------------|:------------|:--------|
-| 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
-| 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
-| 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
-| 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
-| 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
 
 <br>
 
@@ -215,15 +206,13 @@ legend(x=250000,y=2050000,
        xpd=T)
 
 dev.off()
-#> png 
-#>   2
 ```
 
 <div class="figure" style="text-align: center">
 
-<img src="Figures/Coastline_481.png" alt="Figure 2. CCAMLR coastline for Subarea 48.1. Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="60%" />
+<img src="Figures/Coastline_481.png" alt="Figure 2.2. CCAMLR coastline for Subarea 48.1. Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="60%" />
 <p class="caption">
-Figure 2. CCAMLR coastline for Subarea 48.1. Sources: UK Polar Data
+Figure 2.2. CCAMLR coastline for Subarea 48.1. Sources: UK Polar Data
 Centre/BAS and Natural Earth. Projection: EPSG 6932.
 </p>
 
@@ -238,17 +227,105 @@ More examples can be found
 
 ### 3. Polygons
 
-The following tutorial contains step-by-step instructions to build
-polygons while following the Geospatial Rules. Polygons may be used to
-represent areas (*e.g.*, Research Blocks or Marine Protected Areas) or
-to subset data spatially (*e.g.* finding fishing locations that fall
-within a chosen area). Some of the operations used rely on the
-[CCAMLRGIS R package](https://CRAN.R-project.org/package=CCAMLRGIS)
-which functions may be accessed and reviewed
+This tutorial provides step-by-step instructions to build polygons while
+following the Geospatial Rules. Polygons may be used to represent areas
+(*e.g.*, Research Blocks or Marine Protected Areas) or to subset data
+spatially (*e.g.* finding fishing locations that fall within a chosen
+area). Some of the operations used rely on the [CCAMLRGIS R
+package](https://CRAN.R-project.org/package=CCAMLRGIS) which functions
+may be accessed and reviewed
 [here](https://github.com/ccamlr/CCAMLRGIS/tree/master/R).
 
 #### Step 1 - Build a table of vertices
 
-Download the Blank Polygon Form, which is a .csv file with three columns
-(*Name*, *Latitude* and *Longitude*). While the name of these columns
-can be changed, these columns must be in that order.
+Download the [Blank Polygon
+Form](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Polygons),
+which is a .csv file with three columns (*Name*, *Latitude* and
+*Longitude*). While the name of these columns can be changed, these
+columns must be in that order. Fill the form, one row per vertex, giving
+coordinates with at least five decimal places, and clockwise. Repeat the
+polygon name for each of its vertices. As an example, here is a table of
+vertices for 3 polygons in Subarea 48.6 (the corresponding csv file is
+[My_Polygons_Form.csv](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Polygons)):
+
+| Name |  Latitude | Longitude |
+|:-----|----------:|----------:|
+| P1   | -65.00000 |  -8.12345 |
+| P1   | -65.00000 |   3.00000 |
+| P1   | -72.00000 |   3.00000 |
+| P1   | -72.00000 |  -8.12345 |
+| P2   | -63.00000 |   3.00000 |
+| P2   | -63.00000 |   9.00000 |
+| P2   | -68.00000 |   9.00000 |
+| P2   | -68.00000 |   3.00000 |
+| P3   | -61.00000 |  10.00000 |
+| P3   | -61.00000 |  20.00000 |
+| P3   | -65.54321 |  20.00000 |
+| P3   | -65.54321 |  10.00000 |
+
+<br>
+
+Let’s plot these coordinates as they are, and connect them with lines,
+for each polygon:
+
+``` r
+#Read the file
+MyVertices=read.csv("Scripts/Polygons/My_Polygons_Form.csv")
+
+plot(MyVertices$Longitude,MyVertices$Latitude,xlab="Longitude",ylab="Latitude")
+
+lines(MyVertices$Longitude[c(1:4,1)],MyVertices$Latitude[c(1:4,1)],col="red",lwd=3)
+lines(MyVertices$Longitude[c(5:8,5)],MyVertices$Latitude[c(5:8,5)],col="green")
+lines(MyVertices$Longitude[c(9:12,9)],MyVertices$Latitude[c(9:12,9)],col="blue")
+
+text(-2.5,-68.5,"P1",col="red",cex=2)
+text(6,-65.5,"P2",col="green",cex=2)
+text(15,-63.2,"P3",col="blue",cex=2)
+```
+
+<div class="figure" style="text-align: center">
+
+<img src="README_files/figure-gfm/unnamed-chunk-8-1.png" alt="Figure 3.1. Polygon coordinates as they are given in the 'My_Polygons_Form.csv' file." width="80%" />
+<p class="caption">
+Figure 3.1. Polygon coordinates as they are given in the
+‘My_Polygons_Form.csv’ file.
+</p>
+
+</div>
+
+<br>
+
+As seen above, polygons P1 and P2 share a boundary. Following Geospatial
+Rule 4, vertices must be added where polygons meet as shown below:
+
+<div class="figure" style="text-align: center">
+
+<img src="Figures/WG-FSA-2023_Fig1.png" alt="Figure 3.2. Polygons A and B are each defined by four vertices and an additional vertex at the extremity of their shared edge (arrow). Figure taken from WG-FSA-2023 Fig. 1." width="60%" />
+<p class="caption">
+Figure 3.2. Polygons A and B are each defined by four vertices and an
+additional vertex at the extremity of their shared edge (arrow). Figure
+taken from WG-FSA-2023 Fig. 1.
+</p>
+
+</div>
+
+<br>
+
+Vertices were added to the table, as indicated below:
+
+| Name |  Latitude | Longitude |           |
+|:-----|----------:|----------:|:----------|
+| P1   | -65.00000 |  -8.12345 |           |
+| P1   | -65.00000 |   3.00000 |           |
+| P1   | -68.00000 |   3.00000 | \<= Added |
+| P1   | -72.00000 |   3.00000 |           |
+| P1   | -72.00000 |  -8.12345 |           |
+| P2   | -63.00000 |   3.00000 |           |
+| P2   | -63.00000 |   9.00000 |           |
+| P2   | -68.00000 |   9.00000 |           |
+| P2   | -68.00000 |   3.00000 | \<= Added |
+| P2   | -65.00000 |   3.00000 |           |
+| P3   | -61.00000 |  10.00000 |           |
+| P3   | -61.00000 |  20.00000 |           |
+| P3   | -65.54321 |  20.00000 |           |
+| P3   | -65.54321 |  10.00000 |           |
