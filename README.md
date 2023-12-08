@@ -140,6 +140,8 @@ legend("bottomleft",legend=c('Natural Earth land','BAS land','BAS ice shelves','
        seg.len=0,cex=0.75,
        xpd=TRUE)
 dev.off()
+#> png 
+#>   2
 ```
 
 <div class="figure" style="text-align: center">
@@ -160,6 +162,14 @@ Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG
 The data contained in the shapefile is structured as follows (where
 *Version* is the version of the CCAMLR coastline), with a row per set of
 polygons:
+
+| Version | Source        | SrcVrsn                                         | Layer       | Surface |
+|:--------|:--------------|:------------------------------------------------|:------------|:--------|
+| 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
+| 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
+| 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
+| 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
+| 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
 
 <br>
 
@@ -206,6 +216,8 @@ legend(x=250000,y=2050000,
        xpd=T)
 
 dev.off()
+#> png 
+#>   2
 ```
 
 <div class="figure" style="text-align: center">
@@ -266,11 +278,15 @@ vertices for 3 polygons in Subarea 48.6 (the corresponding csv file is
 <br>
 
 Plotting these coordinates as they are, and connecting them with lines
-for each polygon, gives:
+for each polygon, yields:
 
 ``` r
 #Read the file
 MyVertices=read.csv("Scripts/Polygons/My_Polygons_Form.csv")
+
+#Plot
+png(filename='Figures/MyPolygons0.png',width=2000,height=2000,res=300)
+par(mai=c(0.9,0.9,0.2,0.2)) #margins
 
 plot(MyVertices$Longitude,MyVertices$Latitude,xlab="Longitude",ylab="Latitude")
 
@@ -281,11 +297,15 @@ lines(MyVertices$Longitude[c(9:12,9)],MyVertices$Latitude[c(9:12,9)],col="blue")
 text(-2.5,-68.5,"P1",col="red",cex=2)
 text(6,-65.5,"P2",col="green",cex=2)
 text(15,-63.2,"P3",col="blue",cex=2)
+
+dev.off()
+#> png 
+#>   2
 ```
 
 <div class="figure" style="text-align: center">
 
-<img src="README_files/figure-gfm/Fig3.1-1.png" alt="Figure 3.1. Polygon coordinates as they are given in the 'My_Polygons_Form.csv' file." width="80%" />
+<img src="Figures/MyPolygons0.png" alt="Figure 3.1. Polygon coordinates as they are given in the 'My_Polygons_Form.csv' file." width="60%" />
 <p class="caption">
 Figure 3.1. Polygon coordinates as they are given in the
 ‘My_Polygons_Form.csv’ file.
@@ -483,3 +503,82 @@ corresponding proposal.
 The script below provides some elements to produce a map. Other examples
 are given
 [here](https://github.com/ccamlr/CCAMLRGIS/blob/master/Basemaps/Basemaps.md).
+
+``` r
+library(CCAMLRGIS)
+library(terra)
+library(png)
+#Download bathymetry:
+Bathy=load_Bathy(LocalFile=F,Res=1000) #Once downloaded, re-use it. See help(load_Bathy)
+# Bathy=SmallBathy() #Use this for testing purposes first
+
+#Load Coastline from a local source
+Coast=st_read("Scripts/Coastline/CCAMLR_Coastline_V1_0.shp",quiet = T)
+
+#Load ASDs
+ASDs=load_ASDs()
+
+#Rotate objects
+Lonzero=5 #This longitude will point up
+R_bathy=Rotate_obj(Bathy,Lonzero)
+R_asds=Rotate_obj(ASDs,Lonzero)
+R_coast=Rotate_obj(Coast,Lonzero)
+R_polys=Rotate_obj(MyPolygons,Lonzero)
+
+#Update label location after rotation
+labs=st_coordinates(st_centroid(st_geometry(R_polys)))
+R_polys$Labx=labs[,1]
+R_polys$Laby=labs[,2]
+
+#Select ASD of interest
+R_asdsb=R_asds[R_asds$GAR_Short_Label=="486",]
+
+#Create a bounding box for the region
+bb=st_bbox(st_buffer(R_asdsb,10000)) #Get bounding box (x/y limits) + buffer
+bx=st_as_sfc(bb) #Build spatial box to plot
+
+#Use bounding box to crop elements
+R_asds=suppressWarnings(st_intersection(R_asds,bx))
+R_coast=suppressWarnings(st_intersection(R_coast,bx))
+R_bathy=crop(R_bathy,ext(bb))
+
+
+
+#Plot
+png(filename='Figures/MyPolygons3.png',width=2000,height=1350,res=300)
+
+plot(R_bathy,breaks=Depth_cuts2,col=Depth_cols2,
+     legend=FALSE,axes=FALSE,mar=c(1,1.5,1,5.8),maxcell=5e6)
+plot(st_geometry(R_asds),border="black",lwd=2,add=T)
+plot(st_geometry(R_coast[R_coast$Surface=="Land",]),col="grey",add=T)
+plot(st_geometry(R_coast[R_coast$Surface=="Ice",]),col="white",add=T)
+
+plot(st_geometry(R_polys[R_polys$ID=="P1",]),border="red",add=T,col=rgb(1,0,0,alpha=0.3))
+plot(st_geometry(R_polys[R_polys$ID=="P2",]),border="green",add=T,col=rgb(0,1,0,alpha=0.3))
+plot(st_geometry(R_polys[R_polys$ID=="P3",]),border="blue",add=T,col=rgb(0,0,1,alpha=0.3))
+
+text(R_polys$Labx,R_polys$Laby,R_polys$ID,col=c("red","green","blue"),cex=1.25)
+text(0,3500000,"48.6",cex=1.5,font=2)
+
+add_RefGrid(bb=bb,ResLat = 5,ResLon = 10,lwd=1,fontsize = 0.7)
+plot(bx,lwd=2,add=T,xpd=T)
+
+#Colorscale
+add_Cscale(height=60,maxVal=-1,offset = 200,fontsize=0.65,width=15,lwd=1,
+           cuts = Depth_cuts2,
+           cols = Depth_cols2)
+
+dev.off()
+#> png 
+#>   2
+```
+
+<div class="figure" style="text-align: center">
+
+<img src="Figures/MyPolygons3.png" alt="Figure 3.5. Map of completed polygons. Sources: CCAMLR/UK Polar Data Centre/BAS/Natural Earth/GEBCO. Projection: EPSG 6932. " width="100%" />
+<p class="caption">
+Figure 3.5. Map of completed polygons. Sources: CCAMLR/UK Polar Data
+Centre/BAS/Natural Earth/GEBCO. Projection: EPSG 6932.
+</p>
+
+</div>
