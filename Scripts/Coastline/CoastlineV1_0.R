@@ -1,4 +1,4 @@
-#Script Version 1.0
+#Coastline building script Version 1.0
 
 
 #This scripts builds a coastline polygons dataset by combining BAS (ADD) data (60S-90S)
@@ -136,20 +136,21 @@ Land=c(NE,BASland)
 Ice=c(BASice_shelves,BASice_tongues,BASice_rumples)
 
 #Set data frames, including versions
-DFLand=data.frame(Version=CCAMLRv,
-                  Source=c("Natural Earth","BAS"),
-                  SrcVrsn=c(
+DFLand=data.frame(version=CCAMLRv,
+                  source=c("Natural Earth","BAS"),
+                  srcvrsn=c(
                     paste0("Land V",NEv," and Minor Islands V",NEiv),
                     paste0("Ant. coastline V",BASv," and Sub-Ant. coastline V",BASsubv)
                   ),
-                  Layer="Land",Surface="Land")
+                  layer="Land",
+                  surface="Land")
 Land=st_set_geometry(DFLand,Land)
 
-DFIce=data.frame(Version=CCAMLRv,
-                 Source="BAS",
-                 SrcVrsn=paste0("Ant. coastline V",BASv),
-                 Layer=c("Ice shelves","Ice tongues","Ice rumples")
-                 ,Surface="Ice")
+DFIce=data.frame(version=CCAMLRv,
+                 source="BAS",
+                 srcvrsn=paste0("Ant. coastline V",BASv),
+                 layer=c("Ice shelves","Ice tongues","Ice rumples"),
+                 surface="Ice")
 Ice=st_set_geometry(DFIce,Ice)
 
 #Merge everything into one file
@@ -161,11 +162,11 @@ st_drop_geometry(Coast)
 #Coast is now ready, in maximum resolution.
 png(filename="Scripts/Coastline/Merged_Layers_MaxRes.png",width=3000,height=3000,res=600)
 par(mai=rep(0,4))
-plot(st_geometry(Coast[Coast$Source=="Natural Earth",]),col="orange",lwd=0.01)
-plot(st_geometry(Coast[Coast$Source=="BAS" & Coast$Layer=="Land",]),col="blue",add=T,lwd=0.01)
-plot(st_geometry(Coast[Coast$Layer=="Ice shelves",]),col="grey",add=T,lwd=0.01)
-plot(st_geometry(Coast[Coast$Layer=="Ice tongues",]),col="green",add=T,lwd=0.01)
-plot(st_geometry(Coast[Coast$Layer=="Ice rumples",]),col="red",add=T,lwd=0.01)
+plot(st_geometry(Coast[Coast$source=="Natural Earth",]),col="orange",lwd=0.01)
+plot(st_geometry(Coast[Coast$source=="BAS" & Coast$layer=="Land",]),col="blue",add=T,lwd=0.01)
+plot(st_geometry(Coast[Coast$layer=="Ice shelves",]),col="grey",add=T,lwd=0.01)
+plot(st_geometry(Coast[Coast$layer=="Ice tongues",]),col="green",add=T,lwd=0.01)
+plot(st_geometry(Coast[Coast$layer=="Ice rumples",]),col="red",add=T,lwd=0.01)
 legend("bottomleft",legend=c('BAS land','BAS ice shelves','BAS ice tongues','BAS ice rumples','Natural Earth land'),
        fill=c('blue','grey','green','red','orange'),
        seg.len=0,cex=0.75,

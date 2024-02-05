@@ -116,25 +116,26 @@ More specifically, four datasets are used. These are:
 These data are combined, projected and simplified with a 10m tolerance
 using the [CoastlineVx_x.R
 script](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Coastline).
-A final set of shapefiles is produced and available here (link to data
-repo url) and through the *load_Coastline()* function of the CCAMLRGIS R
-package (Not yet implemented). The following script shows how to plot
-the coastline while color-coding the data sources and types:
+A final set of shapefiles is produced and available here
+(<https://github.com/ccamlr/data/tree/main/geographical_data>) and
+through the *load_Coastline()* function of the CCAMLRGIS R package
+(Version 4.0.7 and above). The following script shows how to plot the
+coastline while color-coding the data sources and types:
 
 ``` r
 library(CCAMLRGIS)
 
 #Load Coastline from a local source
-Coast=st_read("Scripts/Coastline/CCAMLR_Coastline_V1_0.shp",quiet = T)
+Coast=load_Coastline()
 
 #Plot
 png(filename="Figures/Coastline.png",width=3000,height=3000,res=600)
 par(mai=rep(0,4))
-plot(st_geometry(Coast[Coast$Source=="Natural Earth",]),col="orange",lwd=0.01)
-plot(st_geometry(Coast[Coast$Source=="BAS" & Coast$Layer=="Land",]),col="blue",add=T,lwd=0.01)
-plot(st_geometry(Coast[Coast$Layer=="Ice shelves",]),col="grey",add=T,lwd=0.01)
-plot(st_geometry(Coast[Coast$Layer=="Ice tongues",]),col="green",add=T,lwd=0.01)
-plot(st_geometry(Coast[Coast$Layer=="Ice rumples",]),col="red",add=T,lwd=0.01)
+plot(st_geometry(Coast[Coast$source=="Natural Earth",]),col="orange",lwd=0.01)
+plot(st_geometry(Coast[Coast$source=="BAS" & Coast$layer=="Land",]),col="blue",add=T,lwd=0.01)
+plot(st_geometry(Coast[Coast$layer=="Ice shelves",]),col="grey",add=T,lwd=0.01)
+plot(st_geometry(Coast[Coast$layer=="Ice tongues",]),col="green",add=T,lwd=0.01)
+plot(st_geometry(Coast[Coast$layer=="Ice rumples",]),col="red",add=T,lwd=0.01)
 legend("bottomleft",legend=c('Natural Earth land','BAS land','BAS ice shelves','BAS ice tongues','BAS ice rumples'),
        fill=c('orange','blue','grey','green','red'),
        seg.len=0,cex=0.75,
@@ -160,16 +161,16 @@ Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG
 <br>
 
 The data contained in the shapefile is structured as follows (where
-*Version* is the version of the CCAMLR coastline), with a row per set of
+*version* is the version of the CCAMLR coastline), with a row per set of
 polygons:
 
-| Version | Source        | SrcVrsn                                         | Layer       | Surface |
-|:--------|:--------------|:------------------------------------------------|:------------|:--------|
-| 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
-| 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
-| 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
-| 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
-| 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
+| id                                                | gid | version | source        | srcvrsn                                         | layer       | surface |
+|:--------------------------------------------------|:----|:--------|:--------------|:------------------------------------------------|:------------|:--------|
+| coastline_v1_6932.fid–1c7fb819_18d762db6a8\_-25dd | NA  | 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
+| coastline_v1_6932.fid–1c7fb819_18d762db6a8\_-25dc | NA  | 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
+| coastline_v1_6932.fid–1c7fb819_18d762db6a8\_-25db | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
+| coastline_v1_6932.fid–1c7fb819_18d762db6a8\_-25da | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
+| coastline_v1_6932.fid–1c7fb819_18d762db6a8\_-25d9 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
 
 <br>
 
@@ -180,7 +181,7 @@ The following script shows how to plot a specific subset of the data
 library(CCAMLRGIS)
 
 #Load Coastline from a local source
-Coast=st_read("Scripts/Coastline/CCAMLR_Coastline_V1_0.shp",quiet = T)
+Coast=load_Coastline()
 
 #Load ASDs
 ASDs=load_ASDs()
@@ -205,8 +206,8 @@ png(filename='Figures/Coastline_481.png',width=2000,height=2400,res=300)
 par(mai=rep(0.1,4)) #margins
 plot(bx,col="lightblue")
 plot(st_geometry(R_A481),border="black",lwd=2,add=T,col="palegreen")
-plot(st_geometry(R_coast[R_coast$Surface=="Land",]),col="grey",add=T)
-plot(st_geometry(R_coast[R_coast$Surface=="Ice",]),col="white",add=T)
+plot(st_geometry(R_coast[R_coast$surface=="Land",]),col="grey",add=T)
+plot(st_geometry(R_coast[R_coast$surface=="Ice",]),col="white",add=T)
 add_RefGrid(bb=bb,ResLat = 2.5,ResLon = 5,lwd=1,fontsize = 0.75)
 plot(bx,lwd=2,add=T,xpd=T)
 
@@ -399,10 +400,10 @@ while polygons must be clipped to the land:
 
 ``` r
 #Load Coastline from a local source
-Coast=st_read("Scripts/Coastline/CCAMLR_Coastline_V1_0.shp",quiet = T)
+Coast=load_Coastline()
 
 #Isolate land and merge (union) polygons into one:
-Land=Coast[Coast$Surface=="Land",]
+Land=Coast[Coast$surface=="Land",]
 Land=st_union(Land)
 
 #Clip polygons
@@ -513,7 +514,7 @@ Bathy=load_Bathy(LocalFile=F,Res=1000) #Once downloaded, re-use it. See help(loa
 # Bathy=SmallBathy() #Use this for testing purposes first
 
 #Load Coastline from a local source
-Coast=st_read("Scripts/Coastline/CCAMLR_Coastline_V1_0.shp",quiet = T)
+Coast=load_Coastline()
 
 #Load ASDs
 ASDs=load_ASDs()
@@ -550,8 +551,8 @@ png(filename='Figures/MyPolygons3.png',width=2000,height=1350,res=300)
 plot(R_bathy,breaks=Depth_cuts2,col=Depth_cols2,
      legend=FALSE,axes=FALSE,mar=c(1,1.5,1,5.8),maxcell=5e6)
 plot(st_geometry(R_asds),border="black",lwd=2,add=T)
-plot(st_geometry(R_coast[R_coast$Surface=="Land",]),col="grey",add=T)
-plot(st_geometry(R_coast[R_coast$Surface=="Ice",]),col="white",add=T)
+plot(st_geometry(R_coast[R_coast$surface=="Land",]),col="grey",add=T)
+plot(st_geometry(R_coast[R_coast$surface=="Ice",]),col="white",add=T)
 
 plot(st_geometry(R_polys[R_polys$ID=="P1",]),border="red",add=T,col=rgb(1,0,0,alpha=0.3))
 plot(st_geometry(R_polys[R_polys$ID=="P2",]),border="green",add=T,col=rgb(0,1,0,alpha=0.3))
