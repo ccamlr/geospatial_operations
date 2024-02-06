@@ -125,7 +125,7 @@ coastline while color-coding the data sources and types:
 ``` r
 library(CCAMLRGIS)
 
-#Load Coastline from a local source
+#Load Coastline
 Coast=load_Coastline()
 
 #Plot
@@ -164,13 +164,13 @@ The data contained in the shapefile is structured as follows (where
 *version* is the version of the CCAMLR coastline), with a row per set of
 polygons:
 
-| id                                                | gid | version | source        | srcvrsn                                         | layer       | surface |
-|:--------------------------------------------------|:----|:--------|:--------------|:------------------------------------------------|:------------|:--------|
-| coastline_v1_6932.fid–1c7fb819_18d762db6a8\_-25dd | NA  | 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
-| coastline_v1_6932.fid–1c7fb819_18d762db6a8\_-25dc | NA  | 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
-| coastline_v1_6932.fid–1c7fb819_18d762db6a8\_-25db | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
-| coastline_v1_6932.fid–1c7fb819_18d762db6a8\_-25da | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
-| coastline_v1_6932.fid–1c7fb819_18d762db6a8\_-25d9 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
+| id                                              | gid | version | source        | srcvrsn                                         | layer       | surface |
+|:------------------------------------------------|:----|:--------|:--------------|:------------------------------------------------|:------------|:--------|
+| coastline_v1_6932.fid–1c7fb819_18d762db6a8_1765 | NA  | 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
+| coastline_v1_6932.fid–1c7fb819_18d762db6a8_1766 | NA  | 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
+| coastline_v1_6932.fid–1c7fb819_18d762db6a8_1767 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
+| coastline_v1_6932.fid–1c7fb819_18d762db6a8_1768 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
+| coastline_v1_6932.fid–1c7fb819_18d762db6a8_1769 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
 
 <br>
 
@@ -180,7 +180,7 @@ The following script shows how to plot a specific subset of the data
 ``` r
 library(CCAMLRGIS)
 
-#Load Coastline from a local source
+#Load Coastline
 Coast=load_Coastline()
 
 #Load ASDs
@@ -399,7 +399,7 @@ Section 2 above. Note that the coastline dataset includes ice shelves,
 while polygons must be clipped to the land:
 
 ``` r
-#Load Coastline from a local source
+#Load Coastline
 Coast=load_Coastline()
 
 #Isolate land and merge (union) polygons into one:
@@ -511,9 +511,9 @@ library(terra)
 library(png)
 #Download bathymetry:
 Bathy=load_Bathy(LocalFile=F,Res=1000) #Once downloaded, re-use it. See help(load_Bathy)
-# Bathy=SmallBathy() #Use this for testing purposes first
+# Bathy=SmallBathy() #Use this instead for testing purposes first
 
-#Load Coastline from a local source
+#Load Coastline
 Coast=load_Coastline()
 
 #Load ASDs

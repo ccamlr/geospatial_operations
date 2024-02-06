@@ -110,7 +110,7 @@ These data are combined, projected and simplified with a 10m tolerance using the
 ```{r, message=F,echo=T,eval=Evals}
 library(CCAMLRGIS)
 
-#Load Coastline from a local source
+#Load Coastline
 Coast=load_Coastline()
 
 #Plot
@@ -153,7 +153,7 @@ The following script shows how to plot a specific subset of the data (*e.g.*, fo
 ```{r, message=F,echo=T,eval=Evals}
 library(CCAMLRGIS)
 
-#Load Coastline from a local source
+#Load Coastline
 Coast=load_Coastline()
 
 #Load ASDs
@@ -321,7 +321,7 @@ include_graphics("Figures/MyPolygons1.png")
 To clip polygons to the coastlines, use the coastline as generated in Section 2 above. Note that the coastline dataset includes ice shelves, while polygons must be clipped to the land:
 
 ```{r, message=F,echo=T,eval=Evals}
-#Load Coastline from a local source
+#Load Coastline
 Coast=load_Coastline()
 
 #Isolate land and merge (union) polygons into one:
@@ -411,9 +411,9 @@ library(terra)
 library(png)
 #Download bathymetry:
 Bathy=load_Bathy(LocalFile=F,Res=1000) #Once downloaded, re-use it. See help(load_Bathy)
-# Bathy=SmallBathy() #Use this for testing purposes first
+# Bathy=SmallBathy() #Use this instead for testing purposes first
 
-#Load Coastline from a local source
+#Load Coastline
 Coast=load_Coastline()
 
 #Load ASDs
