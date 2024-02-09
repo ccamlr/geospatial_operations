@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(knitr)
-Evals=T          ##############Use FALSE to not update figures
+Evals=F          ##############Use FALSE to not update figures
 ```
 
 
@@ -33,6 +33,7 @@ This repository contains R scripts used by the CCAMLR Secretariat to generate sp
 1.  [Geospatial Rules](#1-geospatial-rules)
 2.  [Coastlines](#2-coastlines)
 3.  [Polygons](#3-polygons)
+4.  [Candidate management units in Subarea 48.1](#4-candidate-management-units-in-subarea-481)
 
 ------------------------------------------------------------------------
 
@@ -491,5 +492,38 @@ a=file.remove(Fs)
 
 [SC-CAMLR-41]:https://meetings.ccamlr.org/sc-camlr-41
 [WG-ASAM-2023/01]:https://meetings.ccamlr.org/wg-asam-2023/01
+[Krill_Fishery_Management_Units_Vx_x.R]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Krill_Fishery_Management_Units_V1_0.R
+[table of vertices]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/ReUpdated_Vertices.csv
+[Candidate_Krill_MUs_V1.x]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units
+[Plot_Krill_Fishery_Management_Units.R]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Plot_Krill_Fishery_Management_Units.R
 
-This section provides access to the resources used to update the proposed krill fishery management units ([SC-CAMLR-41], Fig. 1) and re-calculate their area when boundaries or coastlines are updated. In line with the Geospatial Rules and following the template provided in [WG-ASAM-2023/01], these areas can be updated using the Krill_Fishery_Management_Units_Vx_x.R [add link] script. This script generates the corresponding shapefiles (see Fig. x) and a table of areas (km$^2$) for each Management Unit (see table x).
+This section provides access to the resources used to update the candidate krill fishery management units ([SC-CAMLR-41], Fig. 1) and re-calculate their area when boundaries or coastlines are updated. In line with the Geospatial Rules and following the template provided in [WG-ASAM-2023/01], these areas can be updated using the [Krill_Fishery_Management_Units_Vx_x.R] script. This script follows these three steps:
+
+- Step 1: Using a [table of vertices], build polygons and clip them to the coastline,
+
+- Step 2: Isolate polygons, inspect plots, and remove problematic polygon parts (see Fig. 4.1 as an example),
+
+- Step 3: Update metadata (*e.g.*, coastline version) and export shapefiles (see [Candidate_Krill_MUs_V1.x] files).
+
+Once shapefiles are built and exported, the [Plot_Krill_Fishery_Management_Units.R] script may be used to plot the corresponding map (see Fig. 4.2).
+
+
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.1. Example of problematic polygons (red) before (top) and after removal (bottom) from DP (left) and GS (right) candidate management units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
+Paths=c(
+  "Figures/Polygons_DP.png",
+  "Figures/Polygons_GS.png",
+  "Figures/Polygons_DP_fixed.png",
+  "Figures/Polygons_GS_fixed.png"
+)
+
+imgs=magick::image_read(Paths)
+imgs=magick::image_montage(imgs,tile = "2x2",geometry = "3000x3000")
+imgs=magick::image_convert(imgs,format = "png")
+magick::image_write(imgs,"Figures/Fig_4_1.png")
+
+include_graphics("Figures/Fig_4_1.png")
+```
+
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.2. Candidate management units after update. EI: Elephant Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland Islands West, GS: Gerlache Strait, DP: Drake Passage, PB: Powell Basin. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
+include_graphics("Figures/Candidate_Krill_MUs_V1_Map.png")
+```

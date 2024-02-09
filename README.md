@@ -528,7 +528,7 @@ Centre/BAS/Natural Earth/GEBCO. Projection: EPSG 6932.
 
 This section provides access to the resources used to update the
 candidate krill fishery management units
-([SC-CAMLR-41](https://meetings.ccamlr.org/sc-camlr-41), Fig. 4.1) and
+([SC-CAMLR-41](https://meetings.ccamlr.org/sc-camlr-41), Fig. 1) and
 re-calculate their area when boundaries or coastlines are updated. In
 line with the Geospatial Rules and following the template provided in
 [WG-ASAM-2023/01](https://meetings.ccamlr.org/wg-asam-2023/01), these
@@ -541,7 +541,7 @@ script. This script follows these three steps:
   build polygons and clip them to the coastline,
 
 - Step 2: Isolate polygons, inspect plots, and remove problematic
-  polygon parts (see Fig. x as an example),
+  polygon parts (see Fig. 4.1 as an example),
 
 - Step 3: Update metadata (*e.g.*, coastline version) and export
   shapefiles (see
@@ -554,11 +554,25 @@ script may be used to plot the corresponding map (see Fig. 4.2).
 
 <div class="figure" style="text-align: center">
 
-<img src="README_files/figure-gfm/unnamed-chunk-23-1.png" alt="Figure 4.1. CCAMLR coastline with elements color-coded by source. Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="100%" />
+<img src="Figures/Fig_4_1.png" alt="Figure 4.1. Example of problematic polygons (red) before (top) and after removal (bottom) from DP (left) and GS (right) candidate management units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="100%" />
 <p class="caption">
-Figure 4.1. CCAMLR coastline with elements color-coded by source.
-Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG
-6932.
+Figure 4.1. Example of problematic polygons (red) before (top) and after
+removal (bottom) from DP (left) and GS (right) candidate management
+units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth.
+Projection: EPSG 6932.
+</p>
+
+</div>
+
+<div class="figure" style="text-align: center">
+
+<img src="Figures/Candidate_Krill_MUs_V1_Map.png" alt="Figure 4.2. Candidate management units after update. EI: Elephant Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland Islands West, GS: Gerlache Strait, DP: Drake Passage, PB: Powell Basin. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="100%" />
+<p class="caption">
+Figure 4.2. Candidate management units after update. EI: Elephant
+Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland
+Islands West, GS: Gerlache Strait, DP: Drake Passage, PB: Powell Basin.
+Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection:
+EPSG 6932.
 </p>
 
 </div>
