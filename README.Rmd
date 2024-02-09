@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(knitr)
-Evals=F          ##############Use FALSE to not update figures
+Evals=T          ##############Use FALSE to not update figures
 ```
 
 
@@ -498,13 +498,13 @@ a=file.remove(Fs)
 [Candidate_Krill_MUs_V1.x]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units
 [Plot_Krill_Fishery_Management_Units.R]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Plot_Krill_Fishery_Management_Units.R
 [table of areas]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Management_Units_Areas.csv
-
+[Polygons_XX.png]:https://github.com/ccamlr/geospatial_operations/tree/main/Figures
 
 This section provides access to the resources used to update the candidate krill fishery management units ([SC-CAMLR-41], Fig. 1) and re-calculate their area when boundaries or coastlines are updated. In line with the Geospatial Rules and following the template provided in [WG-ASAM-2023/01], these areas can be updated using the [Krill_Fishery_Management_Units_Vx_x.R] script. This script follows these three steps:
 
 - Step 1: Using a [table of vertices], build polygons and clip them to the coastline,
 
-- Step 2: Isolate polygons, inspect plots, and remove problematic polygon parts (see Fig. 4.1 as an example),
+- Step 2: Isolate polygons, inspect plots (see [Polygons_XX.png] files), and remove problematic polygon parts (see Fig. 4.1 as an example),
 
 - Step 3: Update metadata (*e.g.*, coastline version), export shapefiles (see [Candidate_Krill_MUs_V1.x] files) and [table of areas] (see Table 4.1).
 

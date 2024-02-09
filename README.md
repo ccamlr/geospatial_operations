@@ -143,6 +143,8 @@ legend("bottomleft",legend=c('Natural Earth land','BAS land','BAS ice shelves','
        seg.len=0,cex=0.75,
        xpd=TRUE)
 dev.off()
+#> png 
+#>   2
 ```
 
 <div class="figure" style="text-align: center">
@@ -163,6 +165,14 @@ Sources: UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG
 The data contained in the shapefile is structured as follows (where
 *version* is the version of the CCAMLR coastline), with a row per set of
 polygons:
+
+| id                                                | gid | version | source        | srcvrsn                                         | layer       | surface |
+|:--------------------------------------------------|:----|:--------|:--------------|:------------------------------------------------|:------------|:--------|
+| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3346 | NA  | 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
+| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3345 | NA  | 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
+| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3344 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
+| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3343 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
+| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3342 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
 
 <br>
 
@@ -209,6 +219,8 @@ legend(x=250000,y=2050000,
        xpd=T)
 
 dev.off()
+#> png 
+#>   2
 ```
 
 <div class="figure" style="text-align: center">
@@ -250,6 +262,21 @@ coordinates with at least five decimal places, and clockwise. Repeat the
 polygon name for each of its vertices. As an example, here is a table of
 vertices for 3 polygons in Subarea 48.6 (the corresponding csv file is
 [My_Polygons_Form.csv](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Polygons)):
+
+| Name |  Latitude | Longitude |
+|:-----|----------:|----------:|
+| P1   | -65.00000 |  -8.12345 |
+| P1   | -65.00000 |   3.00000 |
+| P1   | -72.00000 |   3.00000 |
+| P1   | -72.00000 |  -8.12345 |
+| P2   | -63.00000 |   3.00000 |
+| P2   | -63.00000 |   9.00000 |
+| P2   | -68.00000 |   9.00000 |
+| P2   | -68.00000 |   3.00000 |
+| P3   | -61.00000 |  10.00000 |
+| P3   | -61.00000 |  20.00000 |
+| P3   | -65.54321 |  20.00000 |
+| P3   | -65.54321 |  10.00000 |
 
 <br>
 
@@ -309,6 +336,23 @@ taken from WG-FSA-2023 Fig. 1.
 
 Vertices were added to the table, as indicated below:
 
+| Name |  Latitude | Longitude |           |
+|:-----|----------:|----------:|:----------|
+| P1   | -65.00000 |  -8.12345 |           |
+| P1   | -65.00000 |   3.00000 |           |
+| P1   | -68.00000 |   3.00000 | \<= Added |
+| P1   | -72.00000 |   3.00000 |           |
+| P1   | -72.00000 |  -8.12345 |           |
+| P2   | -63.00000 |   3.00000 |           |
+| P2   | -63.00000 |   9.00000 |           |
+| P2   | -68.00000 |   9.00000 |           |
+| P2   | -68.00000 |   3.00000 |           |
+| P2   | -65.00000 |   3.00000 | \<= Added |
+| P3   | -61.00000 |  10.00000 |           |
+| P3   | -61.00000 |  20.00000 |           |
+| P3   | -65.54321 |  20.00000 |           |
+| P3   | -65.54321 |  10.00000 |           |
+
 <br>
 
 #### Step 2 - Build polygons
@@ -335,6 +379,8 @@ plot(st_geometry(MyPolygons[MyPolygons$ID=="P3",]),border="blue",add=T)
 text(MyPolygons$Labx,MyPolygons$Laby,MyPolygons$ID,col=c("red","green","blue"),cex=2)
 
 dev.off()
+#> png 
+#>   2
 ```
 
 <div class="figure" style="text-align: center">
@@ -377,6 +423,8 @@ plot(st_geometry(MyPolygons[MyPolygons$ID=="P3",]),border="blue",add=T)
 text(MyPolygons$Labx,MyPolygons$Laby,MyPolygons$ID,col=c("red","green","blue"),cex=2)
 
 dev.off()
+#> png 
+#>   2
 ```
 
 <div class="figure" style="text-align: center">
@@ -394,6 +442,12 @@ Figure 3.4. Polygons clipped to the coastline.
 
 The spatial object that was created (*MyPolygons*) contains data in
 addition to the shapes of polygons:
+
+| ID  |  AreaKm2 |      Labx |    Laby | geometry                     |
+|:----|---------:|----------:|--------:|:-----------------------------|
+| P1  | 355139.0 | -107352.1 | 2399447 | POLYGON ((-390093.2 2740938… |
+| P2  | 154794.3 |  284451.7 | 2706377 | POLYGON ((161468.4 2981429,… |
+| P3  | 254156.2 |  765798.0 | 2857997 | POLYGON ((561536.3 3152447,… |
 
 Each row corresponds to a polygon, the columns are:
 
@@ -425,6 +479,12 @@ MyPolygons$Laby=labs[,2]
 #Add Reference
 MyPolygons$Reference="WG-SAM-2023/xx Fig. z"
 ```
+
+| ID  |  AreaKm2 |      Labx |    Laby | geometry                     | Reference             |
+|:----|---------:|----------:|--------:|:-----------------------------|:----------------------|
+| P1  | 317949.4 | -109064.8 | 2439867 | POLYGON ((-390093.2 2740938… | WG-SAM-2023/xx Fig. z |
+| P2  | 154794.3 |  284451.7 | 2706377 | POLYGON ((161468.4 2981429,… | WG-SAM-2023/xx Fig. z |
+| P3  | 254156.2 |  765798.0 | 2857997 | POLYGON ((561536.3 3152447,… | WG-SAM-2023/xx Fig. z |
 
 <br>
 
@@ -512,6 +572,8 @@ add_Cscale(height=60,maxVal=-1,offset = 200,fontsize=0.65,width=15,lwd=1,
            cols = Depth_cols2)
 
 dev.off()
+#> png 
+#>   2
 ```
 
 <div class="figure" style="text-align: center">
@@ -542,8 +604,10 @@ script. This script follows these three steps:
   vertices](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/ReUpdated_Vertices.csv),
   build polygons and clip them to the coastline,
 
-- Step 2: Isolate polygons, inspect plots, and remove problematic
-  polygon parts (see Fig. 4.1 as an example),
+- Step 2: Isolate polygons, inspect plots (see
+  [Polygons_XX.png](https://github.com/ccamlr/geospatial_operations/tree/main/Figures)
+  files), and remove problematic polygon parts (see Fig. 4.1 as an
+  example),
 
 - Step 3: Update metadata (*e.g.*, coastline version), export shapefiles
   (see
