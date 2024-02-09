@@ -50,7 +50,7 @@ for(i in MPs){
   Ps$lwd[LrgP]=0.5
   
   #Plot
-  png(filename=paste0("Scripts/Krill_Fishery_Management_Units/Polygons_",P$ID[i],".png"),
+  png(filename=paste0("Figures/Polygons_",P$ID[i],".png"),
       width=3000,height=3000,res=600)
   par(mai=rep(0,4),xaxs="i",yaxs="i",lend=1)
   plot(st_geometry(Ps))
@@ -83,7 +83,7 @@ for(ProbP in ProbPs){
   st_geometry(P[rowP,])=st_geometry(Ps)
   
   #Plot result
-  png(filename=paste0("Scripts/Krill_Fishery_Management_Units/Polygons_",P$ID[rowP],"_fixed.png"),
+  png(filename=paste0("Figures/Polygons_",P$ID[rowP],"_fixed.png"),
       width=3000,height=3000,res=600)
   par(mai=rep(0,4),xaxs="i",yaxs="i",lend=1)
   plot(st_geometry(P[rowP,]))

@@ -36,7 +36,7 @@ R_coast=suppressWarnings(st_intersection(R_coast,bx))
 
 
 #Plot
-png(filename=paste0("Scripts/Krill_Fishery_Management_Units/Candidate_Krill_MUs_V",V_MUS,"_Map.png"),
+png(filename=paste0("Figures/Candidate_Krill_MUs_V",V_MUS,"_Map.png"),
 width=2700,height=3000,res=600)
 par(mai=rep(0,4))
 plot(bx,lwd=0.1,xpd=T)

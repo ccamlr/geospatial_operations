@@ -492,4 +492,4 @@ a=file.remove(Fs)
 [SC-CAMLR-41]:https://meetings.ccamlr.org/sc-camlr-41
 [WG-ASAM-2023/01]:https://meetings.ccamlr.org/wg-asam-2023/01
 
-This section provides access to the resources used to update the proposed krill fishery management units ([SC-CAMLR-41], Fig. 1) and the re-calculation of their area when coastlines are updated. In line with the Geospatial Rules and following the template provided in [WG-ASAM-2023/01], these areas can be updated using the Krill_Fishery_Management_Units_Vx_x.R [add link] script. This script generates the corresponding shapefiles (see Fig. x) and a table of areas (km$^2$) for each Management Unit (see table x).
+This section provides access to the resources used to update the proposed krill fishery management units ([SC-CAMLR-41], Fig. 1) and re-calculate their area when boundaries or coastlines are updated. In line with the Geospatial Rules and following the template provided in [WG-ASAM-2023/01], these areas can be updated using the Krill_Fishery_Management_Units_Vx_x.R [add link] script. This script generates the corresponding shapefiles (see Fig. x) and a table of areas (km$^2$) for each Management Unit (see table x).

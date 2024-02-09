@@ -164,13 +164,13 @@ The data contained in the shapefile is structured as follows (where
 *version* is the version of the CCAMLR coastline), with a row per set of
 polygons:
 
-| id                                              | gid | version | source        | srcvrsn                                         | layer       | surface |
-|:------------------------------------------------|:----|:--------|:--------------|:------------------------------------------------|:------------|:--------|
-| coastline_v1_6932.fid–1c7fb819_18d762db6a8_1765 | NA  | 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
-| coastline_v1_6932.fid–1c7fb819_18d762db6a8_1766 | NA  | 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
-| coastline_v1_6932.fid–1c7fb819_18d762db6a8_1767 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
-| coastline_v1_6932.fid–1c7fb819_18d762db6a8_1768 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
-| coastline_v1_6932.fid–1c7fb819_18d762db6a8_1769 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
+| id                                                | gid | version | source        | srcvrsn                                         | layer       | surface |
+|:--------------------------------------------------|:----|:--------|:--------------|:------------------------------------------------|:------------|:--------|
+| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3804 | NA  | 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
+| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3803 | NA  | 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
+| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3802 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
+| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3801 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
+| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3800 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
 
 <br>
 
@@ -583,3 +583,16 @@ Centre/BAS/Natural Earth/GEBCO. Projection: EPSG 6932.
 </p>
 
 </div>
+
+### 4. Candidate management units in Subarea 48.1
+
+This section provides access to the resources used to update the
+proposed krill fishery management units
+([SC-CAMLR-41](https://meetings.ccamlr.org/sc-camlr-41), Fig. 1) and
+re-calculate their area when boundaries or coastlines are updated. In
+line with the Geospatial Rules and following the template provided in
+[WG-ASAM-2023/01](https://meetings.ccamlr.org/wg-asam-2023/01), these
+areas can be updated using the Krill_Fishery_Management_Units_Vx_x.R
+\[add link\] script. This script generates the corresponding shapefiles
+(see Fig. x) and a table of areas (km$^2$) for each Management Unit (see
+table x).
