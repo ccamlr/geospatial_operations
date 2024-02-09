@@ -478,6 +478,7 @@ dev.off()
 include_graphics("Figures/MyPolygons3.png")
 ```
 
+<br>
 
 ```{r, echo = FALSE, message = FALSE}
 #Delete GEBCO file
@@ -496,6 +497,8 @@ a=file.remove(Fs)
 [table of vertices]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/ReUpdated_Vertices.csv
 [Candidate_Krill_MUs_V1.x]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units
 [Plot_Krill_Fishery_Management_Units.R]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Plot_Krill_Fishery_Management_Units.R
+[table of areas]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Management_Units_Areas.csv
+
 
 This section provides access to the resources used to update the candidate krill fishery management units ([SC-CAMLR-41], Fig. 1) and re-calculate their area when boundaries or coastlines are updated. In line with the Geospatial Rules and following the template provided in [WG-ASAM-2023/01], these areas can be updated using the [Krill_Fishery_Management_Units_Vx_x.R] script. This script follows these three steps:
 
@@ -503,10 +506,11 @@ This section provides access to the resources used to update the candidate krill
 
 - Step 2: Isolate polygons, inspect plots, and remove problematic polygon parts (see Fig. 4.1 as an example),
 
-- Step 3: Update metadata (*e.g.*, coastline version) and export shapefiles (see [Candidate_Krill_MUs_V1.x] files).
+- Step 3: Update metadata (*e.g.*, coastline version), export shapefiles (see [Candidate_Krill_MUs_V1.x] files) and [table of areas] (see Table 4.1).
 
 Once shapefiles are built and exported, the [Plot_Krill_Fishery_Management_Units.R] script may be used to plot the corresponding map (see Fig. 4.2).
 
+<br>
 
 ```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.1. Example of problematic polygons (red) before (top) and after removal (bottom) from DP (left) and GS (right) candidate management units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
 Paths=c(
@@ -524,6 +528,17 @@ magick::image_write(imgs,"Figures/Fig_4_1.png")
 include_graphics("Figures/Fig_4_1.png")
 ```
 
+<br>
+
 ```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.2. Candidate management units after update. EI: Elephant Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland Islands West, GS: Gerlache Strait, DP: Drake Passage, PB: Powell Basin. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
 include_graphics("Figures/Candidate_Krill_MUs_V1_Map.png")
+```
+
+<br>
+
+Table 4.1. Updated candidate management units and their marine area.
+```{r, message=F,echo=F}
+Tab=read.csv("Scripts/Krill_Fishery_Management_Units/Management_Units_Areas.csv",
+             check.names = F)
+kable(Tab)
 ```

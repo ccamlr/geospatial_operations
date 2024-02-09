@@ -524,6 +524,8 @@ Centre/BAS/Natural Earth/GEBCO. Projection: EPSG 6932.
 
 </div>
 
+<br>
+
 ### 4. Candidate management units in Subarea 48.1
 
 This section provides access to the resources used to update the
@@ -543,14 +545,18 @@ script. This script follows these three steps:
 - Step 2: Isolate polygons, inspect plots, and remove problematic
   polygon parts (see Fig. 4.1 as an example),
 
-- Step 3: Update metadata (*e.g.*, coastline version) and export
-  shapefiles (see
+- Step 3: Update metadata (*e.g.*, coastline version), export shapefiles
+  (see
   [Candidate_Krill_MUs_V1.x](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units)
-  files).
+  files) and [table of
+  areas](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Management_Units_Areas.csv)
+  (see Table 4.1).
 
 Once shapefiles are built and exported, the
 [Plot_Krill_Fishery_Management_Units.R](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Plot_Krill_Fishery_Management_Units.R)
 script may be used to plot the corresponding map (see Fig. 4.2).
+
+<br>
 
 <div class="figure" style="text-align: center">
 
@@ -564,6 +570,8 @@ Projection: EPSG 6932.
 
 </div>
 
+<br>
+
 <div class="figure" style="text-align: center">
 
 <img src="Figures/Candidate_Krill_MUs_V1_Map.png" alt="Figure 4.2. Candidate management units after update. EI: Elephant Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland Islands West, GS: Gerlache Strait, DP: Drake Passage, PB: Powell Basin. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="100%" />
@@ -576,3 +584,17 @@ EPSG 6932.
 </p>
 
 </div>
+
+<br>
+
+Table 4.1. Updated candidate management units and their marine area.
+
+| Candidate Management Unit | Marine Area (sq. km) |
+|:--------------------------|---------------------:|
+| EI                        |                51669 |
+| SSIW                      |                47134 |
+| BS                        |                35208 |
+| JOIN                      |                23033 |
+| GS                        |                44560 |
+| DP                        |               294420 |
+| PB                        |               144692 |
