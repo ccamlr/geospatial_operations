@@ -24,6 +24,8 @@ generate spatial layers, as well as examples of their use.
 3.  [Polygons](#3-polygons)
 4.  [Candidate management units in Subarea
     48.1](#4-candidate-management-units-in-subarea-481)
+5.  [Acoustic transects and stations in Subarea
+    48.1](#5-acoustic-transects-and-stations-in-subarea-481)
 
 ------------------------------------------------------------------------
 
@@ -32,7 +34,7 @@ generate spatial layers, as well as examples of their use.
 ### 1. Geospatial Rules
 
 The following rules, as endorsed by the Scientific Committee in 2023
-([SC-CAMLR-42]( "https://meetings.ccamlr.org/sc-camlr-42"), paragraph
+([SC-CAMLR-42](https://meetings.ccamlr.org/sc-camlr-42), paragraph
 2.30), will be applied throughout. The rules will be updated if
 requested by the Scientific Committee.
 
@@ -166,13 +168,13 @@ The data contained in the shapefile is structured as follows (where
 *version* is the version of the CCAMLR coastline), with a row per set of
 polygons:
 
-| id                                                | gid | version | source        | srcvrsn                                         | layer       | surface |
-|:--------------------------------------------------|:----|:--------|:--------------|:------------------------------------------------|:------------|:--------|
-| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3346 | NA  | 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
-| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3345 | NA  | 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
-| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3344 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
-| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3343 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
-| coastline_v1_6932.fid–1c7fb819_18d8295d306\_-3342 | NA  | 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
+| version | source        | srcvrsn                                         | layer       | surface |
+|:--------|:--------------|:------------------------------------------------|:------------|:--------|
+| 1.0     | Natural Earth | Land V5.1.1 and Minor Islands V4.1.0            | Land        | Land    |
+| 1.0     | BAS           | Ant. coastline V7.8 and Sub-Ant. coastline V7.3 | Land        | Land    |
+| 1.0     | BAS           | Ant. coastline V7.8                             | Ice shelves | Ice     |
+| 1.0     | BAS           | Ant. coastline V7.8                             | Ice tongues | Ice     |
+| 1.0     | BAS           | Ant. coastline V7.8                             | Ice rumples | Ice     |
 
 <br>
 
@@ -662,3 +664,10 @@ Table 4.1. Updated candidate management units and their marine area.
 | GS                        |                44560 |
 | DP                        |               294420 |
 | PB                        |               144692 |
+
+### 5. Acoustic transects and stations in Subarea 48.1
+
+This section provides access to the acoustic transects and stations as
+developed by [WG-ASAM-2024](https://meetings.ccamlr.org/wg-asam-2024).
+All input files and a script to produce the maps below are located in
+this \[folder\].

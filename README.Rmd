@@ -34,6 +34,7 @@ This repository contains R scripts used by the CCAMLR Secretariat to generate sp
 2.  [Coastlines](#2-coastlines)
 3.  [Polygons](#3-polygons)
 4.  [Candidate management units in Subarea 48.1](#4-candidate-management-units-in-subarea-481)
+5.  [Acoustic transects and stations in Subarea 48.1](#5-acoustic-transects-and-stations-in-subarea-481)
 
 ------------------------------------------------------------------------
 
@@ -42,7 +43,7 @@ This repository contains R scripts used by the CCAMLR Secretariat to generate sp
 
 ### 1. Geospatial Rules
 
-[SC-CAMLR-42]:(https://meetings.ccamlr.org/sc-camlr-42)
+[SC-CAMLR-42]:https://meetings.ccamlr.org/sc-camlr-42
 [6932]:https://epsg.org/crs_6932/WGS-84-NSIDC-EASE-Grid-2-0-South.html
 [WG-FSA-2023]:https://meetings.ccamlr.org/wg-fsa-2023
 
@@ -144,6 +145,7 @@ The data contained in the shapefile is structured as follows (where *version* is
 
 ```{r, message=F,echo=F,eval=Evals}
 Tab=st_drop_geometry(Coast)
+Tab=Tab[,grep("vers",colnames(Tab)):ncol(Tab)]
 kable(Tab)
 ```
 
@@ -537,8 +539,19 @@ include_graphics("Figures/Candidate_Krill_MUs_V1_Map.png")
 <br>
 
 Table 4.1. Updated candidate management units and their marine area.
+
 ```{r, message=F,echo=F}
 Tab=read.csv("Scripts/Krill_Fishery_Management_Units/Management_Units_Areas.csv",
              check.names = F)
 kable(Tab)
 ```
+
+<br>
+
+### 5. Acoustic transects and stations in Subarea 48.1
+
+[WG-ASAM-2024]:https://meetings.ccamlr.org/wg-asam-2024
+
+This section provides access to the acoustic transects and stations as developed by [WG-ASAM-2024]. All input files and a script to produce the maps below are located in this [folder].
+
+
