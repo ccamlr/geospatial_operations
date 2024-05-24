@@ -665,9 +665,59 @@ Table 4.1. Updated candidate management units and their marine area.
 | DP                        |               294420 |
 | PB                        |               144692 |
 
+<br>
+
 ### 5. Acoustic transects and stations in Subarea 48.1
 
-This section provides access to the acoustic transects and stations as
-developed by [WG-ASAM-2024](https://meetings.ccamlr.org/wg-asam-2024).
-All input files and a script to produce the maps below are located in
-this \[folder\].
+This section provides access to the proposed acoustic transects and
+stations as developed by
+[WG-ASAM-2024](https://meetings.ccamlr.org/wg-asam-2024). All input
+files and a script to produce the maps below are located in this
+[folder](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Subarea_481_transects_and_stations).
+
+<br>
+
+<div class="figure" style="text-align: center">
+
+<img src="Figures/ASAM-2024-Transects_and_Stations_20nmi_Max.png" alt="Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 20 nautical miles. The proposed updated candidate management units (WG-ASAM-2024/11) are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)." width="100%" />
+<p class="caption">
+Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations
+(green) with a maximum spacing of 20 nautical miles. The proposed
+updated candidate management units (WG-ASAM-2024/11) are shown in black.
+Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth.
+Projection: EPSG 6932 (rotated).
+</p>
+
+</div>
+
+<br>
+
+<div class="figure" style="text-align: center">
+
+<img src="Figures/ASAM-2024-Transects_and_Stations_40nmi_Max.png" alt="Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 40 nautical miles. The proposed updated candidate management units (WG-ASAM-2024/11) are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)." width="100%" />
+<p class="caption">
+Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations
+(green) with a maximum spacing of 40 nautical miles. The proposed
+updated candidate management units (WG-ASAM-2024/11) are shown in black.
+Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth.
+Projection: EPSG 6932 (rotated).
+</p>
+
+</div>
+
+<br>
+
+<div class="figure" style="text-align: center">
+
+<img src="Figures/ASAM-2024-Transects_and_Stations_20and40nmi_Max.png" alt="Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 20 nautical miles within the Spatial Overlap Analysis footprint (SOA; WG-ASAM-2024/11) and of 40 nautical miles outside of the SOA footprint. The proposed updated candidate management units (WG-ASAM-2024/11) are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)." width="100%" />
+<p class="caption">
+Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations
+(green) with a maximum spacing of 20 nautical miles within the Spatial
+Overlap Analysis footprint (SOA; WG-ASAM-2024/11) and of 40 nautical
+miles outside of the SOA footprint. The proposed updated candidate
+management units (WG-ASAM-2024/11) are shown in black. Sources:
+GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection:
+EPSG 6932 (rotated).
+</p>
+
+</div>

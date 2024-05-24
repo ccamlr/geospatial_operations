@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(knitr)
-Evals=T          ##############Use FALSE to not update figures
+Evals=T          ##############Use FALSE to not update figures built in the ReadMe (other figures are built in other script) - BUT USE T before pushing to the repo
 ```
 
 
@@ -144,7 +144,7 @@ include_graphics("Figures/Coastline.png")
 The data contained in the shapefile is structured as follows (where *version* is the version of the CCAMLR coastline), with a row per set of polygons:
 
 ```{r, message=F,echo=F,eval=Evals}
-Tab=st_drop_geometry(Coast)
+Tab=sf::st_drop_geometry(Coast)
 Tab=Tab[,grep("vers",colnames(Tab)):ncol(Tab)]
 kable(Tab)
 ```
@@ -223,7 +223,7 @@ This tutorial provides step-by-step instructions to build polygons while followi
 
 Download the [Blank Polygon Form], which is a .csv file with three columns (*Name*, *Latitude* and *Longitude*). While the name of these columns can be changed, these columns must be in that order. Fill the form, one row per vertex, giving coordinates with at least five decimal places, and clockwise. Repeat the polygon name for each of its vertices. As an example, here is a table of vertices for 3 polygons in Subarea 48.6 (the corresponding csv file is [My_Polygons_Form.csv]):
 
-```{r, message=F,eval=Evals,echo=F}
+```{r, message=F,eval=T,echo=F}
 Tab=read.csv("Scripts/Polygons/My_Polygons_Form.csv")
 kable(Tab)
 ```
@@ -551,7 +551,24 @@ kable(Tab)
 ### 5. Acoustic transects and stations in Subarea 48.1
 
 [WG-ASAM-2024]:https://meetings.ccamlr.org/wg-asam-2024
+[folder]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Subarea_481_transects_and_stations
 
-This section provides access to the acoustic transects and stations as developed by [WG-ASAM-2024]. All input files and a script to produce the maps below are located in this [folder].
+This section provides access to the proposed acoustic transects and stations as developed by [WG-ASAM-2024]. All input files and a script to produce the maps below are located in this [folder].
 
+<br>
 
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 20 nautical miles. The proposed updated candidate management units (WG-ASAM-2024/11) are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)."}
+include_graphics("Figures/ASAM-2024-Transects_and_Stations_20nmi_Max.png")
+```
+
+<br>
+
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 40 nautical miles. The proposed updated candidate management units (WG-ASAM-2024/11) are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)."}
+include_graphics("Figures/ASAM-2024-Transects_and_Stations_40nmi_Max.png")
+```
+
+<br>
+
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 20 nautical miles within the Spatial Overlap Analysis footprint (SOA; WG-ASAM-2024/11) and of 40 nautical miles outside of the SOA footprint. The proposed updated candidate management units (WG-ASAM-2024/11) are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)."}
+include_graphics("Figures/ASAM-2024-Transects_and_Stations_20and40nmi_Max.png")
+```
