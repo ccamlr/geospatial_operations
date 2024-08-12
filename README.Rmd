@@ -502,6 +502,17 @@ a=file.remove(Fs)
 ### 4. Candidate management units in Subarea 48.1
 
 [SC-CAMLR-41]:https://meetings.ccamlr.org/sc-camlr-41
+[WG-EMM-2024]:https://meetings.ccamlr.org/wg-emm-2024 
+
+This section provides access to the resources used to update the candidate krill fishery management units and re-calculate their area when boundaries or coastlines are updated.
+
+To date, two versions have been developed:
+
+- V1: as presented in Fig. 1 of [SC-CAMLR-41]. All files are in the KFMUs_V1 folder.
+
+- V2: as presented in Figs. 2--8 of [WG-EMM-2024]. All files are in the KFMUs_V2 folder.
+
+
 [WG-ASAM-2023/01]:https://meetings.ccamlr.org/wg-asam-2023/01
 [Krill_Fishery_Management_Units_Vx_x.R]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Krill_Fishery_Management_Units_V1_0.R
 [table of vertices]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/ReUpdated_Vertices.csv
@@ -510,15 +521,16 @@ a=file.remove(Fs)
 [table of areas]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Management_Units_Areas.csv
 [Polygons_XX.png]:https://github.com/ccamlr/geospatial_operations/tree/main/Figures
 
-This section provides access to the resources used to update the candidate krill fishery management units ([SC-CAMLR-41], Fig. 1) and re-calculate their area when boundaries or coastlines are updated. In line with the Geospatial Rules and following the template provided in [WG-ASAM-2023/01], these areas can be updated using the [Krill_Fishery_Management_Units_Vx_x.R] script. This script follows these three steps:
+
+Below are descriptions of the process used to build the latest version of shapefiles (V2). In line with the Geospatial Rules and following the template provided in [WG-ASAM-2023/01], these areas can be updated using the [Krill_Fishery_Management_Units_Vx_x.R] script. This script follows these three steps:
 
 - Step 1: Using a [table of vertices], build polygons and clip them to the coastline,
 
 - Step 2: Isolate polygons, inspect plots (see [Polygons_XX.png] files), and remove problematic polygon parts (see Fig. 4.1 as an example),
 
-- Step 3: Update metadata (*e.g.*, coastline version), export shapefiles (see [Candidate_Krill_MUs_V1.x] files) and [table of areas] (see Table 4.1).
+- Step 3: Update metadata (*e.g.*, coastline version), export shapefiles (see [Candidate_Krill_MUs_Vx] files) and [table of areas] (see Table 4.1).
 
-Once shapefiles are built and exported, the [Plot_Krill_Fishery_Management_Units.R] script may be used to plot the corresponding map (see Fig. 4.2).
+Once shapefiles are built and exported, the [Plot_Krill_Fishery_Management_Units_Vx.R] script may be used to plot the corresponding map (see Fig. 4.2).
 
 <br>
 
