@@ -1,10 +1,14 @@
-#Script to plot the krill fishery management units as built by Krill_Fishery_Management_Units_Vx_x.R
+#Script to plot the krill fishery management units as built by Krill_Fishery_Management_Units_V2_0.R
 
 #Load the CCAMLRGIS library
 library(CCAMLRGIS)
 
+#Set shapefile version
+V_MUS=2
+
+
 #Load the units
-P=st_read("ASAM_24_Candidate_Krill_MUs_V2.shp",quiet = T)
+P=st_read(paste0("Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM_24_Candidate_Krill_MUs_V",V_MUS,".shp"),quiet = T)
 
 #Load the coastline
 coast=load_Coastline()
@@ -33,7 +37,7 @@ R_labs$y[R_labs$id=="DP1"]=2730000
 R_labs$y[R_labs$id=="EI"]=3230000
 
 #Plot
-png(filename=paste0("ASAM_24_Candidate_Krill_MUs_V2_Map.png"),
+png(filename=paste0("Figures/EMM_24_Candidate_Krill_MUs_V",V_MUS,"_Map.png"),
 width=2700,height=3000,res=600)
 par(mai=rep(0,4))
 plot(bx,lwd=0.1,xpd=T)

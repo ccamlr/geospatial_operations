@@ -1,7 +1,7 @@
-#Script to re-build the krill fishery management units when coastlines are updated.
+#Script to re-build the krill fishery management units when coastlines or boundaries are updated.
 
 
-#Rebuild following ASAM-24 suggestion 
+#Rebuild for WG-EMM-2024 (See figures in the report)
 
 #Load the CCAMLRGIS library
 library(CCAMLRGIS)
@@ -16,7 +16,7 @@ V_MUS=2
 #STEP 1: Build polygons and clip them to the coastline
 
 #Import vertices
-V=read.csv("ASAM-24_vertices.csv")
+V=read.csv("Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM-24_vertices.csv")
 #Create projected polygons
 P=create_Polys(V)
 #Load coastline
@@ -51,7 +51,7 @@ for(i in MPs){
   Ps$lwd[LrgP]=0.5
   
   #Plot
-  png(filename=paste0("Polygons_",P$ID[i],".png"),
+  png(filename=paste0("Figures/Polygons_",P$ID[i],".png"),
       width=3000,height=3000,res=600)
   par(mai=rep(0,4),xaxs="i",yaxs="i",lend=1)
   plot(st_geometry(Ps))
@@ -84,7 +84,7 @@ for(ProbP in ProbPs){
   st_geometry(P[rowP,])=st_geometry(Ps)
   
   #Plot result
-  png(filename=paste0("Polygons_",P$ID[rowP],"_fixed.png"),
+  png(filename=paste0("Figures/Polygons_",P$ID[rowP],"_fixed.png"),
       width=3000,height=3000,res=600)
   par(mai=rep(0,4),xaxs="i",yaxs="i",lend=1)
   plot(st_geometry(P[rowP,]))
@@ -110,8 +110,8 @@ P$cstvrsn=unique(coast$version)
 Areas=st_drop_geometry(P)
 Areas=Areas[,c(1,2)]
 colnames(Areas)=c("Candidate Management Unit","Marine Area (sq. km)")
-write.csv(Areas,"ASAM_24_Management_Units_Areas.csv",row.names = F)
+write.csv(Areas,"Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM_24_Management_Units_Areas.csv",row.names = F)
 
 #Export Shapefile 
-st_write(P, paste0("ASAM_24_Candidate_Krill_MUs_V",V_MUS,".shp"),
+st_write(P, paste0("Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM_24_Candidate_Krill_MUs_V",V_MUS,".shp"),
          append = F,quiet = T)
