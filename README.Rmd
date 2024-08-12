@@ -515,30 +515,30 @@ To date, two versions have been developed:
 - V2: as presented in Figs. 2--8 of [WG-EMM-2024]. All files are in the [KFMUs_V2] folder.
 
 
-[Krill_Fishery_Management_Units_Vx_x.R]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/Krill_Fishery_Management_Units_V2_0.R
+[Krill_Fishery_Management_Units_V2_0.R]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/Krill_Fishery_Management_Units_V2_0.R
 [table of vertices]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM-24_vertices.csv
-[Candidate_Krill_MUs_V2.x]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2
+[EMM_24_Candidate_Krill_MUs_V2]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2
 [Polygons_XX.png]:https://github.com/ccamlr/geospatial_operations/tree/main/Figures
-[Plot_Krill_Fishery_Management_Units.R]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/Plot_Krill_Fishery_Management_Units_V2.R
-[table of areas]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Management_Units_Areas.csv
+[Plot_Krill_Fishery_Management_Units_V2.R]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/Plot_Krill_Fishery_Management_Units_V2.R
+[table of areas]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM_24_Management_Units_Areas.csv
 
-Below are descriptions of the steps followed to build the latest version of shapefiles (V2). The [Krill_Fishery_Management_Units_Vx_x.R] script follows three steps:
+Below are descriptions of the steps followed to build the latest version of shapefiles (V2). The [Krill_Fishery_Management_Units_V2_0.R] script follows three steps:
 
 - Step 1: Using a [table of vertices], build polygons and clip them to the coastline,
 
 - Step 2: Isolate polygons, inspect plots (see [Polygons_XX.png] files), and remove problematic polygon parts (see Fig. 4.1 as an example),
 
-- Step 3: Update metadata (*e.g.*, coastline version), export shapefiles (see [Candidate_Krill_MUs_Vx] files) and [table of areas] (see Table 4.1).
+- Step 3: Update metadata (*e.g.*, coastline version), export shapefiles (see [EMM_24_Candidate_Krill_MUs_V2] files) and [table of areas] (see Table 4.1).
 
-Once shapefiles are built and exported, the [Plot_Krill_Fishery_Management_Units_Vx.R] script may be used to plot the corresponding map (see Fig. 4.2).
+Once shapefiles are built and exported, the [Plot_Krill_Fishery_Management_Units_V2.R] script may be used to plot the corresponding map (see Fig. 4.2).
 
 <br>
 
 ```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.1. Example of problematic polygons (red) before (top) and after removal (bottom) from DP (left) and GS (right) candidate management units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
 Paths=c(
-  "Figures/Polygons_DP.png",
+  "Figures/Polygons_DP2.png",
   "Figures/Polygons_GS.png",
-  "Figures/Polygons_DP_fixed.png",
+  "Figures/Polygons_DP2_fixed.png",
   "Figures/Polygons_GS_fixed.png"
 )
 
@@ -553,7 +553,7 @@ include_graphics("Figures/Fig_4_1.png")
 <br>
 
 ```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.2. Candidate management units after update. EI: Elephant Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland Islands West, GS: Gerlache Strait, DP: Drake Passage, PB: Powell Basin. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
-include_graphics("Figures/Candidate_Krill_MUs_V1_Map.png")
+include_graphics("Figures/EMM_24_Candidate_Krill_MUs_V2_Map.png")
 ```
 
 <br>
@@ -561,7 +561,7 @@ include_graphics("Figures/Candidate_Krill_MUs_V1_Map.png")
 Table 4.1. Updated candidate management units and their marine area.
 
 ```{r, message=F,echo=F}
-Tab=read.csv("Scripts/Krill_Fishery_Management_Units/Management_Units_Areas.csv",
+Tab=read.csv("Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM_24_Management_Units_Areas.csv",
              check.names = F)
 kable(Tab)
 ```

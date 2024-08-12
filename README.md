@@ -601,17 +601,30 @@ Centre/BAS/Natural Earth/GEBCO. Projection: EPSG 6932.
 ### 4. Candidate management units in Subarea 48.1
 
 This section provides access to the resources used to update the
-candidate krill fishery management units
-([SC-CAMLR-41](https://meetings.ccamlr.org/sc-camlr-41), Fig. 1) and
-re-calculate their area when boundaries or coastlines are updated. In
-line with the Geospatial Rules and following the template provided in
-[WG-ASAM-2023/01](https://meetings.ccamlr.org/wg-asam-2023/01), these
-areas can be updated using the
-[Krill_Fishery_Management_Units_Vx_x.R](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Krill_Fishery_Management_Units_V1_0.R)
-script. This script follows these three steps:
+candidate krill fishery management units and re-calculate their area
+when boundaries or coastlines are updated.
+
+To date, two versions have been developed:
+
+- V1: as presented in Fig. 1 of
+  [SC-CAMLR-41](https://meetings.ccamlr.org/sc-camlr-41). All files are
+  in the
+  [KFMUs_V1](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V1)
+  folder.
+
+- V2: as presented in Figs. 2–8 of
+  [WG-EMM-2024](https://meetings.ccamlr.org/wg-emm-2024). All files are
+  in the
+  [KFMUs_V2](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2)
+  folder.
+
+Below are descriptions of the steps followed to build the latest version
+of shapefiles (V2). The
+[Krill_Fishery_Management_Units_V2_0.R](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/Krill_Fishery_Management_Units_V2_0.R)
+script follows three steps:
 
 - Step 1: Using a [table of
-  vertices](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/ReUpdated_Vertices.csv),
+  vertices](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM-24_vertices.csv),
   build polygons and clip them to the coastline,
 
 - Step 2: Isolate polygons, inspect plots (see
@@ -621,13 +634,13 @@ script. This script follows these three steps:
 
 - Step 3: Update metadata (*e.g.*, coastline version), export shapefiles
   (see
-  [Candidate_Krill_MUs_V1.x](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units)
+  [EMM_24_Candidate_Krill_MUs_V2](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2)
   files) and [table of
-  areas](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Management_Units_Areas.csv)
+  areas](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM_24_Management_Units_Areas.csv)
   (see Table 4.1).
 
 Once shapefiles are built and exported, the
-[Plot_Krill_Fishery_Management_Units.R](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/Plot_Krill_Fishery_Management_Units.R)
+[Plot_Krill_Fishery_Management_Units_V2.R](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/Plot_Krill_Fishery_Management_Units_V2.R)
 script may be used to plot the corresponding map (see Fig. 4.2).
 
 <br>
@@ -648,7 +661,7 @@ Projection: EPSG 6932.
 
 <div class="figure" style="text-align: center">
 
-<img src="Figures/Candidate_Krill_MUs_V1_Map.png" alt="Figure 4.2. Candidate management units after update. EI: Elephant Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland Islands West, GS: Gerlache Strait, DP: Drake Passage, PB: Powell Basin. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="100%" />
+<img src="Figures/EMM_24_Candidate_Krill_MUs_V2_Map.png" alt="Figure 4.2. Candidate management units after update. EI: Elephant Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland Islands West, GS: Gerlache Strait, DP: Drake Passage, PB: Powell Basin. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="100%" />
 <p class="caption">
 Figure 4.2. Candidate management units after update. EI: Elephant
 Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland
@@ -666,12 +679,14 @@ Table 4.1. Updated candidate management units and their marine area.
 | Candidate Management Unit | Marine Area (sq. km) |
 |:--------------------------|---------------------:|
 | EI                        |                51669 |
-| SSIW                      |                47134 |
 | BS                        |                35208 |
 | JOIN                      |                23033 |
-| GS                        |                44560 |
-| DP                        |               294420 |
-| PB                        |               144692 |
+| PB1                       |                45456 |
+| PB2                       |                99236 |
+| GS                        |                61088 |
+| SSIW                      |                59293 |
+| DP1                       |                41688 |
+| DP2                       |               224045 |
 
 <br>
 
