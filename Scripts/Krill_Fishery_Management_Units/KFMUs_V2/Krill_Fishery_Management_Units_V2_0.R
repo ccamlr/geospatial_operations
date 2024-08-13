@@ -17,6 +17,7 @@ V_MUS=2
 
 #Import vertices
 V=read.csv("Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM-24_vertices.csv")
+
 #Create projected polygons
 P=create_Polys(V)
 #Load coastline

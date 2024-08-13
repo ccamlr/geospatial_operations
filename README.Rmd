@@ -534,7 +534,7 @@ Once shapefiles are built and exported, the [Plot_Krill_Fishery_Management_Units
 
 <br>
 
-```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.1. Example of problematic polygons (red) before (top) and after removal (bottom) from DP (left) and GS (right) candidate management units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.1. Example of problematic polygons (red) before (top) and after removal (bottom) from DP2 (left) and GS (right) candidate management units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
 Paths=c(
   "Figures/Polygons_DP2.png",
   "Figures/Polygons_GS.png",

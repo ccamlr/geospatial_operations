@@ -647,10 +647,10 @@ script may be used to plot the corresponding map (see Fig. 4.2).
 
 <div class="figure" style="text-align: center">
 
-<img src="Figures/Fig_4_1.png" alt="Figure 4.1. Example of problematic polygons (red) before (top) and after removal (bottom) from DP (left) and GS (right) candidate management units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="100%" />
+<img src="Figures/Fig_4_1.png" alt="Figure 4.1. Example of problematic polygons (red) before (top) and after removal (bottom) from DP2 (left) and GS (right) candidate management units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932." width="100%" />
 <p class="caption">
 Figure 4.1. Example of problematic polygons (red) before (top) and after
-removal (bottom) from DP (left) and GS (right) candidate management
+removal (bottom) from DP2 (left) and GS (right) candidate management
 units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth.
 Projection: EPSG 6932.
 </p>
