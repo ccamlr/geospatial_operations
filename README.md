@@ -85,8 +85,7 @@ More specifically, four datasets are used. These are:
 - High resolution vector polygons of the Antarctic coastline
   - Source: British Antarctic Survey / UK Polar Data Centre
   - Short description: Coastline and ice shelves south of 60S
-  - URL:
-    <https://data.bas.ac.uk/full-record.php?id=GB/NERC/BAS/PDC/01787>
+  - URL: <https://doi.org/10.5285/c7fe759d-e042-479a-9ecf-274255b4f0a1>
   - Citation: Gerrish, L., Ireland, L., Fretwell, P., & Cooper, P.
     (2023). High resolution vector polygons of the Antarctic coastline -
     VERSION 7.8 (Version 7.8) (Data set). NERC EDS UK Polar Data Centre.
@@ -95,8 +94,7 @@ More specifically, four datasets are used. These are:
   - Source: British Antarctic Survey / UK Polar Data Centre
   - Short description: Coastline between 50S and 60S (from which the
     data between 50W and 20W is extracted)
-  - URL:
-    <https://data.bas.ac.uk/full-record.php?id=GB/NERC/BAS/PDC/01430>
+  - URL: <https://doi.org/10.5285/c1d83502-8799-4e3c-bdca-21db6a4405d4>
   - Citation: Gerrish, L. (2020). Vector polygons of the Sub-Antarctic
     coastline - VERSION 7.3 (Version 1.0) (Data set). UK Polar Data
     Centre, Natural Environment Research Council, UK Research &
@@ -518,7 +516,7 @@ library(CCAMLRGIS)
 library(terra)
 library(png)
 #Download bathymetry:
-Bathy=load_Bathy(LocalFile=F,Res=1000) #Once downloaded, re-use it. See help(load_Bathy)
+Bathy=load_Bathy(LocalFile=F,Res=5000) #Once downloaded, re-use it. See help(load_Bathy) for details
 # Bathy=SmallBathy() #Use this instead for testing purposes first
 
 #Load Coastline
