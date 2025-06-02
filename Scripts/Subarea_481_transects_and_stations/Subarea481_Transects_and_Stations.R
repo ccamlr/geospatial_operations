@@ -4,8 +4,8 @@ library(terra)
 
 #Load coastline
 coast=load_Coastline()
-#Load candidate management units as proposed by WG-ASAM-2024/11 (Spatial Overlap Analysis)
-SOA=st_read("Scripts/Subarea_481_transects_and_stations/Proposed_Krill_MUs_ASAM-2024_11.shp",quiet=T)
+#Load management units
+MUs=st_read("Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM_24_Candidate_Krill_MUs_V2.shp",quiet=T)
 
 #Download bathymetry:
 Bathy=load_Bathy(LocalFile=F,Res=1000) #Once downloaded, re-use it. See help(load_Bathy)
@@ -31,13 +31,13 @@ St20_40p=create_Points(St20_40[,c("Latitude","Longitude","ID")])
 
 
 #Extract MUs labels 
-Labs=st_drop_geometry(SOA[,c("id","labx","laby")])
+Labs=st_drop_geometry(MUs[,c("id","labx","laby")])
 Labs=project_data(Labs,NamesIn=c("laby","labx"),inv=T)
 Labs=create_Points(Labs[,c("Latitude","Longitude","id")])
 
 #Rotate objects
 Lonzero=-60 #This longitude will point up
-R_SOA=Rotate_obj(SOA,Lonzero)
+R_MUs=Rotate_obj(MUs,Lonzero)
 R_coast=Rotate_obj(coast,Lonzero)
 R_labs=Rotate_obj(Labs,Lonzero)
 R_labs$x=st_coordinates(R_labs)[,1]
@@ -56,7 +56,7 @@ Tsp$Ymid=Mp[,2]
 rm(Mp)
 
 #Create a bounding box for the region
-bb=st_bbox(st_buffer(R_SOA,20000)) #Get bounding box (x/y limits) + buffer
+bb=st_bbox(st_buffer(R_MUs,20000)) #Get bounding box (x/y limits) + buffer
 bx=st_as_sfc(bb) #Build spatial box to plot
 
 #Use spatial box to crop coastline
@@ -64,20 +64,22 @@ R_coast=suppressWarnings(st_intersection(R_coast,bx))
 R_bathy=crop(R_bathy,ext(bb))
 
 #Adjust MUs labels
-R_labs$y[R_labs$id=="DP1"]=2800000
+R_labs$y[R_labs$id=="DP1"]=2720000
+R_labs$y[R_labs$id=="DP2"]=3170000
+R_labs$y[R_labs$id=="GS"]=2900000
+R_labs$y[R_labs$id=="EI"]=3250000
+R_labs$y[R_labs$id=="BS"]=2970000
 R_labs$y[R_labs$id=="JOIN"]=3000000
-R_labs$y[R_labs$id=="BS"]=2980000
+R_labs$y[R_labs$id=="PB1"]=3150000
 
 
 #Plots
-
-
 png(filename="Figures/ASAM-2024-Transects_and_Stations_20nmi_Max.png",width=2700,height=3000,res=600)
 par(mai=rep(0.2,4))
 plot(bx,lwd=0.1,xpd=T)
 plot(R_bathy,breaks=Depth_cuts,col=Depth_cols,legend=FALSE,axes=FALSE,mar=NA,maxcell=5e6)
 plot(st_geometry(R_coast[R_coast$surface=="Ice",]),col="white",lwd=0.5,add=T)
-plot(st_geometry(R_SOA),border="black",lwd=1,add=T)
+plot(st_geometry(R_MUs),border="black",lwd=1.2,add=T)
 plot(st_geometry(R_coast[R_coast$surface=="Land",]),col="grey",add=T)
 plot(st_geometry(R_Tsp),col="red",lwd=2,add=T)
 add_RefGrid(bb=bb,ResLat = 2.5,ResLon = 5,lwd=0.5,fontsize = 0.5)
@@ -86,7 +88,7 @@ plot(bx,lwd=1,add=T,xpd=T)
 plot(st_geometry(R_St20),add=T,pch=21,bg="green",cex=0.5,lwd=0.1)
 
 text(Tsp$Xmid,Tsp$Ymid,Tsp$ID,cex=0.4)
-text(R_labs$x,R_labs$y,R_labs$id,cex=0.5,font=2)
+text(R_labs$x,R_labs$y,R_labs$id,cex=0.75,font=2)
 
 dev.off()
 
@@ -97,7 +99,7 @@ par(mai=rep(0.2,4))
 plot(bx,lwd=0.1,xpd=T)
 plot(R_bathy,breaks=Depth_cuts,col=Depth_cols,legend=FALSE,axes=FALSE,mar=NA,maxcell=5e6)
 plot(st_geometry(R_coast[R_coast$surface=="Ice",]),col="white",lwd=0.5,add=T)
-plot(st_geometry(R_SOA),border="black",lwd=1,add=T)
+plot(st_geometry(R_MUs),border="black",lwd=1.2,add=T)
 plot(st_geometry(R_coast[R_coast$surface=="Land",]),col="grey",add=T)
 plot(st_geometry(R_Tsp),col="red",lwd=2,add=T)
 add_RefGrid(bb=bb,ResLat = 2.5,ResLon = 5,lwd=0.5,fontsize = 0.5)
@@ -106,7 +108,7 @@ plot(bx,lwd=1,add=T,xpd=T)
 plot(st_geometry(R_St40),add=T,pch=21,bg="green",cex=0.5,lwd=0.1)
 
 text(Tsp$Xmid,Tsp$Ymid,Tsp$ID,cex=0.4)
-text(R_labs$x,R_labs$y,R_labs$id,cex=0.5,font=2)
+text(R_labs$x,R_labs$y,R_labs$id,cex=0.75,font=2)
 
 dev.off()
 
@@ -117,7 +119,7 @@ par(mai=rep(0.2,4))
 plot(bx,lwd=0.1,xpd=T)
 plot(R_bathy,breaks=Depth_cuts,col=Depth_cols,legend=FALSE,axes=FALSE,mar=NA,maxcell=5e6)
 plot(st_geometry(R_coast[R_coast$surface=="Ice",]),col="white",lwd=0.5,add=T)
-plot(st_geometry(R_SOA),border="black",lwd=1,add=T)
+plot(st_geometry(R_MUs),border="black",lwd=1.2,add=T)
 plot(st_geometry(R_coast[R_coast$surface=="Land",]),col="grey",add=T)
 plot(st_geometry(R_Tsp),col="red",lwd=2,add=T)
 add_RefGrid(bb=bb,ResLat = 2.5,ResLon = 5,lwd=0.5,fontsize = 0.5)
@@ -126,7 +128,7 @@ plot(bx,lwd=1,add=T,xpd=T)
 plot(st_geometry(R_St20_40),add=T,pch=21,bg="green",cex=0.5,lwd=0.1)
 
 text(Tsp$Xmid,Tsp$Ymid,Tsp$ID,cex=0.4)
-text(R_labs$x,R_labs$y,R_labs$id,cex=0.5,font=2)
+text(R_labs$x,R_labs$y,R_labs$id,cex=0.75,font=2)
 
 dev.off()
 

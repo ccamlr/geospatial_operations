@@ -505,6 +505,7 @@ a=file.remove(Fs)
 [WG-EMM-2024]:https://meetings.ccamlr.org/wg-emm-2024 
 [KFMUs_V1]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V1
 [KFMUs_V2]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2
+[SC-CAMLR-43]:https://meetings.ccamlr.org/sc-camlr-43
 
 This section provides access to the resources used to update the candidate krill fishery management units and re-calculate their area when boundaries or coastlines are updated.
 
@@ -512,7 +513,7 @@ To date, two versions have been developed:
 
 - V1: as presented in Fig. 1 of [SC-CAMLR-41]. All files are in the [KFMUs_V1] folder.
 
-- V2: as presented in Figs. 2--8 of [WG-EMM-2024]. All files are in the [KFMUs_V2] folder.
+- V2: as presented in Figs. 2--8 of [WG-EMM-2024] and endorsed by the Scientific Committee in 2024 ([SC-CAMLR-43], paragraph 2.63). All files are in the [KFMUs_V2] folder.
 
 
 [Krill_Fishery_Management_Units_V2_0.R]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Krill_Fishery_Management_Units/KFMUs_V2/Krill_Fishery_Management_Units_V2_0.R
@@ -534,7 +535,7 @@ Once shapefiles are built and exported, the [Plot_Krill_Fishery_Management_Units
 
 <br>
 
-```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.1. Example of problematic polygons (red) before (top) and after removal (bottom) from DP2 (left) and GS (right) candidate management units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.1. Example of problematic polygons (red) before (top) and after removal (bottom) from DP2 (left) and GS (right) Management Units. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
 Paths=c(
   "Figures/Polygons_DP2.png",
   "Figures/Polygons_GS.png",
@@ -552,13 +553,13 @@ include_graphics("Figures/Fig_4_1.png")
 
 <br>
 
-```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.2. Candidate management units after update. EI: Elephant Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland Islands West, GS: Gerlache Strait, DP: Drake Passage, PB: Powell Basin. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4.2. Management Units after update. EI: Elephant Island, JOIN: Joinville, BS: Bransfield Strait, SSIW: South Shetland Islands West, GS: Gerlache Strait, DP: Drake Passage, PB: Powell Basin. Sources: CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932."}
 include_graphics("Figures/EMM_24_Candidate_Krill_MUs_V2_Map.png")
 ```
 
 <br>
 
-Table 4.1. Updated candidate management units and their marine area.
+Table 4.1. Updated Management Units and their marine area.
 
 ```{r, message=F,echo=F}
 Tab=read.csv("Scripts/Krill_Fishery_Management_Units/KFMUs_V2/EMM_24_Management_Units_Areas.csv",
@@ -576,22 +577,22 @@ kable(Tab)
 [WG-ASAM-2024]:https://meetings.ccamlr.org/wg-asam-2024
 [folder]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Subarea_481_transects_and_stations
 
-This section provides access to the proposed acoustic transects and stations as developed by [WG-ASAM-2024]. All input files and a script to produce the maps below are located in this [folder].
+This section provides access to the proposed acoustic transects and stations as developed by [WG-ASAM-2024]. All input files and a script to produce the maps below are located in this [folder]. The figures shown below were updated in June 2025 to display the Management Units endorsed by the Scientific Committee in 2024 ([SC-CAMLR-43], paragraph 2.63; see also Section 4 above). The Scientific Committee further noted that these transects would be appropriate to derive krill biomass estimates from the agreed Management Units ([SC-CAMLR-43], paragraph 2.64) and agreed that a pragmatic approach is needed in terms of fishing vessel capability when conducting such surveys ([SC-CAMLR-43], paragraph 2.51).
 
 <br>
 
-```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 20 nautical miles. The proposed updated candidate management units (WG-ASAM-2024/11) are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)."}
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 5.1. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 20 nautical miles. The endorsed Management Units are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)."}
 include_graphics("Figures/ASAM-2024-Transects_and_Stations_20nmi_Max.png")
 ```
 
 <br>
 
-```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 5.2. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 40 nautical miles. The proposed updated candidate management units (WG-ASAM-2024/11) are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)."}
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 5.2. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 40 nautical miles. The endorsed Management Units are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)."}
 include_graphics("Figures/ASAM-2024-Transects_and_Stations_40nmi_Max.png")
 ```
 
 <br>
 
-```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 5.3. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 20 nautical miles within the Spatial Overlap Analysis footprint (SOA; WG-ASAM-2024/11) and of 40 nautical miles outside of the SOA footprint. The proposed updated candidate management units (WG-ASAM-2024/11) are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)."}
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 5.3. WG-ASAM-2024 proposed transects (red) and sampling stations (green) with a maximum spacing of 20 nautical miles within the Spatial Overlap Analysis footprint (SOA; WG-ASAM-2024/11) and of 40 nautical miles outside of the SOA footprint. The endorsed Management Units are shown in black. Sources: GEBCO/CCAMLR/UK Polar Data Centre/BAS and Natural Earth. Projection: EPSG 6932 (rotated)."}
 include_graphics("Figures/ASAM-2024-Transects_and_Stations_20and40nmi_Max.png")
 ```
