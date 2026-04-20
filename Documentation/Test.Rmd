@@ -1,0 +1,31 @@
+---
+output: github_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(knitr)
+Evals=T          ##############Use FALSE to not update figures built in the ReadMe (other figures are built in other script) - BUT USE T before pushing to the repo
+```
+
+
+<center>
+# Test
+</center>
+
+------------------------------------------------------------------------
+
+Testing a separate Rmd-to-md here
+
+<center>
+### Contents
+</center>
+
+------------------------------------------------------------------------
