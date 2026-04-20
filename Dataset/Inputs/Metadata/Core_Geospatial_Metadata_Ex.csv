@@ -1,0 +1,373 @@
+ID,Name,Class,Class_long,Active,Version
+48,Antarctic Atlantic,ASD,Area,Yes,1
+48.1,Peninsula,ASD,Subarea,Yes,1
+48.2,South Orkney,ASD,Subarea,Yes,1
+48.3,South Georgia,ASD,Subarea,Yes,1
+48.4,South Sandwich,ASD,Subarea,Yes,1
+48.5,Weddel Sea,ASD,Subarea,Yes,1
+48.6,Bouvet,ASD,Subarea,Yes,1
+58,Antarctic Southern Indian,ASD,Area,Yes,1
+58.4.1,Part of Enderby-Wilkes (58.4),ASD,Division,Yes,1
+58.4.2,Part of Enderby-Wilkes (58.4),ASD,Division,Yes,1
+58.4.3a,Part of Enderby-Wilkes (58.4),ASD,Division,Yes,1
+58.4.3b,Part of Enderby-Wilkes (58.4),ASD,Division,Yes,1
+58.4.4a,Part of Enderby-Wilkes (58.4),ASD,Division,Yes,1
+58.4.4b,Part of Enderby-Wilkes (58.4),ASD,Division,Yes,1
+58.5.1,"Part of Kerguelen, McDonald (58.5)",ASD,Division,Yes,1
+58.5.2,"Part of Kerguelen, McDonald (58.5)",ASD,Division,Yes,1
+58.6,Crozet,ASD,Subarea,Yes,1
+58.7,Marion-Edward,ASD,Subarea,Yes,1
+88,Antarctic Pacific,ASD,Area,Yes,1
+88.1,Ross Sea,ASD,Subarea,Yes,1
+88.2,Amundsen Sea,ASD,Subarea,Yes,1
+88.3,Bellingshausen Sea,ASD,Subarea,Yes,1
+C.A.,CAMLR Convention Area,CA,Convention Area,Yes,1
+ESP,Esperanza Station (Hope Bay),CEMP,CEMP Site,Yes,1
+MBO,Marambio (Penguin Point),CEMP,CEMP Site,Yes,1
+CCO,Cierva Cove (Cierva Point),CEMP,CEMP Site,Yes,1
+MRO,Mar Rock,CEMP,CEMP Site,Yes,1
+LAO,Laurie Island,CEMP,CEMP Site,Yes,1
+SPS,Stranger Point (King George Island),CEMP,CEMP Site,Yes,1
+PBA,Paradise Bay,CEMP,CEMP Site,Yes,1
+SHI,Shirley Island (Casey Station),CEMP,CEMP Site,Yes,1
+BEE,Bechervaise Island,CEMP,CEMP Site,Yes,1
+VIM,Verner Island (Mawson Station),CEMP,CEMP Site,Yes,1
+MGI,Maggs Island,CEMP,CEMP Site,Yes,1
+GDI,Gardner Island,CEMP,CEMP Site,Yes,1
+HOI,Hop Island,CEMP,CEMP Site,Yes,1
+SIG,Steinnes Island Group,CEMP,CEMP Site,Yes,1
+BLP,Blakeney Point,CEMP,CEMP Site,Yes,1
+ODI,Odbert Island,CEMP,CEMP Site,Yes,1
+SVB,Seaview Bay (Inexpressible Island),CEMP,CEMP Site,Yes,1
+PIS,Petrel Island (Dumont d'Urville Station),CEMP,CEMP Site,Yes,1
+GOI,Goudier Island,CEMP,CEMP Site,Yes,1
+SIO,Signy Island,CEMP,CEMP Site,Yes,1
+BIG,Bird Island,CEMP,CEMP Site,Yes,1
+MAI,Maiviken,CEMP,CEMP Site,Yes,1
+EDP,Edmonson Point,CEMP,CEMP Site,Yes,1
+SYO,Syowa Station,CEMP,CEMP Site,Yes,1
+NPT,Narebski Point,CEMP,CEMP Site,Yes,1
+CHA,Cape Hallett,CEMP,CEMP Site,Yes,1
+BOI,Bouvet Island,CEMP,CEMP Site,Yes,1
+ROS,Ross Island,CEMP,CEMP Site,Yes,1
+LRP,Lions Rump (King George Island),CEMP,CEMP Site,Yes,1
+PTI,Petermann Island,CEMP,CEMP Site,Yes,1
+GAI,Galindez Island,CEMP,CEMP Site,Yes,1
+YAL,Yalour Island,CEMP,CEMP Site,Yes,1
+CSS,Cape Shirreff,CEMP,CEMP Site,Yes,1
+ADB,Admiralty Bay,CEMP,CEMP Site,Yes,1
+ARD,Ardley Island,CEMP,CEMP Site,Yes,1
+MAR,Marion Island,CEMP,CEMP Site,Yes,1
+VAP,Vapour Col,CEMP,CEMP Site,Yes,1
+CI,Crozet Island,EEZ,Exclusive Economic Zone,Yes,1
+HIMI,Heard Island and McDonald Islands,EEZ,Exclusive Economic Zone,Yes,1
+KI,Kerguelen Island,EEZ,Exclusive Economic Zone,Yes,1
+PEI,Prince Edward Islands,EEZ,Exclusive Economic Zone,Yes,1
+BS,Bransfield Strait,KFMU,Krill Fishery Management Unit,Yes,1
+DP1,Drake Passage 1,KFMU,Krill Fishery Management Unit,Yes,1
+DP2,Drake Passage 2,KFMU,Krill Fishery Management Unit,Yes,1
+EI,Elephant Island,KFMU,Krill Fishery Management Unit,Yes,1
+GS,Gerlache Strait,KFMU,Krill Fishery Management Unit,Yes,1
+JOIN,Joinville,KFMU,Krill Fishery Management Unit,Yes,1
+PB1,Powell Basin 1,KFMU,Krill Fishery Management Unit,Yes,1
+PB2,Powell Basin 2,KFMU,Krill Fishery Management Unit,Yes,1
+SSIW,South Shetland Islands West,KFMU,Krill Fishery Management Unit,Yes,1
+482E,Management Area E,MA,Management Area,Yes,1
+483A,Management Area A,MA,Management Area,Yes,1
+483B,Management Area B,MA,Management Area,Yes,1
+483C,Management Area C,MA,Management Area,Yes,1
+484S,Management Area S,MA,Management Area,Yes,1
+484SSI,Management Area of the South Sandwich Islands,MA,Management Area,Yes,1
+N70,Ross Sea region Management Area North 70,MA,Management Area,Yes,1
+S70,Ross Sea region Management Area South 70,MA,Management Area,Yes,1
+GPZi,Ross Sea region General Protection Zone Area (i),MPA,Marine Protected Area,Yes,1
+GPZii,Ross Sea region General Protection Zone Area (ii),MPA,Marine Protected Area,Yes,1
+GPZiii,Ross Sea region General Protection Zone Area (iii),MPA,Marine Protected Area,Yes,1
+KRZ,Ross Sea region Krill Research Zone,MPA,Marine Protected Area,Yes,1
+SRZ,Ross Sea region Special Research Zone,MPA,Marine Protected Area,Yes,1
+SOSS,South Orkney Islands Southern Shelf,MPA,Marine Protected Area,Yes,1
+1,Western Antarctic Peninsula - South Scotia Arc,PD,MPA Planning Domain,Yes,1
+2,North Scotia Arc,PD,MPA Planning Domain,Yes,1
+3,Weddell Sea,PD,MPA Planning Domain,Yes,1
+4,Bouvet - Maud,PD,MPA Planning Domain,Yes,1
+5,del Cano - Crozet,PD,MPA Planning Domain,Yes,1
+6,Kerguelen Plateau,PD,MPA Planning Domain,Yes,1
+7,East Antarctica,PD,MPA Planning Domain,Yes,1
+8,Ross Sea Region,PD,MPA Planning Domain,Yes,1
+9,Amundsen - Bellingshausen,PD,MPA Planning Domain,Yes,1
+481_1,Research Block 481_1,RB,Research Block,Yes,1
+481_2,Research Block 481_2,RB,Research Block,Yes,1
+481_3,Research Block 481_3,RB,Research Block,Yes,1
+482_N,Research Block 482_N,RB,Research Block,Yes,1
+482_S,Research Block 482_S,RB,Research Block,Yes,1
+486_2,Research Block 486_2,RB,Research Block,Yes,1
+486_3,Research Block 486_3,RB,Research Block,Yes,1
+486_4,Research Block 486_4,RB,Research Block,Yes,1
+486_5,Research Block 486_5,RB,Research Block,Yes,1
+5841_1,Research Block 5841_1,RB,Research Block,Yes,1
+5841_2,Research Block 5841_2,RB,Research Block,Yes,1
+5841_3,Research Block 5841_3,RB,Research Block,Yes,1
+5841_4,Research Block 5841_4,RB,Research Block,Yes,1
+5841_5,Research Block 5841_5,RB,Research Block,Yes,1
+5841_6,Research Block 5841_6,RB,Research Block,Yes,1
+5842_1,Research Block 5842_1,RB,Research Block,Yes,1
+5842_2,Research Block 5842_2,RB,Research Block,Yes,1
+5843a_1,Research Block 5843a_1,RB,Research Block,Yes,1
+5844b_1,Research Block 5844b_1,RB,Research Block,Yes,1
+5844b_2,Research Block 5844b_2,RB,Research Block,Yes,1
+882_1,Research Block 882_1,RB,Research Block,Yes,1
+882_2,Research Block 882_2,RB,Research Block,Yes,1
+882_3,Research Block 882_3,RB,Research Block,Yes,1
+882_4,Research Block 882_4,RB,Research Block,Yes,1
+883_1,Research Block 883_1,RB,Research Block,Yes,1
+883_10,Research Block 883_10,RB,Research Block,Yes,1
+883_11,Research Block 883_11,RB,Research Block,Yes,1
+883_12,Research Block 883_12,RB,Research Block,Yes,1
+883_2,Research Block 883_2,RB,Research Block,Yes,1
+883_3,Research Block 883_3,RB,Research Block,Yes,1
+883_4,Research Block 883_4,RB,Research Block,Yes,1
+883_5,Research Block 883_5,RB,Research Block,No,1
+883_6,Research Block 883_6,RB,Research Block,Yes,1
+883_7,Research Block 883_7,RB,Research Block,No,1
+883_8,Research Block 883_8,RB,Research Block,No,1
+883_9,Research Block 883_9,RB,Research Block,No,1
+APBSE,Antarctic Peninsula - Bransfield Strait East,SSMU,Small Scale Management Unit,Yes,1
+APBSW,Antarctic Peninsula - Bransfield Strait West,SSMU,Small Scale Management Unit,Yes,1
+APDPE,Antarctic Peninsula - Drake Passage East,SSMU,Small Scale Management Unit,Yes,1
+APDPW,Antarctic Peninsula - Drake Passage West,SSMU,Small Scale Management Unit,Yes,1
+APE,Antarctic Peninsula - East,SSMU,Small Scale Management Unit,Yes,1
+APEI,Antarctic Peninsula - Elephant Island,SSMU,Small Scale Management Unit,Yes,1
+APPA,Antarctic Peninsula - Pelagic Area,SSMU,Small Scale Management Unit,Yes,1
+APW,Antarctic Peninsula - West,SSMU,Small Scale Management Unit,Yes,1
+SGE,South Georgia - East,SSMU,Small Scale Management Unit,Yes,1
+SGPA,South Georgia - Pelagic Area,SSMU,Small Scale Management Unit,Yes,1
+SGW,South Georgia - West,SSMU,Small Scale Management Unit,Yes,1
+SONE,South Orkney - Northeast,SSMU,Small Scale Management Unit,Yes,1
+SOPA,South Orkney - Pelagic Area,SSMU,Small Scale Management Unit,Yes,1
+SOSE,South Orkney - Southeast,SSMU,Small Scale Management Unit,Yes,1
+SOW,South Orkney - West,SSMU,Small Scale Management Unit,Yes,1
+SSI,South Sandwich - Islands,SSMU,Small Scale Management Unit,Yes,1
+SSPA,South Sandwich - Pelagic Area,SSMU,Small Scale Management Unit,Yes,1
+486A,Small Scale Research Unit 486A,SSRU,Small Scale Research Unit,Yes,1
+486B,Small Scale Research Unit 486B,SSRU,Small Scale Research Unit,Yes,1
+486C,Small Scale Research Unit 486C,SSRU,Small Scale Research Unit,Yes,1
+486D,Small Scale Research Unit 486D,SSRU,Small Scale Research Unit,Yes,1
+486E,Small Scale Research Unit 486E,SSRU,Small Scale Research Unit,Yes,1
+486F,Small Scale Research Unit 486F,SSRU,Small Scale Research Unit,Yes,1
+486G,Small Scale Research Unit 486G,SSRU,Small Scale Research Unit,Yes,1
+5841A,Small Scale Research Unit 5841A,SSRU,Small Scale Research Unit,Yes,1
+5841B,Small Scale Research Unit 5841B,SSRU,Small Scale Research Unit,Yes,1
+5841C,Small Scale Research Unit 5841C,SSRU,Small Scale Research Unit,Yes,1
+5841D,Small Scale Research Unit 5841D,SSRU,Small Scale Research Unit,Yes,1
+5841E,Small Scale Research Unit 5841E,SSRU,Small Scale Research Unit,Yes,1
+5841F,Small Scale Research Unit 5841F,SSRU,Small Scale Research Unit,Yes,1
+5841G,Small Scale Research Unit 5841G,SSRU,Small Scale Research Unit,Yes,1
+5841H,Small Scale Research Unit 5841H,SSRU,Small Scale Research Unit,Yes,1
+5842A,Small Scale Research Unit 5842A,SSRU,Small Scale Research Unit,Yes,1
+5842B,Small Scale Research Unit 5842B,SSRU,Small Scale Research Unit,Yes,1
+5842C,Small Scale Research Unit 5842C,SSRU,Small Scale Research Unit,Yes,1
+5842D,Small Scale Research Unit 5842D,SSRU,Small Scale Research Unit,Yes,1
+5842E,Small Scale Research Unit 5842E,SSRU,Small Scale Research Unit,Yes,1
+5843aA,Small Scale Research Unit 5843aA,SSRU,Small Scale Research Unit,Yes,1
+5843bA,Small Scale Research Unit 5843bA,SSRU,Small Scale Research Unit,Yes,1
+5843bB,Small Scale Research Unit 5843bB,SSRU,Small Scale Research Unit,Yes,1
+5843bC,Small Scale Research Unit 5843bC,SSRU,Small Scale Research Unit,Yes,1
+5843bD,Small Scale Research Unit 5843bD,SSRU,Small Scale Research Unit,Yes,1
+5843bE,Small Scale Research Unit 5843bE,SSRU,Small Scale Research Unit,Yes,1
+5844aA,Small Scale Research Unit 5844aA,SSRU,Small Scale Research Unit,Yes,1
+5844aB,Small Scale Research Unit 5844aB,SSRU,Small Scale Research Unit,Yes,1
+5844aD,Small Scale Research Unit 5844aD,SSRU,Small Scale Research Unit,Yes,1
+5844bB,Small Scale Research Unit 5844bB,SSRU,Small Scale Research Unit,Yes,1
+5844bC,Small Scale Research Unit 5844bC,SSRU,Small Scale Research Unit,Yes,1
+5844bD,Small Scale Research Unit 5844bD,SSRU,Small Scale Research Unit,Yes,1
+586B,Small Scale Research Unit 586B,SSRU,Small Scale Research Unit,Yes,1
+586C,Small Scale Research Unit 586C,SSRU,Small Scale Research Unit,Yes,1
+586D,Small Scale Research Unit 586D,SSRU,Small Scale Research Unit,Yes,1
+587A,Small Scale Research Unit 587A,SSRU,Small Scale Research Unit,Yes,1
+587B,Small Scale Research Unit 587B,SSRU,Small Scale Research Unit,Yes,1
+881A,Small Scale Research Unit 881A,SSRU,Small Scale Research Unit,Yes,1
+881B,Small Scale Research Unit 881B,SSRU,Small Scale Research Unit,Yes,1
+881C,Small Scale Research Unit 881C,SSRU,Small Scale Research Unit,Yes,1
+881D,Small Scale Research Unit 881D,SSRU,Small Scale Research Unit,Yes,1
+881E,Small Scale Research Unit 881E,SSRU,Small Scale Research Unit,Yes,1
+881F,Small Scale Research Unit 881F,SSRU,Small Scale Research Unit,Yes,1
+881G,Small Scale Research Unit 881G,SSRU,Small Scale Research Unit,Yes,1
+881H,Small Scale Research Unit 881H,SSRU,Small Scale Research Unit,Yes,1
+881I,Small Scale Research Unit 881I,SSRU,Small Scale Research Unit,Yes,1
+881J,Small Scale Research Unit 881J,SSRU,Small Scale Research Unit,Yes,1
+881K,Small Scale Research Unit 881K,SSRU,Small Scale Research Unit,Yes,1
+881L,Small Scale Research Unit 881L,SSRU,Small Scale Research Unit,Yes,1
+881M,Small Scale Research Unit 881M,SSRU,Small Scale Research Unit,Yes,1
+882A,Small Scale Research Unit 882A,SSRU,Small Scale Research Unit,Yes,1
+882B,Small Scale Research Unit 882B,SSRU,Small Scale Research Unit,Yes,1
+882C,Small Scale Research Unit 882C,SSRU,Small Scale Research Unit,Yes,1
+882D,Small Scale Research Unit 882D,SSRU,Small Scale Research Unit,Yes,1
+882E,Small Scale Research Unit 882E,SSRU,Small Scale Research Unit,Yes,1
+882F,Small Scale Research Unit 882F,SSRU,Small Scale Research Unit,Yes,1
+882G,Small Scale Research Unit 882G,SSRU,Small Scale Research Unit,Yes,1
+882H,Small Scale Research Unit 882H,SSRU,Small Scale Research Unit,Yes,1
+882I,Small Scale Research Unit 882I,SSRU,Small Scale Research Unit,Yes,1
+883A,Small Scale Research Unit 883A,SSRU,Small Scale Research Unit,Yes,1
+883B,Small Scale Research Unit 883B,SSRU,Small Scale Research Unit,Yes,1
+883C,Small Scale Research Unit 883C,SSRU,Small Scale Research Unit,Yes,1
+883D,Small Scale Research Unit 883D,SSRU,Small Scale Research Unit,Yes,1
+VME_1,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_10,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_11,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_12,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_13,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_136,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_137,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_138,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_139,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_14,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_140,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_141,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_142,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_15,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_16,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_17,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_18,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_19,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_2,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_20,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_21,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_22,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_23,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_24,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_25,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_26,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_27,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_28,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_3,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_31,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_32,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_35,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_36,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_37,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_38,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_39,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_4,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_5,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_6,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_7,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_8,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_9,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_143,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_40,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_41,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_42,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_43,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_44,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_45,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_46,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_47,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_48,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_49,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_50,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_51,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_52,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_53,VME Encounter,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-67.5_EB-122,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-69_EB-123,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-71.5_EB173,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-71.5_EB174,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-72.5_EB-176,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-72.5_EB177,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-74.5_EB-176,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-74.5_EB-177,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-75.5_EB-176,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-75.5_EB-177,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-75_EB-175,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+FSR_NB-75_EB-176,Fine Scale Rectangle,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_100,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_101,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_102,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_103,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_104,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_105,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_106,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_107,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_108,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_109,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_110,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_111,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_112,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_113,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_114,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_115,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_116,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_117,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_118,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_119,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_120,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_121,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_122,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_123,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_124,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_125,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_126,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_127,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_128,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_129,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_130,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_131,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_132,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_133,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_134,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_135,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_144,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_268,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_270,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_271,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_272,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_54,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_55,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_56,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_57,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_58,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_59,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_60,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_61,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_62,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_63,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_64,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_65,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_66,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_67,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_68,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_69,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_70,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_71,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_72,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_73,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_74,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_75,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_76,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_77,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_78,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_79,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_80,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_81,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_82,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_83,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_84,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_85,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_86,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_87,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_88,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_89,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_90,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_91,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_92,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_93,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_94,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_95,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_96,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_97,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_98,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+RA_99,Risk Area,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_29,Registered VME,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_30,Registered VME,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_33,Registered VME,VME,Vulnerable Marine Ecosystem,Yes,1
+VME_34,Registered VME,VME,Vulnerable Marine Ecosystem,Yes,1
