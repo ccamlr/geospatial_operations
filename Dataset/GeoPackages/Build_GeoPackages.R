@@ -2,7 +2,7 @@
 library(CCAMLRGIS)
 
 #Load Helpers
-source("I:/Science/Projects/Geospatial Operations/GIS Workflow/Polygon Builder/Scripts/Z_Helpers.R")
+source("Dataset/Scripts/Z_Helpers.R")
 
 #List files in the Outputs folder
 Files=list.files(paste0(Root,"Outputs"),full.names=T)
@@ -101,8 +101,19 @@ for(i in seq(1,length(Ext_Files))){
 # st_layers(paste0(Root,"GeoPackages/CCAMLR_All_Clipped.gpkg"))
 # st_layers(paste0(Root,"GeoPackages/CCAMLR_All.gpkg"))
 
+#Add Additional Metadata
+Meta=read.csv(paste0(Root,"Inputs/Metadata/layer_metadata.csv"))
 
+st_write(Meta,
+         paste0(Root,"GeoPackages/CCAMLR_All.gpkg"),layer="Metadata"
+         ,quiet=T,append=TRUE)
+st_write(Meta,
+         paste0(Root,"GeoPackages/CCAMLR_All_Clipped.gpkg"),layer="Metadata"
+         ,quiet=T,append=TRUE)
 
+# st_layers(paste0(Root,"GeoPackages/CCAMLR_All_Clipped.gpkg"))
+# st_layers(paste0(Root,"GeoPackages/CCAMLR_All.gpkg"))
+# st_read(paste0(Root,"GeoPackages/CCAMLR_All.gpkg"),layer="Metadata",quiet=T)
 
 #Plots###################
 
