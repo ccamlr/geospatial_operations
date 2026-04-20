@@ -168,7 +168,7 @@ Add_Metadata=function(p_m=P_Master,p_c=P_Clipped,sname=sName,root=Root){
 
   #2/2 format Metadata
   md_all=left_join(Labs,md_all,by="ID")
-  md_all=md_all%>%select(ID,Class,Labx,Laby,Name,Class_long,Active,Version)
+  md_all=md_all%>%select(ID,Class,Labx,Laby,Name,Class_long,Current,Version)
   md_all$Labx=round(md_all$Labx)
   md_all$Laby=round(md_all$Laby)
   return(md_all)
