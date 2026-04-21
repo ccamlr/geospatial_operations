@@ -73,17 +73,23 @@ CCAMLR. (Year). Geographical data layer: (Layer name). Version (Version), URL: (
 
 ### 2. Building Polygons
 
-[Test md]:https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Test.md#test
+[linkPol]:https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Building_Polygons.md#building-polygons
 
-This should redirect to [Test md].
+This should redirect to [linkPol].
 
 
 ------------------------------------------------------------------------
 
 ### 3. Dataset
 
+[linkdat]:https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Dataset.md#dataset
 
+This should redirect to [linkdat].
 
 ------------------------------------------------------------------------
 
 ### 4. Tools
+
+[linktoo]:https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Tools.md#tools
+
+This should redirect to [linktoo].

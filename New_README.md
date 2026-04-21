@@ -70,13 +70,19 @@ requested by the Scientific Committee.
 
 ### 2. Building Polygons
 
-This should redirect to [Test
-md](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Test.md#test).
+This should redirect to
+[linkPol](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Building_Polygons.md#building-polygons).
 
 ------------------------------------------------------------------------
 
 ### 3. Dataset
 
+This should redirect to
+[linkdat](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Dataset.md#dataset).
+
 ------------------------------------------------------------------------
 
 ### 4. Tools
+
+This should redirect to
+[linktoo](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Tools.md#tools).
