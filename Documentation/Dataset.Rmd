@@ -12,7 +12,6 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(knitr)
-Evals=T          ##############Use FALSE to not update figures built in the ReadMe (other figures are built in other script) - BUT USE T before pushing to the repo
 ```
 
 
