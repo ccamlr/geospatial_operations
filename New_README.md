@@ -9,8 +9,12 @@
 
 ------------------------------------------------------------------------
 
-This repository contains R scripts used by the CCAMLR Secretariat to
-generate spatial objects, as well as examples of their use.
+This repository contains R scripts and resources used by the CCAMLR
+Secretariat to generate spatial objects, as well as examples of their
+use. Many of the operations rely on the [CCAMLRGIS R
+package](https://CRAN.R-project.org/package=CCAMLRGIS) which functions
+may be accessed and reviewed
+[here](https://github.com/ccamlr/CCAMLRGIS/tree/master#ccamlrgis-r-package).
 
 <center>
 
@@ -64,25 +68,44 @@ requested by the Scientific Committee.
 
 9)  all maps cite data sources and projection used.
 
-<br>
-
 ------------------------------------------------------------------------
+
+<br>
 
 ### 2. Building Polygons
 
-This should redirect to
-[linkPol](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Building_Polygons.md#building-polygons).
+This section provides access to a basic example of the steps that must
+be followed when building polygons while adhering to the Geospatial
+Rules. This workflow is available
+[here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Building_Polygons.md#building-polygons)
+and provides a simple example of the approach used to build other
+spatial objects.
 
 ------------------------------------------------------------------------
+
+<br>
 
 ### 3. Dataset
 
-This should redirect to
-[linkdat](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Dataset.md#dataset).
+This section describes the geospatial workflow used by the CCAMLR
+Secretariat to build and maintain spatial objects for use by CCAMLR
+Members and the public. It provides methodological details, examples and
+R scripts to enable a transparent portal to the processes established by
+the Secretariat. While these resources are available
+[here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Dataset.md#dataset),
+individuals looking for the corresponding data should access these from
+here: <https://github.com/ccamlr/data>
 
 ------------------------------------------------------------------------
 
+<br>
+
 ### 4. Tools
 
-This should redirect to
-[linktoo](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Tools.md#tools).
+This section provides access to several numerical tools that are used by
+the Secretariat when conducting geospatial analyses. Some are in
+development while others have been used for a while, and all can be
+accessed
+[here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Tools.md#tools).
+It is worth noting that other ‘non-GIS’ tools are available in the
+[CCAMLR Science Toolbox](https://ccamlr-science.github.io/Toolbox/)
