@@ -100,7 +100,8 @@ kable(MyVertices)
 
 ```
 
-<br>
+------------------------------------------------------------------------
+
 
 ### Step 2 - Build polygons
 
@@ -132,7 +133,8 @@ dev.off()
 include_graphics(paste0(Pth,"Figures/MyPolygons1.png"))
 ```
 
-<br>
+------------------------------------------------------------------------
+
 
 ### Step 3 - Clip polygons to all coastlines
 
@@ -168,7 +170,8 @@ dev.off()
 include_graphics(paste0(Pth,"Figures/MyPolygons2.png"))
 ```
 
-<br>
+------------------------------------------------------------------------
+
 
 ### Step 4 - Update Metadata
 
@@ -206,7 +209,8 @@ MyPolygons$Reference="WG-SAM-2023/xx Fig. z"
 kable(MyPolygons,row.names=F)
 ```
 
-<br>
+------------------------------------------------------------------------
+
 
 ### Step 5 - Export spatial object
 
@@ -219,9 +223,12 @@ st_write(MyPolygons,paste0(Pth,"Scripts/Polygons/Completed_Polygons.gpkg"),quiet
 
 The Geopackage generated (*.gpkg* file) may then be shared and submitted along with the corresponding proposal.
 
+------------------------------------------------------------------------
+
+
 ### Step 6 - Plot map
 
-The script below provides some elements to produce a map. Other examples are given [here](https://github.com/ccamlr/CCAMLRGIS/blob/master/Basemaps/Basemaps.md).
+The script below provides some elements to produce a map. Other examples are given [here](https://github.com/ccamlr/CCAMLRGIS/blob/master/Basemaps/Basemaps.md#basemaps).
 
 ```{r, message=F,echo=T,eval=T}
 library(CCAMLRGIS)

@@ -129,7 +129,7 @@ Vertices were added to the table, as indicated below:
 | P3   | -65.54321 |  20.00000 |           |
 | P3   | -65.54321 |  10.00000 |           |
 
-<br>
+------------------------------------------------------------------------
 
 ### Step 2 - Build polygons
 
@@ -169,7 +169,7 @@ Figure 3. Densified and projected polygons.
 
 </div>
 
-<br>
+------------------------------------------------------------------------
 
 ### Step 3 - Clip polygons to all coastlines
 
@@ -213,7 +213,7 @@ Figure 4. Polygons clipped to the coastline.
 
 </div>
 
-<br>
+------------------------------------------------------------------------
 
 ### Step 4 - Update Metadata
 
@@ -264,7 +264,7 @@ MyPolygons$Reference="WG-SAM-2023/xx Fig. z"
 | P2 | 154794.3 | 284451.7 | 2706377 | POLYGON ((161468.4 2981429,… | WG-SAM-2023/xx Fig. z |
 | P3 | 254156.2 | 765798.0 | 2857997 | POLYGON ((561536.3 3152447,… | WG-SAM-2023/xx Fig. z |
 
-<br>
+------------------------------------------------------------------------
 
 ### Step 5 - Export spatial object
 
@@ -278,11 +278,13 @@ st_write(MyPolygons,paste0(Pth,"Scripts/Polygons/Completed_Polygons.gpkg"),quiet
 The Geopackage generated (*.gpkg* file) may then be shared and submitted
 along with the corresponding proposal.
 
+------------------------------------------------------------------------
+
 ### Step 6 - Plot map
 
 The script below provides some elements to produce a map. Other examples
 are given
-[here](https://github.com/ccamlr/CCAMLRGIS/blob/master/Basemaps/Basemaps.md).
+[here](https://github.com/ccamlr/CCAMLRGIS/blob/master/Basemaps/Basemaps.md#basemaps).
 
 ``` r
 library(CCAMLRGIS)
