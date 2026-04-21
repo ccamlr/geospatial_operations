@@ -10,7 +10,7 @@
 ------------------------------------------------------------------------
 
 This repository contains R scripts used by the CCAMLR Secretariat to
-generate spatial layers, as well as examples of their use.
+generate spatial objects, as well as examples of their use.
 
 <center>
 
@@ -21,12 +21,9 @@ generate spatial layers, as well as examples of their use.
 ------------------------------------------------------------------------
 
 1.  [Geospatial Rules](#1-geospatial-rules)
-2.  [Coastlines](#2-coastlines)
-3.  [Polygons](#3-polygons)
-4.  [Candidate management units in Subarea
-    48.1](#4-candidate-management-units-in-subarea-481)
-5.  [Acoustic transects and stations in Subarea
-    48.1](#5-acoustic-transects-and-stations-in-subarea-481)
+2.  [Building Polygons](#2-building-polygons)
+3.  [Dataset](#3-dataset)
+4.  [Tools](#4-tools)
 
 ------------------------------------------------------------------------
 
@@ -69,7 +66,17 @@ requested by the Scientific Committee.
 
 <br>
 
-### 2. Coastlines
+------------------------------------------------------------------------
+
+### 2. Building Polygons
 
 This should redirect to [Test
 md](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Test.md#test).
+
+------------------------------------------------------------------------
+
+### 3. Dataset
+
+------------------------------------------------------------------------
+
+### 4. Tools
