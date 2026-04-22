@@ -23,8 +23,6 @@ and derived products that are used in routine mapping and analyses
 conducted by the Secretariat. In doing so, the workflow is open to
 review, comments and improvement suggestions.
 
-------------------------------------------------------------------------
-
 <center>
 
 ### Contents
@@ -83,10 +81,11 @@ consist of four classes:
 - **Primary vertices**: essential vertices required to build a polygon,
   locating each of its corners,
 
-- **Secondary vertices**: additional vertices used to mark the vertex of
+- **Secondary vertices**: additional vertices used to mark the edges of
   a contiguous polygon (see Figure 2
-  [here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Building_Polygons.md#step-1---build-a-table-of-vertices))
-  and used to ensure the absence of gaps between polygons,
+  [here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Building_Polygons.md#step-1---build-a-table-of-vertices)),
+  or the intersection of edges, and used to ensure the absence of gaps
+  between polygons,
 
 - **Inland vertices**: additional vertices used to assist in building
   polygons that are bound by the continent (see
@@ -115,17 +114,33 @@ Figure 1. Geospatial workflow steps.
 Each individual spatial object has a *Class* (*e.g.*, ASD) and *ID*
 (*e.g.*, 48.1), and most spatial objects have two scripts taking part in
 the workflow: (i) *ID*\_Step1_Vertices.R collates the **Master
-vertices** (steps 1–4 in Fig. 1), and (ii) *ID*\_Step2_Polygons.R builds
-the spatial objects (steps 5–7 in Fig. 1). All scripts are available in
-the
+vertices** (steps 1–4 above), and (ii) *ID*\_Step2_Polygons.R builds the
+spatial objects (steps 5–7 above). All scripts are available in the
 [Scripts](https://github.com/ccamlr/geospatial_operations/tree/main/Dataset/Scripts)
 folder, and figures generated during the process are in the
 [Plots](https://github.com/ccamlr/geospatial_operations/tree/main/Dataset/Plots)
 folder. The grouping of objects into per-*Class* geopackages, as well as
 the collation of all objects into a single “CCAMLR_All” file (steps 8–10
-in Fig. 1) are done using the “Build_GeoPackages.R” script stored in the
+above) are done using the “Build_GeoPackages.R” script stored in the
 [GeoPackages
 folder](https://github.com/ccamlr/geospatial_operations/tree/main/Dataset/GeoPackages).
+The figure below summarises how individual files are generated, combined
+into per-Class files, and, after adding external data and additional
+metadata, merged into a combined file (*e.g.*, CCAMLR_All.gpkg).
+
+<br>
+
+<div class="figure" style="text-align: center">
+
+<img src="../Figures/Classes.png" alt="Figure 2. Summary of geopackage files generation." width="100%" />
+<p class="caption">
+
+Figure 2. Summary of geopackage files generation.
+</p>
+
+</div>
+
+<br>
 
 ------------------------------------------------------------------------
 
