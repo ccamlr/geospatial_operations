@@ -1,0 +1,46 @@
+---
+output: github_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(knitr)
+```
+
+
+<center>
+# External data
+</center>
+
+------------------------------------------------------------------------
+
+
+<center>
+### Overview
+</center>
+
+
+**UNDER CONSTRUCTION**
+
+------------------------------------------------------------------------
+
+### 1. Section 1
+
+
+
+------------------------------------------------------------------------
+
+### 2. Section 2
+
+
+
+------------------------------------------------------------------------
+
+### 3. Section 3
