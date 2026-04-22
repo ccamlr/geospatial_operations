@@ -124,9 +124,11 @@ the collation of all objects into a single “CCAMLR_All” file (steps 8–10
 above) are done using the “Build_GeoPackages.R” script stored in the
 [GeoPackages
 folder](https://github.com/ccamlr/geospatial_operations/tree/main/Dataset/GeoPackages).
-The figure below summarises how individual files are generated, combined
-into per-Class files, and, after adding external data and additional
-metadata, merged into a combined file (*e.g.*, CCAMLR_All.gpkg).
+
+The figure below (Fig. 2) summarises how individual files are generated
+for each *ID*, combined into per-Class files, and, after adding external
+data and additional metadata, merged into a combined file (*e.g.*,
+CCAMLR_All.gpkg).
 
 <br>
 
@@ -145,6 +147,12 @@ Figure 2. Summary of geopackage files generation.
 ------------------------------------------------------------------------
 
 ### 3. Subarea 48.1 example
+
+While browsing the
+[Scripts](https://github.com/ccamlr/geospatial_operations/tree/main/Dataset/Scripts)
+may help understand the details of the process used to build individual
+files, a step-by-step working example using Subarea 48.1 is given
+[here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Subarea_481_Example.md#subarea-481-example).
 
 ------------------------------------------------------------------------
 

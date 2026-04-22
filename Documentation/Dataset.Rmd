@@ -103,7 +103,7 @@ include_graphics(paste0(Pth,"Figures/Classes.png"))
 
 ### 3. Subarea 48.1 example
 
-While browsing the [Scripts](https://github.com/ccamlr/geospatial_operations/tree/main/Dataset/Scripts) may help understand the details of the process used to build individual files, a step-by-step working example using Subarea 48.1 is given [here]().
+While browsing the [Scripts](https://github.com/ccamlr/geospatial_operations/tree/main/Dataset/Scripts) may help understand the details of the process used to build individual files, a step-by-step working example using Subarea 48.1 is given [here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Subarea_481_Example.md#subarea-481-example).
 
 ------------------------------------------------------------------------
 
