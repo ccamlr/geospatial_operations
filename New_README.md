@@ -7,8 +7,6 @@
 
 </center>
 
-------------------------------------------------------------------------
-
 This repository contains R scripts and resources used by the CCAMLR
 Secretariat to generate spatial objects, as well as examples of their
 use. Many of the operations rely on the [CCAMLRGIS R
@@ -30,8 +28,6 @@ may be accessed and reviewed
 4.  [Tools](#4-tools)
 
 ------------------------------------------------------------------------
-
-<br>
 
 ### 1. Geospatial Rules
 
@@ -70,35 +66,27 @@ requested by the Scientific Committee.
 
 ------------------------------------------------------------------------
 
-<br>
-
 ### 2. Building Polygons
 
 This section provides access to a basic example of the steps that must
 be followed when building polygons while adhering to the Geospatial
 Rules. This workflow is available
-[here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Building_Polygons.md#building-polygons)
-and provides a simple example of the approach used to build other
-spatial objects.
+[here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Building_Polygons.md#building-polygons).
 
 ------------------------------------------------------------------------
-
-<br>
 
 ### 3. Dataset
 
 This section describes the geospatial workflow used by the CCAMLR
 Secretariat to build and maintain spatial objects for use by CCAMLR
 Members and the public. It provides methodological details, examples and
-R scripts to enable a transparent portal to the processes established by
+R scripts to act as a transparent portal to the processes established by
 the Secretariat. While these resources are available
 [here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Dataset.md#dataset),
 individuals looking for the corresponding data should access these from
 here: <https://github.com/ccamlr/data>
 
 ------------------------------------------------------------------------
-
-<br>
 
 ### 4. Tools
 
