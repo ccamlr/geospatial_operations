@@ -7,8 +7,6 @@
 
 </center>
 
-------------------------------------------------------------------------
-
 <center>
 
 ### Overview
@@ -56,8 +54,6 @@ obtain a set of master vertices, to build the Subarea 48.1 polygon.
 6.  [Clipped polygon](#6-clipped-polygon)
 
 ------------------------------------------------------------------------
-
-<br>
 
 ### 1. Inland vertices
 

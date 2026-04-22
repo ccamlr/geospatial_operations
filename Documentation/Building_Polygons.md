@@ -7,8 +7,6 @@
 
 </center>
 
-------------------------------------------------------------------------
-
 <center>
 
 ### Overview
@@ -173,8 +171,8 @@ Figure 3. Densified and projected polygons.
 
 ### Step 3 - Clip polygons to all coastlines
 
-To clip polygons to the coastlines (*i.e.*, remove the land part of a
-polygon to keep only the marine part), the following script is used:
+To clip polygons to the coastlines (*i.e.*, remove the land portion of a
+polygon to keep only its marine portion), the following script is used:
 
 ``` r
 #Load Coastline

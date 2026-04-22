@@ -7,16 +7,14 @@
 
 </center>
 
-------------------------------------------------------------------------
-
 <center>
 
 ### Overview
 
 </center>
 
-This page keeps track of the versions and documents the changes applied
-to the geospatial dataset.
+This page keeps track and documents the changes applied to the
+geospatial dataset.
 
 ------------------------------------------------------------------------
 
@@ -25,7 +23,7 @@ to the geospatial dataset.
 Date: 22 April 2026
 
 Description: First release, with most existing CCAMLR spatial objects
-rebuilt and some of which may need further refinements. Work on pending
+rebuilt, some of which will need further refinements. Work on pending
 objects is ongoing.
 
 ------------------------------------------------------------------------

@@ -28,8 +28,6 @@ Pth="I:/Science/Projects/Geospatial Operations/GitHub/geospatial_operations/"
 # Dataset
 </center>
 
-------------------------------------------------------------------------
-
 
 <center>
 ### Overview
@@ -52,7 +50,6 @@ The aim of this repository is to provide a transparent portal to publish all the
 
 ------------------------------------------------------------------------
 
-<br>
 
 
 ### 1. Folder structure
@@ -105,7 +102,6 @@ The figure below (Fig. 2) summarises how individual files are generated for each
 include_graphics(paste0(Pth,"Figures/Classes.png"))
 ```
 
-<br>
 
 ------------------------------------------------------------------------
 

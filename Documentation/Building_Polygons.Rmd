@@ -20,7 +20,6 @@ Pth="I:/Science/Projects/Geospatial Operations/GitHub/geospatial_operations/"
 # Building Polygons
 </center>
 
-------------------------------------------------------------------------
 
 
 <center>
@@ -138,7 +137,7 @@ include_graphics(paste0(Pth,"Figures/MyPolygons1.png"))
 
 ### Step 3 - Clip polygons to all coastlines
 
-To clip polygons to the coastlines (*i.e.*, remove the land part of a polygon to keep only the marine part), the following script is used:
+To clip polygons to the coastlines (*i.e.*, remove the land portion of a polygon to keep only its marine portion), the following script is used:
 
 ```{r, message=F,echo=T,eval=T}
 #Load Coastline

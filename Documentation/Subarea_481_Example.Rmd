@@ -23,7 +23,6 @@ suppressPackageStartupMessages(library(CCAMLRGIS))
 # Subarea 48.1 example
 </center>
 
-------------------------------------------------------------------------
 
 
 <center>
@@ -60,13 +59,6 @@ This page presents an example requiring all three classes of vertices to obtain 
 6.  [Clipped polygon](#6-clipped-polygon)
 
 ------------------------------------------------------------------------
-
-<br>
-
-
-
-
-
 
 
 ### 1. Inland vertices
