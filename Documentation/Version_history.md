@@ -7,12 +7,6 @@
 
 </center>
 
-<center>
-
-### Overview
-
-</center>
-
 This page keeps track and documents the changes applied to the
 [geospatial
 dataset](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Dataset.md).
