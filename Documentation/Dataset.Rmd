@@ -205,7 +205,7 @@ par(mai=c(0,0,0,0.5),xaxs="i",yaxs="i",xpd=T) #margins
 plot(st_geometry(Bathy),col=Bathy$c,border=NA)
 add_Cscale(cuts=Bathy$Scale_cuts[is.na(Bathy$Scale_cuts)==F],
            cols=Bathy$Scale_cols[is.na(Bathy$Scale_cols)==F],
-           offset=-900,fontsize=0.7,width=13)
+           offset=-850,fontsize=0.7,width=13)
 
 plot(st_geometry(ASDs),add=T,lwd=2)
 
