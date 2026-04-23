@@ -1,4 +1,4 @@
-#Fished Areas function
+#Fishery Concentration Areas
 #Script to 'rasterize' data, determine classes of cumulated catch,
 #then use these classes to build polygons from contours
 library(CCAMLRGIS)
@@ -16,7 +16,7 @@ library(smoothr)
 #smoo: smoothing parameter (see ?smooth_ksmooth).
 #ID: if desired, an identifier may be added in the resulting spatial object (useful if this function is used inside a loop).
 
-FA=function(Input,Plot=NULL,PlotName=NULL,PlotTitle=NULL,Res=10000,Qs=c(0,0.25,0.5,0.75,1),TQ=0.5,smoo=1,ID=NA){
+FCA=function(Input,Plot=NULL,PlotName=NULL,PlotTitle=NULL,Res=50000,Qs=c(0,0.25,0.5,0.75,1),TQ=0.5,smoo=1,ID=NA){
   #Check for input errors
   if(all(c("Latitude","Longitude","Catch")%in%colnames(Input))==FALSE){stop("Check Input columns and their names.")}
   if(is.null(Plot)==FALSE & is.null(PlotName)==TRUE){stop("If 'Plot' is not NULL, a 'PlotName' is required.")}
