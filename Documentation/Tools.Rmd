@@ -133,6 +133,10 @@ d=dev.off()
 include_graphics(paste0(Pth,"Figures/FCA_Demo.png"))
 ```
 
+<br>
+
+<br>
+
 ```{r fig.align="center",out.width="50%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 2. Output of the FCA workflow."}
 include_graphics(paste0(Pth,"Figures/FCA_Output.png"))
 ```

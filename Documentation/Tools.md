@@ -77,12 +77,12 @@ Input=data.frame(Lat_Start=rnorm(n=N,mean=-62,sd=1),
 #Run FCI() without merging tracks
 FCI_1=FCI(Input)
 FCI_1
-#> [1] 0.1303219
+#> [1] 0.1865033
 
 #Run FCI() with merging tracks
 FCI_2=FCI(Input,MergeB=T)
 FCI_2
-#> [1] 0.1515249
+#> [1] 0.1963588
 ```
 
 #### 1.2. Fishery Concentration Areas
@@ -150,6 +150,10 @@ Figure 1. Steps of the FCA workflow.
 </p>
 
 </div>
+
+<br>
+
+<br>
 
 <div class="figure" style="text-align: center">
 
