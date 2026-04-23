@@ -43,13 +43,13 @@ Rev. 2](https://meetings.ccamlr.org/en/sc-camlr-44/bg/36-rev-2), the
 Fishery Concentration Index was designed to visualise temporal trends in
 spatial concentration of catches. It is calculated as the sum of catches
 divided by the area of the fished footprint (*e.g.*, in tonnes per
-km$^2$), within a defined period and area. To compute the area of the
+square km), within a defined period and area. To compute the area of the
 fished footprint, a fished path is considered as a straight line between
 the start and end locations of the fishing event, and is buffered by a
 chosen distance (typically 10s of meters) to represent the area that was
 fished along that path. This buffer distance can be adjusted depending
 on the fishing gear used. Depending on the fishery, fished footprints
-may be merged or not, prior to the calculation of the index
+may be merged or not, prior to the calculation of the Index
 (sum(catch)/sum(area)). For instance, because the krill fishery is a
 pelagic fishery with water and krill in motion, the trawl paths are
 treated as non-overlapping and footprints are not merged.
@@ -77,12 +77,12 @@ Input=data.frame(Lat_Start=rnorm(n=N,mean=-62,sd=1),
 #Run FCI() without merging tracks
 FCI_1=FCI(Input)
 FCI_1
-#> [1] 0.1865033
+#> [1] 0.1435278
 
 #Run FCI() with merging tracks
 FCI_2=FCI(Input,MergeB=T)
 FCI_2
-#> [1] 0.1963588
+#> [1] 0.1653729
 ```
 
 #### 1.2. Fishery Concentration Areas
@@ -94,8 +94,8 @@ trends in concentration of catches. In short, catch data are gridded,
 grid cells are ordered by their catch, and their cumulative sum used to
 select cells based on a chosen proportional threshold of total catch.
 For example, those grid cells with the highest catch and corresponding
-to 50% of the total catch can be isolated. These cells are then used to
-build polygons which can be plotted to visualise where this catch was
+to 50% of the total catch can be isolated. These cells are then merged
+to build polygons which can be plotted to visualise where this catch was
 taken from.
 
 The Fishery Concentration Areas workflow was written in an R function

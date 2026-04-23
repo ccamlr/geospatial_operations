@@ -92,8 +92,6 @@ here: <https://github.com/ccamlr/data>
 
 This section provides access to several numerical tools that are used by
 the Secretariat when conducting geospatial analyses. Some are in
-development while others have been used for a while, and all can be
-accessed
+development while others have been used for specific purposes, and all
+can be accessed
 [here](https://github.com/ccamlr/geospatial_operations/blob/main/Documentation/Tools.md#tools).
-It is worth noting that other ‘non-GIS’ tools are available in the
-[CCAMLR Science Toolbox](https://ccamlr-science.github.io/Toolbox/)

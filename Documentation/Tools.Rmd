@@ -54,7 +54,7 @@ While the [CCAMLRGIS] R package offers many geospatial tools, this page document
 
 [SC-CAMLR-44/BG/36 Rev. 2]:https://meetings.ccamlr.org/en/sc-camlr-44/bg/36-rev-2
 
-Introduced in [SC-CAMLR-44/BG/36 Rev. 2], the Fishery Concentration Index was designed to visualise temporal trends in spatial concentration of catches. It is calculated as the sum of catches divided by the area of the fished footprint (*e.g.*, in tonnes per km$^2$), within a defined period and area. To compute the area of the fished footprint, a fished path is considered as a straight line between the start and end locations of the fishing event, and is buffered by a chosen distance (typically 10s of meters) to represent the area that was fished along that path. This buffer distance can be adjusted depending on the fishing gear used. Depending on the fishery, fished footprints may be merged or not, prior to the calculation of the index (sum(catch)/sum(area)). For instance, because the krill fishery is a pelagic fishery with water and krill in motion, the trawl paths are treated as non-overlapping and footprints are not merged.
+Introduced in [SC-CAMLR-44/BG/36 Rev. 2], the Fishery Concentration Index was designed to visualise temporal trends in spatial concentration of catches. It is calculated as the sum of catches divided by the area of the fished footprint (*e.g.*, in tonnes per square km), within a defined period and area. To compute the area of the fished footprint, a fished path is considered as a straight line between the start and end locations of the fishing event, and is buffered by a chosen distance (typically 10s of meters) to represent the area that was fished along that path. This buffer distance can be adjusted depending on the fishing gear used. Depending on the fishery, fished footprints may be merged or not, prior to the calculation of the Index (sum(catch)/sum(area)). For instance, because the krill fishery is a pelagic fishery with water and krill in motion, the trawl paths are treated as non-overlapping and footprints are not merged.
 
 [FCI()]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Fishery%20Distribution%20Metrics/FCI.R
 
@@ -87,7 +87,7 @@ FCI_2
 
 #### 1.2. Fishery Concentration Areas
 
-Introduced in [SC-CAMLR-44/BG/36 Rev. 2], the Fishery Concentration Areas workflow was designed to visualise spatial trends in concentration of catches. In short, catch data are gridded, grid cells are ordered by their catch, and their cumulative sum used to select cells based on a chosen proportional threshold of total catch. For example, those grid cells with the highest catch and corresponding to 50% of the total catch can be isolated. These cells are then used to build polygons which can be plotted to visualise where this catch was taken from. 
+Introduced in [SC-CAMLR-44/BG/36 Rev. 2], the Fishery Concentration Areas workflow was designed to visualise spatial trends in concentration of catches. In short, catch data are gridded, grid cells are ordered by their catch, and their cumulative sum used to select cells based on a chosen proportional threshold of total catch. For example, those grid cells with the highest catch and corresponding to 50% of the total catch can be isolated. These cells are then merged to build polygons which can be plotted to visualise where this catch was taken from. 
 
 [FCA()]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Fishery%20Distribution%20Metrics/FCA.R
 
