@@ -64,7 +64,7 @@ along with their script
 
 <div class="figure" style="text-align: center">
 
-<img src="Subarea_481_Example_files/figure-gfm/unnamed-chunk-2-1.png" alt="Figure 1. Location of inland vertices, each prefixed with the letter 'I'." width="100%" />
+<img src="../Figures/Subarea_481_Example_Fig01.png" alt="Figure 1. Location of inland vertices, each prefixed with the letter 'I'." width="100%" />
 <p class="caption">
 
 Figure 1. Location of inland vertices, each prefixed with the letter
@@ -122,20 +122,23 @@ V_481=data.frame(
 )
 Vs481=create_Points(Input=V_481[,c(2,3,1)])
 Ls481=create_Lines(Input=data.frame(n=1,V_481$Latitude,V_481$Longitude),Densify = T)
-par(mai=rep(0,4),xaxs="i",yaxs="i")
-plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
-     xlim=c(-3200000,-500000),ylim=c(50000,2500000),xpd=T)
+
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig02.png'),width=1200,height=800,res=200)
+par(mai=rep(0.1,4),xaxs="i",yaxs="i",xpd=T)
+plot(st_geometry(Vs481),col="white") #blank plot to set plot boundaries
+plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,add=T,xpd=T)
 plot(st_geometry(Ls),add=T,lwd=0.5,col="red")
 plot(st_geometry(Vs),add=T,pch=4,cex=0.25,col="red")
-text(Vs$x,Vs$y,Vs$Vertex,adj=c(1.2,0.5),col="red",xpd=T,cex=0.4)
+text(Vs$x,Vs$y,Vs$Vertex,adj=c(1.2,0.5),col="red",xpd=T,cex=0.6)
 plot(st_geometry(Ls481),add=T,lwd=0.5,col="darkgreen")
 plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=0.8)
+d=dev.off()
 ```
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 
-<img src="Subarea_481_Example_files/figure-gfm/unnamed-chunk-4-1.png" alt="Figure 2. Location of inland vertices in red, and Subarea 48.1 primary vertices in green." width="100%" />
+<img src="../Figures/Subarea_481_Example_Fig02.png" alt="Figure 2. Location of inland vertices in red, and Subarea 48.1 primary vertices in green." width="100%" />
 <p class="caption">
 
 Figure 2. Location of inland vertices in red, and Subarea 48.1 primary
@@ -179,22 +182,24 @@ Sec=data.frame(
 )
 VsSec=create_Points(Sec)
 
-par(mai=rep(0,4),xaxs="i",yaxs="i")
-plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
-    xlim=c(-3200000,-500000),ylim=c(50000,2500000),xpd=T)
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig03.png'),width=1200,height=800,res=200)
+par(mai=rep(0.1,4),xaxs="i",yaxs="i",xpd=T)
+plot(st_geometry(Vs481),col="white") #blank plot to set plot boundaries
+plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,xpd=T,add=T)
 plot(st_geometry(Ls),add=T,lwd=0.5,col="red")
 plot(st_geometry(Vs),add=T,pch=4,cex=0.25,col="red")
-text(Vs$x,Vs$y,Vs$Vertex,adj=c(1.2,0.5),col="red",xpd=T,cex=0.4)
+text(Vs$x,Vs$y,Vs$Vertex,adj=c(1.2,0.5),col="red",xpd=T,cex=0.6)
 plot(st_geometry(Ls481),add=T,lwd=0.5,col="darkgreen")
 plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=0.8)
 plot(st_geometry(VsSec),add=T,pch=4,cex=0.8,col="blue",lwd=1.5)
 text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(-0.5,-0.3),col="blue",xpd=T,cex=0.8)
+d=dev.off()
 ```
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 
-<img src="Subarea_481_Example_files/figure-gfm/unnamed-chunk-6-1.png" alt="Figure 3. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex in blue (here S1 is at 73.55°S;70°W)." width="100%" />
+<img src="../Figures/Subarea_481_Example_Fig03.png" alt="Figure 3. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex in blue (here S1 is at 73.55°S;70°W)." width="100%" />
 <p class="caption">
 
 Figure 3. Location of inland vertices in red; Subarea 48.1 primary
@@ -219,6 +224,7 @@ Sec=data.frame(
 )
 VsSec=create_Points(Sec)
 
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig04.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
      xlim=c(-2200000,-1900000),ylim=c(750000,820000),xpd=T)
@@ -230,11 +236,12 @@ plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=1.6)
 plot(st_geometry(VsSec),add=T,pch=4,cex=0.4,col="blue")
 text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(1.2,0.5),col="blue",xpd=T,cex=0.8)
+d=dev.off()
 ```
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 
-<img src="Subarea_481_Example_files/figure-gfm/unnamed-chunk-7-1.png" alt="Figure 4. Location of inland vertices in red; Subarea 48.1 western edge in green and secondary vertices in blue." width="100%" />
+<img src="../Figures/Subarea_481_Example_Fig04.png" alt="Figure 4. Location of inland vertices in red; Subarea 48.1 western edge in green and secondary vertices in blue." width="100%" />
 <p class="caption">
 
 Figure 4. Location of inland vertices in red; Subarea 48.1 western edge
@@ -260,6 +267,7 @@ Sec=data.frame(
 )
 VsSec=create_Points(Sec)
 
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig05.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
     xlim=c(-3200000,-500000),ylim=c(50000,2500000),xpd=T)
@@ -272,11 +280,12 @@ plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=0.8)
 plot(st_geometry(VsSec),add=T,pch=4,cex=0.8,col="blue",lwd=1.5)
 text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(-0.5,-0.3),col="blue",xpd=T,cex=0.8)
+d=dev.off()
 ```
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 
-<img src="Subarea_481_Example_files/figure-gfm/unnamed-chunk-8-1.png" alt="Figure 5. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex in blue (here S6 denotes the extremity of the western edge of Subarea 48.2 which is shown in pale grey)." width="100%" />
+<img src="../Figures/Subarea_481_Example_Fig05.png" alt="Figure 5. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex in blue (here S6 denotes the extremity of the western edge of Subarea 48.2 which is shown in pale grey)." width="100%" />
 <p class="caption">
 
 Figure 5. Location of inland vertices in red; Subarea 48.1 primary
@@ -300,6 +309,7 @@ Sec=data.frame(
 )
 VsSec=create_Points(Sec)
 
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig06.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
      xlim=c(-2500000,-2400000),ylim=c(1100000,1600000),xpd=T)
@@ -311,11 +321,12 @@ plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=1.6)
 plot(st_geometry(VsSec),add=T,pch=4,cex=0.4,col="blue")
 text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(1.2,0.5),col="blue",xpd=T,cex=0.8)
+d=dev.off()
 ```
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 
-<img src="Subarea_481_Example_files/figure-gfm/unnamed-chunk-9-1.png" alt="Figure 6. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex (S7) in blue." width="100%" />
+<img src="../Figures/Subarea_481_Example_Fig06.png" alt="Figure 6. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex (S7) in blue." width="100%" />
 <p class="caption">
 
 Figure 6. Location of inland vertices in red; Subarea 48.1 primary
@@ -336,6 +347,7 @@ Sec=data.frame(
 )
 VsSec=create_Points(Sec)
 
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig07.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
     xlim=c(-3120000,-1040000),ylim=c(350000,2180000),xpd=T)
@@ -347,11 +359,12 @@ plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=0.8)
 plot(st_geometry(VsSec),add=T,pch=4,cex=0.5,col="blue",lwd=1.5)
 text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(-0.2,-0.2),col="blue",xpd=T,cex=0.6)
+d=dev.off()
 ```
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 
-<img src="Subarea_481_Example_files/figure-gfm/unnamed-chunk-10-1.png" alt="Figure 7. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertices in blue." width="100%" />
+<img src="../Figures/Subarea_481_Example_Fig07.png" alt="Figure 7. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertices in blue." width="100%" />
 <p class="caption">
 
 Figure 7. Location of inland vertices in red; Subarea 48.1 primary
@@ -405,15 +418,17 @@ P=create_Polys(Input = data.frame(Name="Subarea 48.1",
                                   Lat=MT_481$Latitude,
                                   Lon=MT_481$Longitude))
 
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig08.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
     xlim=c(-3110000,-1700000),ylim=c(620000,2150000),xpd=T)
 plot(st_geometry(P),add=T,lwd=0.5,col=rgb(0,1,0.1,alpha=0.5),border=rgb(0,1,0.1,alpha=0.5))
+d=dev.off()
 ```
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 
-<img src="Subarea_481_Example_files/figure-gfm/unnamed-chunk-12-1.png" alt="Figure 8. Subarea 48.1 master polygon built from the master table of vertices." width="100%" />
+<img src="../Figures/Subarea_481_Example_Fig08.png" alt="Figure 8. Subarea 48.1 master polygon built from the master table of vertices." width="100%" />
 <p class="caption">
 
 Figure 8. Subarea 48.1 master polygon built from the master table of
@@ -439,13 +454,15 @@ coast=st_union(coast)
 #Remove the coastline from the polygons
 P481=suppressWarnings(st_difference(P,coast))
 #Plot
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig09.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(P481),col="darkgreen",border=NA)
+d=dev.off()
 ```
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 
-<img src="Subarea_481_Example_files/figure-gfm/unnamed-chunk-13-1.png" alt="Figure 9. The Subarea 48.1 polygon, clipped to the latest coastline." height="140%" />
+<img src="../Figures/Subarea_481_Example_Fig09.png" alt="Figure 9. The Subarea 48.1 polygon, clipped to the latest coastline." width="100%" />
 <p class="caption">
 
 Figure 9. The Subarea 48.1 polygon, clipped to the latest coastline.

@@ -7,8 +7,6 @@
 
 </center>
 
-------------------------------------------------------------------------
-
 <center>
 
 ### Overview
@@ -37,8 +35,6 @@ review, comments and improvement suggestions.
 4.  [Output files](#4-output-files)
 
 ------------------------------------------------------------------------
-
-<br>
 
 ### 1. Folder structure
 
@@ -97,6 +93,8 @@ consist of four classes:
 - **Master vertices**: a combination of the above three classes, used to
   build polygons while adhering to the Geospatial Rules.
 
+<br>
+
 A summary of the steps taken is given below (Fig. 1).
 
 <br>
@@ -128,6 +126,8 @@ above) are done using the “Build_GeoPackages.R” script stored in the
 [GeoPackages
 folder](https://github.com/ccamlr/geospatial_operations/tree/main/Dataset/GeoPackages).
 
+<br>
+
 The figure below (Fig. 2) summarises how individual files are generated
 for each *ID*, combined into per-Class files, and, after adding external
 data and additional metadata, merged into a combined file (*e.g.*,
@@ -144,8 +144,6 @@ Figure 2. Summary of geopackage files generation.
 </p>
 
 </div>
-
-<br>
 
 ------------------------------------------------------------------------
 
@@ -252,12 +250,14 @@ ASDs=st_read(paste0(Pth,"Dataset/GeoPackages/CCAMLR_ASD.gpkg"),quiet=T)
 #Exclude FAO areas (keep Subareas and Divisions)
 ASDs=ASDs[ASDs$Class_long!="Area",]
 #Plot geometry
+png(filename=paste0(Pth,'Figures/Dataset_Fig01.png'),width=1200,height=1200,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i") #no margins
 plot(st_geometry(ASDs))
 text(ASDs$Labx,ASDs$Laby,ASDs$ID,col="blue",cex=0.8) #add labels
+d=dev.off()
 ```
 
-<img src="Dataset_files/figure-gfm/unnamed-chunk-5-1.png" alt="" width="100%" />
+<img src="../Figures/Dataset_Fig01.png" alt="" width="100%" style="display: block; margin: auto;" />
 
 <br>
 
@@ -312,12 +312,13 @@ Coastline=st_read(paste0(Pth,"Dataset/GeoPackages/CCAMLR_All.gpkg"),layer="Coast
 Bathy=st_read(paste0(Pth,"Dataset/GeoPackages/CCAMLR_All.gpkg"),layer="GEBCO 2025 Polygons MidRes",quiet=T)
 
 #Plot
-par(mai=rep(0,4),xaxs="i",yaxs="i",xpd=T) #no margins
+png(filename=paste0(Pth,'Figures/Dataset_Fig02.png'),width=1500,height=1200,res=200)
+par(mai=c(0,0,0,0.5),xaxs="i",yaxs="i",xpd=T) #margins
 
 plot(st_geometry(Bathy),col=Bathy$c,border=NA)
 add_Cscale(cuts=Bathy$Scale_cuts[is.na(Bathy$Scale_cuts)==F],
            cols=Bathy$Scale_cols[is.na(Bathy$Scale_cols)==F],
-           offset=-2100,fontsize=0.7,width=12)
+           offset=-900,fontsize=0.7,width=13)
 
 plot(st_geometry(ASDs),add=T,lwd=2)
 
@@ -326,7 +327,8 @@ plot(st_geometry(Convention_Area),border="red",lwd=3,add=T)
 plot(st_geometry(Coastline[Coastline$Surface=="Land",]),col="grey",lwd=0.1,add=T)
 plot(st_geometry(Coastline[Coastline$Surface=="Ice",]),col="white",lwd=0.1,add=T)
 
-text(ASDs$Labx,ASDs$Laby,ASDs$ID,col="orange",cex=0.8) #add labels
+text(ASDs$Labx,ASDs$Laby,ASDs$ID,col="orange",cex=0.8,font=2) #add labels
+d=dev.off()
 ```
 
-<img src="Dataset_files/figure-gfm/unnamed-chunk-7-1.png" alt="" width="100%" />
+<img src="../Figures/Dataset_Fig02.png" alt="" width="100%" style="display: block; margin: auto;" />

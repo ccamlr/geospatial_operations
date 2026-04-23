@@ -14,7 +14,6 @@ knitr::opts_chunk$set(
 )
 library(knitr)
 Pth="I:/Science/Projects/Geospatial Operations/GitHub/geospatial_operations/"
-
 suppressPackageStartupMessages(library(CCAMLRGIS))
 ```
 
@@ -65,7 +64,7 @@ This page presents an example requiring all three classes of vertices to obtain 
 
 The inland vertices used throughout the geospatial workflow are stored along with their script [here](https://github.com/ccamlr/geospatial_operations/tree/main/Dataset/Inputs) (Fig. 1).
 
-```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 1. Location of inland vertices, each prefixed with the letter 'I'."}
+```{r message=F,echo=F,eval=T}
 
 V_inland=read.csv(paste0(Pth,"Dataset/Inputs/Inland_Vertices_V3.csv"),check.names = F)
 Indx=c(seq(1,143),6) #Selected vertices for clarity
@@ -75,14 +74,18 @@ Ls=create_Lines(Input=data.frame(n=1,
                                  c(V_inland$Latitude),
                                  c(V_inland$Longitude)
                                  ),Densify = T)
-par(mai=rep(0,4),xaxs="i",yaxs="i")
-plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
-     xlim=c(-2000000,2000000),ylim=c(-2200000,2200000),xpd=T)
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig01.png'),width=1200,height=1200,res=200)
+par(mai=c(0,0.1,0,0.1),xaxs="i",yaxs="i")
+plot(st_geometry(Vs),pch=4,cex=0.25,col="red")
+plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,add=T,xpd=T)
 plot(st_geometry(Ls),add=T,lwd=0.5,col="red")
-plot(st_geometry(Vs),add=T,pch=4,cex=0.25,col="red")
-text(Vs$x,Vs$y,Vs$Vertex,adj=c(1.2,0.5),col="red",xpd=T,cex=0.4)
+plot(st_geometry(Vs),add=T,pch=4,cex=0.3,col="red")
+text(Vs$x,Vs$y,Vs$Vertex,adj=c(1.2,0.5),col="red",xpd=T,cex=0.6)
+d=dev.off()
+```
 
-
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T,fig.cap="Figure 1. Location of inland vertices, each prefixed with the letter 'I'."}
+include_graphics(paste0(Pth,"Figures/Subarea_481_Example_Fig01.png"))
 ```
 
 <br> 
@@ -121,7 +124,7 @@ kable(V_481)
 
 Where locations are denoted as 'coast', temporary locations will be used as to extend those lines sufficiently so that they go inland. For example, the latitude of vertex P1 could be -80° and the longitude of vertex P5 could be -65°:
 
-```{r fig.cap="Figure 2. Location of inland vertices in red, and Subarea 48.1 primary vertices in green." ,eval=T,out.width="100%"}
+```{r ,eval=T}
 V_481=data.frame(
   Vertex=c('P1','P2','P3','P4','P5'),
   Latitude=c(-80,-60,-60,-65,-65),
@@ -129,16 +132,24 @@ V_481=data.frame(
 )
 Vs481=create_Points(Input=V_481[,c(2,3,1)])
 Ls481=create_Lines(Input=data.frame(n=1,V_481$Latitude,V_481$Longitude),Densify = T)
-par(mai=rep(0,4),xaxs="i",yaxs="i")
-plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
-     xlim=c(-3200000,-500000),ylim=c(50000,2500000),xpd=T)
+
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig02.png'),width=1200,height=800,res=200)
+par(mai=rep(0.1,4),xaxs="i",yaxs="i",xpd=T)
+plot(st_geometry(Vs481),col="white") #blank plot to set plot boundaries
+plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,add=T,xpd=T)
 plot(st_geometry(Ls),add=T,lwd=0.5,col="red")
 plot(st_geometry(Vs),add=T,pch=4,cex=0.25,col="red")
-text(Vs$x,Vs$y,Vs$Vertex,adj=c(1.2,0.5),col="red",xpd=T,cex=0.4)
+text(Vs$x,Vs$y,Vs$Vertex,adj=c(1.2,0.5),col="red",xpd=T,cex=0.6)
 plot(st_geometry(Ls481),add=T,lwd=0.5,col="darkgreen")
 plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=0.8)
+d=dev.off()
 ```
+
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T,fig.cap="Figure 2. Location of inland vertices in red, and Subarea 48.1 primary vertices in green."}
+include_graphics(paste0(Pth,"Figures/Subarea_481_Example_Fig02.png"))
+```
+
 
 <br> 
 
@@ -163,7 +174,7 @@ get_C_intersection(Line1=c(V_481$Longitude[1],V_481$Latitude[1],
 ```
 
 
-```{r fig.cap="Figure 3. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex in blue (here S1 is at 73.55°S;70°W)." ,eval=T,out.width="100%"}
+```{r eval=T}
 Sec=data.frame(
   Latitude=c(-73.55),
   Longitude=c(-70),
@@ -171,26 +182,31 @@ Sec=data.frame(
 )
 VsSec=create_Points(Sec)
 
-par(mai=rep(0,4),xaxs="i",yaxs="i")
-plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
-    xlim=c(-3200000,-500000),ylim=c(50000,2500000),xpd=T)
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig03.png'),width=1200,height=800,res=200)
+par(mai=rep(0.1,4),xaxs="i",yaxs="i",xpd=T)
+plot(st_geometry(Vs481),col="white") #blank plot to set plot boundaries
+plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,xpd=T,add=T)
 plot(st_geometry(Ls),add=T,lwd=0.5,col="red")
 plot(st_geometry(Vs),add=T,pch=4,cex=0.25,col="red")
-text(Vs$x,Vs$y,Vs$Vertex,adj=c(1.2,0.5),col="red",xpd=T,cex=0.4)
+text(Vs$x,Vs$y,Vs$Vertex,adj=c(1.2,0.5),col="red",xpd=T,cex=0.6)
 plot(st_geometry(Ls481),add=T,lwd=0.5,col="darkgreen")
 plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=0.8)
 plot(st_geometry(VsSec),add=T,pch=4,cex=0.8,col="blue",lwd=1.5)
 text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(-0.5,-0.3),col="blue",xpd=T,cex=0.8)
+d=dev.off()
 ```
 
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T,fig.cap="Figure 3. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex in blue (here S1 is at 73.55°S;70°W)."}
+include_graphics(paste0(Pth,"Figures/Subarea_481_Example_Fig03.png"))
+```
 
 
 #### 3.2. Secondary vertices -- Alexander Island
 
 A set of secondary vertices is required on [Alexander Island](https://en.wikipedia.org/wiki/Alexander_Island) so that the western boundary of Subarea 48.1 does not include two bays when clipped to the coastline: 
 
-```{r fig.cap="Figure 4. Location of inland vertices in red; Subarea 48.1 western edge in green and secondary vertices in blue." ,eval=T,out.width="100%"}
+```{r eval=T}
 Sec=data.frame(
   Latitude=c(-71,-70.9,-70.3,-70.2),
   Longitude=c(-70,-69.5,-69.5,-70),
@@ -198,6 +214,7 @@ Sec=data.frame(
 )
 VsSec=create_Points(Sec)
 
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig04.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
      xlim=c(-2200000,-1900000),ylim=c(750000,820000),xpd=T)
@@ -209,8 +226,12 @@ plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=1.6)
 plot(st_geometry(VsSec),add=T,pch=4,cex=0.4,col="blue")
 text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(1.2,0.5),col="blue",xpd=T,cex=0.8)
+d=dev.off()
 ```
 
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T,fig.cap="Figure 4. Location of inland vertices in red; Subarea 48.1 western edge in green and secondary vertices in blue."}
+include_graphics(paste0(Pth,"Figures/Subarea_481_Example_Fig04.png"))
+```
 
 
 #### 3.3. Secondary vertices -- marking the Subarea 48.2 vertex
@@ -218,7 +239,7 @@ text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(1.2,0.5),col="blue",xpd=T,cex=0.8)
 Subarea 48.1 shares part of its eastern edge with Subarea 48.2. A secondary vertex is needed to mark the extremity of the Subarea 48.2 edge (at 64°S, see S6 below):
 
 
-```{r fig.cap="Figure 5. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex in blue (here S6 denotes the extremity of the western edge of Subarea 48.2 which is shown in pale grey)." ,eval=T,out.width="100%"}
+```{r eval=T}
 #Get 48.2
 A482=load_ASDs()
 A482=A482[A482$GAR_Short_Label=="482",]
@@ -229,6 +250,7 @@ Sec=data.frame(
 )
 VsSec=create_Points(Sec)
 
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig05.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
     xlim=c(-3200000,-500000),ylim=c(50000,2500000),xpd=T)
@@ -241,16 +263,19 @@ plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=0.8)
 plot(st_geometry(VsSec),add=T,pch=4,cex=0.8,col="blue",lwd=1.5)
 text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(-0.5,-0.3),col="blue",xpd=T,cex=0.8)
+d=dev.off()
 ```
 
-
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T,fig.cap="Figure 5. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex in blue (here S6 denotes the extremity of the western edge of Subarea 48.2 which is shown in pale grey)."}
+include_graphics(paste0(Pth,"Figures/Subarea_481_Example_Fig05.png"))
+```
 
 #### 3.4. Secondary vertices -- Eastern Peninsula
 
 A secondary vertex is required where the line P4--P5 meets the eastern coast of the peninsula (denoted S7):
 
 
-```{r fig.cap="Figure 6. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex (S7) in blue." ,eval=T,out.width="100%"}
+```{r eval=T}
 Sec=data.frame(
   Latitude=c(-65),
   Longitude=c(-61.07),
@@ -258,6 +283,7 @@ Sec=data.frame(
 )
 VsSec=create_Points(Sec)
 
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig06.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
      xlim=c(-2500000,-2400000),ylim=c(1100000,1600000),xpd=T)
@@ -269,16 +295,19 @@ plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=1.6)
 plot(st_geometry(VsSec),add=T,pch=4,cex=0.4,col="blue")
 text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(1.2,0.5),col="blue",xpd=T,cex=0.8)
+d=dev.off()
 ```
 
-
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T,fig.cap="Figure 6. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertex (S7) in blue."}
+include_graphics(paste0(Pth,"Figures/Subarea_481_Example_Fig06.png"))
+```
 
 #### 3.5. Secondary vertices -- Summary
 
 Putting all secondary vertices together results in:
 
 
-```{r fig.cap="Figure 7. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertices in blue." ,eval=T,out.width="100%"}
+```{r eval=T}
 Sec=data.frame(
   Latitude=c(-73.55,-71,-70.9,-70.3,-70.2,-64,-65),
   Longitude=c(-70,-70,-69.5,-69.5,-70,-50,-61.07),
@@ -286,6 +315,7 @@ Sec=data.frame(
 )
 VsSec=create_Points(Sec)
 
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig07.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
     xlim=c(-3120000,-1040000),ylim=c(350000,2180000),xpd=T)
@@ -297,8 +327,13 @@ plot(st_geometry(Vs481),add=T,pch=4,cex=0.5,col="darkgreen")
 text(Vs481$x,Vs481$y,Vs481$Vertex,adj=c(1.2,0.5),col="darkgreen",xpd=T,cex=0.8)
 plot(st_geometry(VsSec),add=T,pch=4,cex=0.5,col="blue",lwd=1.5)
 text(VsSec$x,VsSec$y,VsSec$Vertex,adj=c(-0.2,-0.2),col="blue",xpd=T,cex=0.6)
+d=dev.off()
 ```
 
+
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T,fig.cap="Figure 7. Location of inland vertices in red; Subarea 48.1 primary vertices in green and secondary vertices in blue."}
+include_graphics(paste0(Pth,"Figures/Subarea_481_Example_Fig07.png"))
+```
 
 <br> 
 
@@ -339,18 +374,22 @@ kable(MT_481)
 Using this table of vertices in the *create_Polys()* function of the CCAMLRGIS packages yields:
 
 
-```{r fig.cap="Figure 8. Subarea 48.1 master polygon built from the master table of vertices." ,eval=T,out.width="100%"}
+```{r eval=T}
 P=create_Polys(Input = data.frame(Name="Subarea 48.1",
                                   Lat=MT_481$Latitude,
                                   Lon=MT_481$Longitude))
 
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig08.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(Coast[Coast$ID=='All',]),col='grey',border=NA,
     xlim=c(-3110000,-1700000),ylim=c(620000,2150000),xpd=T)
 plot(st_geometry(P),add=T,lwd=0.5,col=rgb(0,1,0.1,alpha=0.5),border=rgb(0,1,0.1,alpha=0.5))
+d=dev.off()
 ```
 
-
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T,fig.cap="Figure 8. Subarea 48.1 master polygon built from the master table of vertices."}
+include_graphics(paste0(Pth,"Figures/Subarea_481_Example_Fig08.png"))
+```
 
 <br> 
 
@@ -364,13 +403,20 @@ plot(st_geometry(P),add=T,lwd=0.5,col=rgb(0,1,0.1,alpha=0.5),border=rgb(0,1,0.1,
 Finally, using the *st_difference()* function from the [sf] package, the polygon is clipped to the coastline:
 
 
-```{r fig.cap="Figure 9. The Subarea 48.1 polygon, clipped to the latest coastline.",out.height="140%",eval=T}
+```{r eval=T}
 coast=load_Coastline()
 coast=coast[coast$surface=="Land",]
 coast=st_union(coast)
 #Remove the coastline from the polygons
 P481=suppressWarnings(st_difference(P,coast))
 #Plot
+png(filename=paste0(Pth,'Figures/Subarea_481_Example_Fig09.png'),width=1200,height=800,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i")
 plot(st_geometry(P481),col="darkgreen",border=NA)
+d=dev.off()
+```
+
+
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T,fig.cap="Figure 9. The Subarea 48.1 polygon, clipped to the latest coastline."}
+include_graphics(paste0(Pth,"Figures/Subarea_481_Example_Fig09.png"))
 ```

@@ -82,6 +82,8 @@ In its simplest form, the workflow is demonstrated in the example given [here](h
 
 - **Master vertices**: a combination of the above three classes, used to build polygons while adhering to the Geospatial Rules.
 
+<br>
+
 A summary of the steps taken is given below (Fig. 1).
 
 <br>
@@ -93,6 +95,8 @@ include_graphics(paste0(Pth,"Figures/Geospatial Dataset Workflow.png"))
 <br>
 
 Each individual spatial object has a *Class* (*e.g.*, ASD) and *ID* (*e.g.*, 48.1), and most spatial objects have two scripts taking part in the workflow: (i) *ID*_Step1_Vertices.R collates the **Master vertices** (steps 1--4 above), and (ii) *ID*_Step2_Polygons.R builds the spatial objects (steps 5--7 above). All scripts are available in the [Scripts folder], and figures generated during the process are in the [Plots folder]. The grouping of objects into per-*Class* geopackages, as well as the collation of all objects into a single "CCAMLR_All" file (steps 8--10 above) are done using the "Build_GeoPackages.R" script stored in the [GeoPackages folder].
+
+<br>
 
 The figure below (Fig. 2) summarises how individual files are generated for each *ID*, combined into per-Class files, and, after adding external data and additional metadata, merged into a combined file (*e.g.*, CCAMLR_All.gpkg).
 
@@ -144,16 +148,22 @@ The field '*Version*' tracks the version of the geospatial dataset, which change
 
 To plot a per-Class file, the following is a simple starting point:
 
-```{r,eval=T,echo=T,out.width="100%",message=F,dpi=300}
+```{r,eval=T,echo=T,message=F}
 library(CCAMLRGIS)
 #read the file
 ASDs=st_read(paste0(Pth,"Dataset/GeoPackages/CCAMLR_ASD.gpkg"),quiet=T)
 #Exclude FAO areas (keep Subareas and Divisions)
 ASDs=ASDs[ASDs$Class_long!="Area",]
 #Plot geometry
+png(filename=paste0(Pth,'Figures/Dataset_Fig01.png'),width=1200,height=1200,res=200)
 par(mai=rep(0,4),xaxs="i",yaxs="i") #no margins
 plot(st_geometry(ASDs))
 text(ASDs$Labx,ASDs$Laby,ASDs$ID,col="blue",cex=0.8) #add labels
+d=dev.off()
+```
+
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T}
+include_graphics(paste0(Pth,"Figures/Dataset_Fig01.png"))
 ```
 
 <br>
@@ -180,7 +190,7 @@ kable(Layers)
 
 Using such multi-layer file requires loading layers using their names (which can be gathered from above) as follows:
 
-```{r,eval=T,echo=T,,out.width="100%",dpi=300}
+```{r,eval=T,echo=T}
 #Load layers of choice
 ASDs=st_read(paste0(Pth,"Dataset/GeoPackages/CCAMLR_All.gpkg"),layer="Areas, Subareas and Divisions",quiet=T)
 ASDs=ASDs[ASDs$Class_long!="Area",] #Exclude FAO areas (keep Subareas and Divisions)
@@ -189,12 +199,13 @@ Coastline=st_read(paste0(Pth,"Dataset/GeoPackages/CCAMLR_All.gpkg"),layer="Coast
 Bathy=st_read(paste0(Pth,"Dataset/GeoPackages/CCAMLR_All.gpkg"),layer="GEBCO 2025 Polygons MidRes",quiet=T)
 
 #Plot
-par(mai=rep(0,4),xaxs="i",yaxs="i",xpd=T) #no margins
+png(filename=paste0(Pth,'Figures/Dataset_Fig02.png'),width=1500,height=1200,res=200)
+par(mai=c(0,0,0,0.5),xaxs="i",yaxs="i",xpd=T) #margins
 
 plot(st_geometry(Bathy),col=Bathy$c,border=NA)
 add_Cscale(cuts=Bathy$Scale_cuts[is.na(Bathy$Scale_cuts)==F],
            cols=Bathy$Scale_cols[is.na(Bathy$Scale_cols)==F],
-           offset=-2100,fontsize=0.7,width=12)
+           offset=-900,fontsize=0.7,width=13)
 
 plot(st_geometry(ASDs),add=T,lwd=2)
 
@@ -203,6 +214,10 @@ plot(st_geometry(Convention_Area),border="red",lwd=3,add=T)
 plot(st_geometry(Coastline[Coastline$Surface=="Land",]),col="grey",lwd=0.1,add=T)
 plot(st_geometry(Coastline[Coastline$Surface=="Ice",]),col="white",lwd=0.1,add=T)
 
-text(ASDs$Labx,ASDs$Laby,ASDs$ID,col="orange",cex=0.8) #add labels
+text(ASDs$Labx,ASDs$Laby,ASDs$ID,col="orange",cex=0.8,font=2) #add labels
+d=dev.off()
+```
 
+```{r fig.align="center",out.width="100%",message=F,echo=F,eval=T}
+include_graphics(paste0(Pth,"Figures/Dataset_Fig02.png"))
 ```
