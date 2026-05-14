@@ -30,7 +30,7 @@ Year=2025
 Bathy=rast(paste0("I:/Science/Projects/GEBCO/",Year,"/Processed/GEBCO",Year,"_2500.tif"))
 
 #Give path to output folder
-Pth="I:/Science/Projects/Geospatial Operations/GIS Workflow/Polygon Builder/External data/"
+Pth="I:/Science/Projects/Geospatial Operations/GitHub/geospatial_operations/Dataset/External data/"
 
 
 Iso=get_iso_polys(Bathy,Cuts=Depth_cuts[1:13],Cols=Depth_cols[1:12])

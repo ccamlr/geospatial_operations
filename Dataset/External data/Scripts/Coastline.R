@@ -18,7 +18,7 @@ library(CCAMLRGIS)
 library(dplyr)
 
 #Give path to output folder
-Pth="I:/Science/Projects/Geospatial Operations/GIS Workflow/Polygon Builder/External data/"
+Pth="I:/Science/Projects/Geospatial Operations/GitHub/geospatial_operations/Dataset/External data/"
 
 
 #1. Import raw data
