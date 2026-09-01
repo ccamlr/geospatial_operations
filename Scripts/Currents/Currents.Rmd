@@ -1,0 +1,23 @@
+---
+output: github_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+
+# Draft method for the visualisation of oceanic currents
+
+
+**UNDER CONSTRUCTION**
+
