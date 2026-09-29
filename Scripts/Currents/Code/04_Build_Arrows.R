@@ -14,25 +14,24 @@ library(colorspace)
 
 
 #Load functions
-source("Scripts/Functions.R")
+source("Scripts/Currents/Code/Functions.R")
+
 
 #Set name of input file of vertices (comment/uncomment for desired experiment)
-# InFile="Lines_For_Experiment_1.csv"      #Experiment 1
 # InFile="Polygons_For_Experiment_2.csv" #Experiment 2
-InFile="Grid_For_Experiment_3.csv"     #Experiment 3 !Note: this will take a while!
+InFile="Grid_For_Experiment_3.csv"     #Experiment 3
 
 #Set a prefix to append to the output file name (comment/uncomment for desired experiment)
-# Pref="Experiment_1"
 # Pref="Experiment_2"
 Pref="Experiment_3"
 
 
 #Read vertices
-Input=read.csv(paste0("Inputs/",InFile))
+Input=read.csv(paste0("Scripts/Currents/Code/Inputs/",InFile))
 #Read all outputs
-Res=read.csv(paste0("Outputs/",Pref,"_Results.csv"))  #All results
-Bal=read.csv(paste0("Outputs/",Pref,"_Balances.csv")) #Balances
-Avg=read.csv(paste0("Outputs/",Pref,"_Averages.csv")) #Averages
+Res=read.csv(paste0("Scripts/Currents/Code/Outputs/",Pref,"_Results.csv"))  #All results
+Bal=read.csv(paste0("Scripts/Currents/Code/Outputs/",Pref,"_Balances.csv")) #Balances
+Avg=read.csv(paste0("Scripts/Currents/Code/Outputs/",Pref,"_Averages.csv")) #Averages
 
 #Get polygon centres
 Pcentres=Get_Polc(InFile)
@@ -53,10 +52,10 @@ Fc=max(abs(Extr$Qe))/(FFc/1e6) #Factor to scale arrow size
 #Build arrows
 Arrs=Arrow_Maker()
 #Export them if desired
-st_write(Arrs,paste0("Outputs/",Pref,"_Arrows_monthly.gpkg"),quiet=T,append=FALSE,delete_dsn=T)
+st_write(Arrs,paste0("Scripts/Currents/Code/Outputs/",Pref,"_Arrows_monthly.gpkg"),quiet=T,append=FALSE,delete_dsn=T)
 
 #Monthly plot
-png(filename=paste0("Outputs/",Pref,"_Arrows_monthly.png"),width=3000,height=4000,res=300)
+png(filename=paste0("Scripts/Currents/Code/Outputs/",Pref,"_Arrows_monthly.png"),width=3000,height=4000,res=300)
 par(mai=c(0.01,0.01,0.01,0.01),lend=1,xpd=T,xaxs="i",yaxs="i")
 par(mfrow=c(4,3))
 
@@ -77,7 +76,7 @@ Fc=max(abs(Extr$Qe))/(FFc/1e6) #Factor to scale arrow size
 #Build arrows
 Arrs=Arrow_Maker()
 #Export them if desired
-st_write(Arrs,paste0("Outputs/",Pref,"_Arrows_total.gpkg"),quiet=T,append=FALSE,delete_dsn=T)
+st_write(Arrs,paste0("Scripts/Currents/Code/Outputs/",Pref,"_Arrows_total.gpkg"),quiet=T,append=FALSE,delete_dsn=T)
 
 #Color polys
 Pcol=data.frame(ID=unique(Extr$ID))
@@ -92,7 +91,7 @@ Bal=arrange(Bal,desc(Qm))
 
 LWD=65
 
-png(filename=paste0("Outputs/",Pref,"_Arrows_total.png"),width=3000,height=4000,res=300)
+png(filename=paste0("Scripts/Currents/Code/Outputs/",Pref,"_Arrows_total.png"),width=3000,height=4000,res=300)
 par(mai=c(0.01,0.01,0.01,0.01),lend=1,xpd=T,xaxs="i",yaxs="i",cex.axis=1.5)
 par(mfrow=c(2,1))
 
@@ -143,7 +142,7 @@ dev.off()
 
 
 #Average map
-png(filename=paste0("Outputs/",Pref,"_Arrows_total_map.png"),width=4000,height=4000,res=300)
+png(filename=paste0("Scripts/Currents/Code/Outputs/",Pref,"_Arrows_total_map.png"),width=4000,height=4000,res=300)
 par(mai=c(0.01,0.01,0.01,0.01),lend=1,xpd=T,xaxs="i",yaxs="i",cex.axis=1.5)
 plot(st_geometry(pols),border=NA) #blank polygons, just to set the plot x/y limits
 plot(st_geometry(coast[coast$surface=="Land",]),add=T,col="grey",lwd=0.1)

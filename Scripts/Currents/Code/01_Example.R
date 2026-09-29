@@ -18,11 +18,11 @@ Di=1      #Interval
 Dx=seq(Dmin,Dmax,by=Di) #Vector of regularly spaced depths
 
 #Load model bathymetry
-BM=sds("Inputs/GLO-MFC_001_030_mask_bathy.nc")
+BM=sds("Scripts/Currents/Code/Inputs/GLO-MFC_001_030_mask_bathy.nc")
 Bmod=BM["deptho"]
 
 #Load model outputs (here, june for the example)
-UV=sds("Inputs/mercatorglorys12v1_gl12_mean_1993_2016_06.nc") 
+UV=sds("Scripts/Currents/Code/Inputs/mercatorglorys12v1_gl12_mean_1993_2016_06.nc") 
 
 # #Check contents
 # varnames(Ra)

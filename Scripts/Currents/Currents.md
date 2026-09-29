@@ -112,12 +112,14 @@ in italics and with brackets (*e.g.*,
 
 <br>
 
-All R scripts are available
-[here](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Currents/Code).
-Among others, the following R libraries were used: *sf* (Pebesma, 2018;
-Pebesma and Bivand, 2023); *terra* (Hijmans *et al.*, 2026); *dplyr*
-(Wickham *et al.*, 2026) and *CCAMLRGIS* (Thanassekos *et al.*, 2026).
-The following sections provide details on each element of the workflow.
+All R scripts are available in this repository, please refer to [Folder
+structure and R
+scripts](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md#folder-structure-and-r-scripts)
+for details. Among others, the following R libraries were used: *sf*
+(Pebesma, 2018; Pebesma and Bivand, 2023); *terra* (Hijmans *et al.*,
+2026); *dplyr* (Wickham *et al.*, 2026) and *CCAMLRGIS* (Thanassekos *et
+al.*, 2026). The following sections provide details on each element of
+the workflow.
 
 <br>
 
@@ -450,11 +452,21 @@ version 1.2.1.
 # Folder structure and R scripts
 
 - [Code](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Currents/Code)
-  All the R scripts used in this page:
+  All the R scripts used in this study:
 
-  - 01_Example.R: an example
+  - Inputs:
+    [Links](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Inputs/InputsForCurrents.md)
+    to Copernicus files that need to be downloaded. Place them in that
+    folder for the scripts to work as intended.
 
-  - 02_Flows.R: something else
+  - Outputs: where scripts export their outputs.
+
+  - 01_Example.R: a simple example of flow calculation for an arbitrary
+    polygon, using June velocities.
+
+  - 02_Flows.R: complete script of flow calculations, including setup
+    for all [3
+    experiments](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md#26-preliminary-experiments).
 
 - [Demos](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Demos/Demos.md)
   Demo scripts mentioned in this page
