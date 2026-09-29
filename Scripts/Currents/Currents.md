@@ -462,7 +462,9 @@ the following potential tasks may be beneficial:
 ### References
 
 Hijmans R, et al., 2026. terra: Spatial Data Analysis.
-<doi:10.32614/CRAN.package.terra>. R package version 1.9-46.
+<a href="https://doi:10.32614/CRAN.package.terra"
+class="uri">https://doi:10.32614/CRAN.package.terra</a>. R package
+version 1.9-46.
 
 Lellouche, J.-M. et al., 2021. The Copernicus Global 1/12° Oceanic and
 Sea Ice GLORYS12 Reanalysis. Front. Earth Sci. 9:698876.
