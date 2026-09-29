@@ -59,28 +59,28 @@ faces extending from the surface to the seabed (or alternatively to a
 chosen depth), the goal becomes the calculation of volumetric flow rate
 (or transport) across the vertical faces of this prism. Volumetric flow
 rate (volume per unit time), denoted *Q*, will be here expressed in
-Sverdrup (10<sup>6</sup> m$^3$.s$^{-1}$) and calculated for each prism
-face bounded by a given polygon edge and depth range (*N.B.*, dividing
-*Q* by area results in calculating flux, expressed in units of volume
-per time per area). To account for the orientation of the flow relative
-to the orientation of a given polygon edge, the normal (*i.e.*,
-perpendicular) to this edge must be calculated. That is because only the
-part of the current that is normal to the polygon edge carries water
-across it. A schematic of these concepts is given in Figure 1.
+Sverdrup (10<sup>6</sup> m<sup>3</sup>.s<sup>-1</sup>) and calculated
+for each prism face bounded by a given polygon edge and depth range
+(*N.B.*, dividing *Q* by area results in calculating flux, expressed in
+units of volume per time per area). To account for the orientation of
+the flow relative to the orientation of a given polygon edge, the normal
+(*i.e.*, perpendicular) to this edge must be calculated. That is because
+only the part of the current that is normal to the polygon edge carries
+water across it. A schematic of these concepts is given in Figure 1.
 
 <br>
 
 <div class="figure" style="text-align: center">
 
-<img src="Figs/GeneralFlow.png" alt="Figure 1. Schematic of the calculation of volumetric flow rate (*Q*, Sv) through one vertical face (green) of a prism of ocean (dotted lines). The face is bounded by a given polygon edge (red segment of length L) and depth range (D). Current velocities (U and V, m.s$^{-1}$) are taken for each model grid cell (*i*) that intersects with that edge, and their angle relative to the edge normal (orange arrow) determined." width="100%" />
+<img src="Figs/GeneralFlow.png" alt="Figure 1. Schematic of the calculation of volumetric flow rate (*Q*, Sv) through one vertical face (green) of a prism of ocean (dotted lines). The face is bounded by a given polygon edge (red segment of length L) and depth range (D). Current velocities (U and V, m.s-1) are taken for each model grid cell (*i*) that intersects with that edge, and their angle relative to the edge normal (orange arrow) determined." width="100%" />
 <p class="caption">
 
 Figure 1. Schematic of the calculation of volumetric flow rate (*Q*, Sv)
 through one vertical face (green) of a prism of ocean (dotted lines).
 The face is bounded by a given polygon edge (red segment of length L)
-and depth range (D). Current velocities (U and V, m.s$^{-1}$) are taken
-for each model grid cell (*i*) that intersects with that edge, and their
-angle relative to the edge normal (orange arrow) determined.
+and depth range (D). Current velocities (U and V, m.s<sup>-1</sup>) are
+taken for each model grid cell (*i*) that intersects with that edge, and
+their angle relative to the edge normal (orange arrow) determined.
 </p>
 
 </div>
