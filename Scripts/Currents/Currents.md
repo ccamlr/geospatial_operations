@@ -8,6 +8,41 @@
 
 ------------------------------------------------------------------------
 
+# Folder structure and R scripts
+
+- [Code](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Currents/Code)
+  All the R scripts used in this study:
+
+  - Inputs:
+    [Links](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Inputs/InputsForCurrents.md)
+    to Copernicus files that need to be downloaded. Place them in that
+    folder for the scripts to work as intended.
+
+  - Outputs: where scripts export their outputs.
+
+  - 01_Example.R: a simple example of flow calculation for an arbitrary
+    polygon, using June velocities.
+
+  - 02_Flows.R: complete script of flow calculations, including setup
+    for all [3
+    experiments](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md#26-preliminary-experiments).
+
+  - 03_Post_Process.R: computes balances of *Q* and summarises outputs
+    in preparation for building arrows.
+
+  - 04_Build_Arrows.R: uses flow estimates to build arrows.
+
+  - Functions.R: all helper functions including *Get_edge_values()* and
+    *Get_depth_values()*, as mentioned in Figure 2.
+
+- [Demos](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Demos/Demos.md)
+  Demo scripts mentioned in this page and used to make Figures 3–5.
+
+- [Figs](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Currents/Figs)
+  All the figures shown in this page.
+
+------------------------------------------------------------------------
+
 # 1. Introduction
 
 This page presents a draft method to build oceanic currents
@@ -448,36 +483,3 @@ class="uri">https://doi:10.32614/CRAN.package.dplyr</a>. R package
 version 1.2.1.
 
 <br>
-
-# Folder structure and R scripts
-
-- [Code](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Currents/Code)
-  All the R scripts used in this study:
-
-  - Inputs:
-    [Links](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Inputs/InputsForCurrents.md)
-    to Copernicus files that need to be downloaded. Place them in that
-    folder for the scripts to work as intended.
-
-  - Outputs: where scripts export their outputs.
-
-  - 01_Example.R: a simple example of flow calculation for an arbitrary
-    polygon, using June velocities.
-
-  - 02_Flows.R: complete script of flow calculations, including setup
-    for all [3
-    experiments](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md#26-preliminary-experiments).
-
-  - 03_Post_Process.R: computes balances of *Q* and summarises outputs
-    in preparation for building arrows.
-
-  - 04_Build_Arrows.R: uses flow estimates to build arrows.
-
-  - Functions.R: all helper functions including *Get_edge_values()* and
-    *Get_depth_values()*, as mentioned in Figure 2.
-
-- [Demos](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Demos/Demos.md)
-  Demo scripts mentioned in this page and used to make Figures 3–5.
-
-- [Figs](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Currents/Figs)
-  All the figures shown in this page.
