@@ -14,14 +14,16 @@
 
 The script
 [Demo_Edge_Values.R](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Demos/Demo_Edge_Values.R)
-was used to produce Fig. 3 of the main document. See example below:
+was used to produce Fig. 3 of the [main
+document](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md#draft-method-for-the-visualisation-of-oceanic-currents).
+See example below:
 
 <div class="figure" style="text-align: center">
 
-<img src="Get_Edge_Values_Step3.png" alt="Output of Demo_Edge_Values.R" width="75%" />
+<img src="Get_Edge_Values_Step3.png" alt="Figure 1. Output of Demo_Edge_Values.R" width="50%" />
 <p class="caption">
 
-Output of Demo_Edge_Values.R
+Figure 1. Output of Demo_Edge_Values.R
 </p>
 
 </div>
@@ -32,14 +34,16 @@ Output of Demo_Edge_Values.R
 
 The script
 [Demo_Angle_and_UV.R](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Demos/Demo_Angle_and_UV.R)
-was used to produce Fig. 4 of the main document. See example below:
+was used to produce Fig. 4 of the [main
+document](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md#draft-method-for-the-visualisation-of-oceanic-currents).
+See example below:
 
 <div class="figure" style="text-align: center">
 
-<img src="Get_Angles_and_UV_CW.png" alt="Output of Demo_Angle_and_UV.R" width="50%" />
+<img src="Get_Angles_and_UV_CW.png" alt="Figure 2. Output of Demo_Angle_and_UV.R" width="50%" />
 <p class="caption">
 
-Output of Demo_Angle_and_UV.R
+Figure 2. Output of Demo_Angle_and_UV.R
 </p>
 
 </div>
@@ -50,14 +54,16 @@ Output of Demo_Angle_and_UV.R
 
 The script
 [Demo_Get_depths.R](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Demos/Demo_Get_depths.R)
-was used to produce Fig. 5 of the main document. See example below:
+was used to produce Fig. 5 of the [main
+document](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md#draft-method-for-the-visualisation-of-oceanic-currents).
+See example below:
 
 <div class="figure" style="text-align: center">
 
-<img src="Get_Depths.png" alt="Output of Demo_Get_depths.R" width="50%" />
+<img src="Get_Depths.png" alt="Figure 3. Output of Demo_Get_depths.R" width="70%" />
 <p class="caption">
 
-Output of Demo_Get_depths.R
+Figure 3. Output of Demo_Get_depths.R
 </p>
 
 </div>
