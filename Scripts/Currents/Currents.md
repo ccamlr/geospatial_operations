@@ -25,7 +25,8 @@ The approach presented below is one of several potential pathways and is
 only a starting point, to be built upon collaboratively. The intent is
 to present the different elements of the problem using GIS-related tools
 and operations, but potential alternate approaches are noted in section
-4 (*Future work*).
+4 (*[Future
+work](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md#4-future-work)*).
 
 # 2. Methods
 
@@ -127,8 +128,9 @@ alternatives could be applied in the future. The simple approach
 presented here relies on geospatial operations using GIS tools, chosen
 to help visualise the steps that are followed. Other more complex
 approaches may be more accurate and should be investigated. The
-operations are executed by the function *Get_edge_values()LINK* (see
-Fig. 2), which follows four steps:
+operations are executed by the function
+*[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)*
+(see Fig. 2), which follows four steps:
 
 1.  Identify grid cells that intersect the polygon edge,
 
@@ -146,9 +148,11 @@ Fig. 2), which follows four steps:
     the angle relative to increasing longitudes).
 
 These four steps are schematised in the following two figures. The first
-figure (Fig. 3) was made using *Demo_Edge_Values.RLINK* and the second
-one (Fig. 4) using *Demo_Angle_and_UV.RLINK*. Both scripts are available
-in the
+figure (Fig. 3) was made using
+*[Demo_Edge_Values.R](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Demos/Demo_Edge_Values.R)*
+and the second one (Fig. 4) using
+*[Demo_Angle_and_UV.R](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Demos/Demo_Angle_and_UV.R)*.
+Both scripts are available in the
 [Demos](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Demos/Demos.md)
 folder of the repository.
 
@@ -156,12 +160,13 @@ folder of the repository.
 
 <div class="figure" style="text-align: center">
 
-<img src="Figs/EdgeValues_Steps1-3.png" alt="Figure 3. Steps 1--3 followed by *Get_edge_values()LINK* (see text) to split a given polygon edge into segments that fall inside each circulation model grid cell, and to calculate their lengths (*Cl*)." width="100%" />
+<img src="Figs/EdgeValues_Steps1-3.png" alt="Figure 3. Steps 1--3 followed by *[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)* (see text) to split a given polygon edge into segments that fall inside each circulation model grid cell, and to calculate their lengths (*Cl*)." width="100%" />
 <p class="caption">
 
-Figure 3. Steps 1–3 followed by *Get_edge_values()LINK* (see text) to
-split a given polygon edge into segments that fall inside each
-circulation model grid cell, and to calculate their lengths (*Cl*).
+Figure 3. Steps 1–3 followed by
+*[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)*
+(see text) to split a given polygon edge into segments that fall inside
+each circulation model grid cell, and to calculate their lengths (*Cl*).
 </p>
 
 </div>
@@ -170,19 +175,20 @@ circulation model grid cell, and to calculate their lengths (*Cl*).
 
 <div class="figure" style="text-align: center">
 
-<img src="Figs/EdgeValues_Step4.png" alt="Figure 4. Step 4 followed by *Get_edge_values()LINK* (see text) to calculate edge normals (perpendiculars to edges; orange arrows). Given a velocity from the circulation model (blue arrow), this enables projecting that velocity onto the edge (here arbitrarily placed on the center of the edge; blue circle) while accounting for the relative angle of that velocity and that edge. If polygon vertices are given in a clockwise order (left; as they are in this study), flows pointing towards the inside of the polygon will be positive (*Q*&gt;0; green arrows) and others will be negative (*Q*&lt;0; pink arrows). The opposite is true if vertices are given counterclockwise (right)." width="100%" />
+<img src="Figs/EdgeValues_Step4.png" alt="Figure 4. Step 4 followed by *[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)* (see text) to calculate edge normals (perpendiculars to edges; orange arrows). Given a velocity from the circulation model (blue arrow), this enables projecting that velocity onto the edge (here arbitrarily placed on the center of the edge; blue circle) while accounting for the relative angle of that velocity and that edge. If polygon vertices are given in a clockwise order (left; as they are in this study), flows pointing towards the inside of the polygon will be positive (*Q*&gt;0; green arrows) and others will be negative (*Q*&lt;0; pink arrows). The opposite is true if vertices are given counterclockwise (right)." width="100%" />
 <p class="caption">
 
-Figure 4. Step 4 followed by *Get_edge_values()LINK* (see text) to
-calculate edge normals (perpendiculars to edges; orange arrows). Given a
-velocity from the circulation model (blue arrow), this enables
-projecting that velocity onto the edge (here arbitrarily placed on the
-center of the edge; blue circle) while accounting for the relative angle
-of that velocity and that edge. If polygon vertices are given in a
-clockwise order (left; as they are in this study), flows pointing
-towards the inside of the polygon will be positive (*Q*\>0; green
-arrows) and others will be negative (*Q*\<0; pink arrows). The opposite
-is true if vertices are given counterclockwise (right).
+Figure 4. Step 4 followed by
+*[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)*
+(see text) to calculate edge normals (perpendiculars to edges; orange
+arrows). Given a velocity from the circulation model (blue arrow), this
+enables projecting that velocity onto the edge (here arbitrarily placed
+on the center of the edge; blue circle) while accounting for the
+relative angle of that velocity and that edge. If polygon vertices are
+given in a clockwise order (left; as they are in this study), flows
+pointing towards the inside of the polygon will be positive (*Q*\>0;
+green arrows) and others will be negative (*Q*\<0; pink arrows). The
+opposite is true if vertices are given counterclockwise (right).
 </p>
 
 </div>
@@ -203,17 +209,18 @@ than the simple *TF*×*L* shown in Fig. 1).
 ## 2.4. Flow along depth
 
 The integration of velocities along depths is executed by the function
-*Get_depth_values()LINK* which performs a linear (regularly spaced)
-interpolation between the (irregularly spaced) depths of the model
-layers and linear extrapolations to two additional points: one at the
-surface and one at the seabed (Fig. 5). The seabed depth is taken from
-the model bathymetry data at each location of interest (*i.e.*, for the
-cells identified in Step 1 above). It must be noted that on some
-occasions, the model appeared to have velocity values below the
-bathymetry depth (which were ignored) and that no attempts were made to
-account for partial cells (which occur when the bathymetry is shallower
-than the next deeper layer in the model); this may have large impacts in
-some areas and will require refinement in the future.
+*[Get_depth_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)*
+which performs a linear (regularly spaced) interpolation between the
+(irregularly spaced) depths of the model layers and linear
+extrapolations to two additional points: one at the surface and one at
+the seabed (Fig. 5). The seabed depth is taken from the model bathymetry
+data at each location of interest (*i.e.*, for the cells identified in
+Step 1 above). It must be noted that on some occasions, the model
+appeared to have velocity values below the bathymetry depth (which were
+ignored) and that no attempts were made to account for partial cells
+(which occur when the bathymetry is shallower than the next deeper layer
+in the model); this may have large impacts in some areas and will
+require refinement in the future.
 
 <div class="figure" style="text-align: center">
 
@@ -239,12 +246,14 @@ face), the
 function of the
 [CCAMLRGIS](https://github.com/ccamlr/CCAMLRGIS#ccamlrgis-r-package)
 package is used to build georeferenced arrows for mapping purposes. That
-function is used within the *Arrow_Maker()LINK* function to build arrows
-which width is scaled by *Q* and orientation is defined by the middle of
-the edge and the centre of the polygon. The direction of the arrow is
-controlled by the sign of *Q* (see also Fig. 4): if *Q* is positive, the
-arrow goes from the edge to the polygon centre, if *Q* is negative, the
-arrow goes from the polygon centre to the edge (Fig. 6).
+function is used within the
+*[Arrow_Maker()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)*
+function to build arrows which width is scaled by *Q* and orientation is
+defined by the middle of the edge and the centre of the polygon. The
+direction of the arrow is controlled by the sign of *Q* (see also Fig.
+4): if *Q* is positive, the arrow goes from the edge to the polygon
+centre, if *Q* is negative, the arrow goes from the polygon centre to
+the edge (Fig. 6).
 
 <div class="figure" style="text-align: center">
 
