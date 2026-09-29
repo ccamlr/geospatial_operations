@@ -72,16 +72,16 @@ Having described the operations pertaining to a single polygon edge (*i.e.*, a f
 <br>
 
 
-```{r fig.align="center",out.width="60%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 2. Diagram of the workflow used to build georeferenced arrows that are scaled by the volumetric flow rate (*Q*) passing through a prism of ocean defined by a given polygon at the surface. All computations are done using R, and specific R functions are identified in italics and with brackets (*e.g.*, *[Calculate_flow()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)*)."}
+```{r fig.align="center",out.width="60%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 2. Diagram of the workflow used to build georeferenced arrows that are scaled by the volumetric flow rate (*Q*) passing through a prism of ocean defined by a given polygon at the surface. All computations are done using R, and specific R functions are identified in italics and with brackets (*e.g.*, *[Calculate_flow()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R#L4)*)."}
 include_graphics("Figs/Diagram.png")
 ```
 
 
 <br>
 
-[here]:https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md
+[here]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Currents/Code
 
-All R scripts, demos and additional documentation are available [here]. Among others, the following R libraries were used: *sf* (Pebesma, 2018; Pebesma and Bivand, 2023); *terra* (Hijmans *et al.*, 2026); *dplyr* (Wickham *et al.*, 2026) and *CCAMLRGIS* (Thanassekos *et al.*, 2026). The following sections provide details on each element of the workflow.
+All R scripts are available [here]. Among others, the following R libraries were used: *sf* (Pebesma, 2018; Pebesma and Bivand, 2023); *terra* (Hijmans *et al.*, 2026); *dplyr* (Wickham *et al.*, 2026) and *CCAMLRGIS* (Thanassekos *et al.*, 2026). The following sections provide details on each element of the workflow.
 
 <br>
 
@@ -90,7 +90,7 @@ All R scripts, demos and additional documentation are available [here]. Among ot
 
 [type of grid]:https://en.wikipedia.org/wiki/Arakawa_grids
 
-This part of the workflow is likely where most future refinements or alternatives could be applied in the future. The simple approach presented here relies on geospatial operations using GIS tools, chosen to help visualise the steps that are followed. Other more complex approaches may be more accurate and should be investigated. The operations are executed by the function *[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)* (see Fig. 2), which follows four steps:
+This part of the workflow is likely where most future refinements or alternatives could be applied in the future. The simple approach presented here relies on geospatial operations using GIS tools, chosen to help visualise the steps that are followed. Other more complex approaches may be more accurate and should be investigated. The operations are executed by the function *[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R#L92)* (see Fig. 2), which follows four steps:
 
 1. Identify grid cells that intersect the polygon edge,
 
@@ -107,7 +107,7 @@ These four steps are schematised in the following two figures. The first figure 
 <br>
 
 
-```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 3. Steps 1--3 followed by *[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)* (see text) to split a given polygon edge into segments that fall inside each circulation model grid cell, and to calculate their lengths (*Cl*)."}
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 3. Steps 1--3 followed by *[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R#L92)* (see text) to split a given polygon edge into segments that fall inside each circulation model grid cell, and to calculate their lengths (*Cl*)."}
 include_graphics("Figs/EdgeValues_Steps1-3.png")
 ```
 
@@ -116,7 +116,7 @@ include_graphics("Figs/EdgeValues_Steps1-3.png")
 
 
 
-```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4. Step 4 followed by *[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)* (see text) to calculate edge normals (perpendiculars to edges; orange arrows). Given a velocity from the circulation model (blue arrow), this enables projecting that velocity onto the edge (here arbitrarily placed on the center of the edge; blue circle) while accounting for the relative angle of that velocity and that edge. If polygon vertices are given in a clockwise order (left; as they are in this study), flows pointing towards the inside of the polygon will be positive (*Q*>0; green arrows) and others will be negative (*Q*<0; pink arrows). The opposite is true if vertices are given counterclockwise (right)."}
+```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 4. Step 4 followed by *[Get_edge_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R#L92)* (see text) to calculate edge normals (perpendiculars to edges; orange arrows). Given a velocity from the circulation model (blue arrow), this enables projecting that velocity onto the edge (here arbitrarily placed on the center of the edge; blue circle) while accounting for the relative angle of that velocity and that edge. If polygon vertices are given in a clockwise order (left; as they are in this study), flows pointing towards the inside of the polygon will be positive (*Q*>0; green arrows) and others will be negative (*Q*<0; pink arrows). The opposite is true if vertices are given counterclockwise (right)."}
 include_graphics("Figs/EdgeValues_Step4.png")
 ```
 
@@ -130,7 +130,7 @@ Following these steps provides the grid cell indices of the circulation model (w
 
 ## 2.4. Flow along depth
 
-The integration of velocities along depths is executed by the function *[Get_depth_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)* which performs a linear (regularly spaced) interpolation between the (irregularly spaced) depths of the model layers and linear extrapolations to two additional points: one at the surface and one at the seabed (Fig. 5). The seabed depth is taken from the model bathymetry data at each location of interest (*i.e.*, for the cells identified in Step 1 above). It must be noted that on some occasions, the model appeared to have velocity values below the bathymetry depth (which were ignored) and that no attempts were made to account for partial cells (which occur when the bathymetry is shallower than the next deeper layer in the model); this may have large impacts in some areas and will require refinement in the future.
+The integration of velocities along depths is executed by the function *[Get_depth_values()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R#L179)* which performs a linear (regularly spaced) interpolation between the (irregularly spaced) depths of the model layers and linear extrapolations to two additional points: one at the surface and one at the seabed (Fig. 5). The seabed depth is taken from the model bathymetry data at each location of interest (*i.e.*, for the cells identified in Step 1 above). It must be noted that on some occasions, the model appeared to have velocity values below the bathymetry depth (which were ignored) and that no attempts were made to account for partial cells (which occur when the bathymetry is shallower than the next deeper layer in the model); this may have large impacts in some areas and will require refinement in the future.
 
 
 
@@ -146,7 +146,7 @@ include_graphics("Figs/Get_Depths.png")
 [create_Arrow()]:https://github.com/ccamlr/CCAMLRGIS#24-create-arrow
 [CCAMLRGIS]:https://github.com/ccamlr/CCAMLRGIS#ccamlrgis-r-package
 
-Once flow (*Q*) has been computed for each edge of a polygon (or prism face), the *[create_Arrow()]* function of the [CCAMLRGIS] package is used to build georeferenced arrows for mapping purposes. That function is used within the *[Arrow_Maker()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)* function to build arrows which width is scaled by *Q* and orientation is defined by the middle of the edge and the centre of the polygon. The direction of the arrow is controlled by the sign of *Q* (see also Fig. 4): if *Q* is positive, the arrow goes from the edge to the polygon centre, if *Q* is negative, the arrow goes from the polygon centre to the edge (Fig. 6).
+Once flow (*Q*) has been computed for each edge of a polygon (or prism face), the *[create_Arrow()]* function of the [CCAMLRGIS] package is used to build georeferenced arrows for mapping purposes. That function is used within the *[Arrow_Maker()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R#L313)* function to build arrows which width is scaled by *Q* and orientation is defined by the middle of the edge and the centre of the polygon. The direction of the arrow is controlled by the sign of *Q* (see also Fig. 4): if *Q* is positive, the arrow goes from the edge to the polygon centre, if *Q* is negative, the arrow goes from the polygon centre to the edge (Fig. 6).
 
 
 
@@ -226,7 +226,7 @@ Regarding the verification of flow balances in three large arbitrary polygons (F
 <br>
 
 
-```{r fig.align="center",out.width="70%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 8. Experiment 2 -- Verification of flow (*Q*) balance for three large polygons (red: p48; green: p58; and blue: p88). The colour-coded histograms indicate the maximum flow found on an edge of each polygon (left y axis) and the triangles correspond to the sum of flows across edges for each polygon (right y axis), in each month. If the sum of flows is greater than zero, more water enters the polygon than exits it."}
+```{r fig.align="center",out.width="60%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 8. Experiment 2 -- Verification of flow (*Q*) balance for three large polygons (red: p48; green: p58; and blue: p88). The colour-coded histograms indicate the maximum flow found on an edge of each polygon (left y axis) and the triangles correspond to the sum of flows across edges for each polygon (right y axis), in each month. If the sum of flows is greater than zero, more water enters the polygon than exits it."}
 include_graphics("Figs/Experiment_2_Arrows_total.png")
 ```
 
@@ -238,7 +238,7 @@ Finally, the visualisation of circumpolar flows (Fig. 9) seems to be consistent 
 <br>
 
 
-```{r fig.align="center",out.width="100%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 9. Experiment 3 -- circumpolar flows (mean of monthly estimates) in a grid with cells of 10° latitude by 20° longitude."}
+```{r fig.align="center",out.width="80%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 9. Experiment 3 -- circumpolar flows (mean of monthly estimates) in a grid with cells of 10° latitude by 20° longitude."}
 include_graphics("Figs/Experiment_3_Arrows_total_map.png")
 ```
 
@@ -280,5 +280,17 @@ Wickham H, et al., 2026. dplyr: A Grammar of Data Manipulation. https://doi:10.3
 
 <br>
 
-# Folders and R scripts
+# Folder structure and R scripts
 
+[Code]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Currents/Code
+[Figs]:https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Currents/Figs
+
+- [Code] All the R scripts used in this page:
+
+  - 01_Example.R: an example
+  
+  - 02_Flows.R: something else
+
+- [Demos] Demo scripts mentioned in this page
+
+- [Figs] All the figures shown in this page
