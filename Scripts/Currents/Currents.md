@@ -462,9 +462,8 @@ the following potential tasks may be beneficial:
 ### References
 
 Hijmans R, et al., 2026. terra: Spatial Data Analysis.
-<a href="https://doi:10.32614/CRAN.package.terra"
-class="uri">https://doi:10.32614/CRAN.package.terra</a>. R package
-version 1.9-46.
+[doi:10.32614/CRAN.package.terra](https://cran.r-project.org/web/packages/terra/index.html).
+R package version 1.9-46.
 
 Lellouche, J.-M. et al., 2021. The Copernicus Global 1/12° Oceanic and
 Sea Ice GLORYS12 Reanalysis. Front. Earth Sci. 9:698876.
@@ -479,13 +478,12 @@ Applications in R. Chapman and Hall/CRC.
 <https://doi.org/10.1201/9780429459016>.
 
 Thanassekos S, et al., 2026. CCAMLRGIS: Antarctic Spatial Data
-Manipulation. <a href="https://doi:10.32614/CRAN.package.CCAMLRGIS"
-class="uri">https://doi:10.32614/CRAN.package.CCAMLRGIS</a>. R package
-version 4.3.1.
+Manipulation.
+[doi:10.32614/CRAN.package.CCAMLRGIS](https://cran.r-project.org/web/packages/CCAMLRGIS/index.html).
+R package version 4.3.1.
 
 Wickham H, et al., 2026. dplyr: A Grammar of Data Manipulation.
-<a href="https://doi:10.32614/CRAN.package.dplyr"
-class="uri">https://doi:10.32614/CRAN.package.dplyr</a>. R package
-version 1.2.1.
+[doi:10.32614/CRAN.package.dplyr](https://cran.r-project.org/web/packages/dplyr/index.html).
+R package version 1.2.1.
 
 <br>

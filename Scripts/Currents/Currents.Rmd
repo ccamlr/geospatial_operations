@@ -295,7 +295,7 @@ In addition to any future work suggested by any interested individual, the follo
 
 ### References
 
-Hijmans R, et al., 2026. terra: Spatial Data Analysis. https://doi:10.32614/CRAN.package.terra. R package version 1.9-46.
+Hijmans R, et al., 2026. terra: Spatial Data Analysis. [doi:10.32614/CRAN.package.terra](https://cran.r-project.org/web/packages/terra/index.html). R package version 1.9-46.
 
 Lellouche, J.-M. et al., 2021. The Copernicus Global 1/12° Oceanic and Sea Ice GLORYS12 Reanalysis. Front. Earth Sci. 9:698876. https://doi.org/10.3389/feart.2021.698876.
 
@@ -303,9 +303,9 @@ Pebesma, E., 2018. Simple Features for R: Standardized Support for Spatial Vecto
 
 Pebesma, E., and Bivand, R., 2023. Spatial Data Science: With Applications in R. Chapman and Hall/CRC. https://doi.org/10.1201/9780429459016.
 
-Thanassekos S, et al., 2026. CCAMLRGIS: Antarctic Spatial Data Manipulation. https://doi:10.32614/CRAN.package.CCAMLRGIS. R package version 4.3.1.
+Thanassekos S, et al., 2026. CCAMLRGIS: Antarctic Spatial Data Manipulation. [doi:10.32614/CRAN.package.CCAMLRGIS](https://cran.r-project.org/web/packages/CCAMLRGIS/index.html). R package version 4.3.1.
 
-Wickham H, et al., 2026. dplyr: A Grammar of Data Manipulation. https://doi:10.32614/CRAN.package.dplyr. R package version 1.2.1.
+Wickham H, et al., 2026. dplyr: A Grammar of Data Manipulation. [doi:10.32614/CRAN.package.dplyr](https://cran.r-project.org/web/packages/dplyr/index.html). R package version 1.2.1.
 
 <br>
 
