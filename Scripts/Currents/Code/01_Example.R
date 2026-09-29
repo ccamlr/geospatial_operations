@@ -4,7 +4,7 @@ library(CCAMLRGIS)
 library(dplyr)
 
 #Load functions
-source("Scripts/Functions.R")
+source("Scripts/Currents/Code/Functions.R")
 
 #Load vertices to build a polygon
 Input=data.frame(ID="Example",
