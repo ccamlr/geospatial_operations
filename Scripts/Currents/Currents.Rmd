@@ -293,7 +293,13 @@ Wickham H, et al., 2026. dplyr: A Grammar of Data Manipulation. https://doi:10.3
   - 01_Example.R: a simple example of flow calculation for an arbitrary polygon, using June velocities.
   
   - 02_Flows.R: complete script of flow calculations, including setup for all [3 experiments](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md#26-preliminary-experiments).
+  
+  - 03_Post_Process.R: computes balances of *Q* and summarises outputs in preparation for building arrows.
+  
+  - 04_Build_Arrows.R: uses flow estimates to build arrows.
+  
+  - Functions.R: all helper functions including *Get_edge_values()* and *Get_depth_values()*, as mentioned in Figure 2.
 
-- [Demos] Demo scripts mentioned in this page
+- [Demos] Demo scripts mentioned in this page and used to make Figures 3--5.
 
-- [Figs] All the figures shown in this page
+- [Figs] All the figures shown in this page.

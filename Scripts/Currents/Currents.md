@@ -468,8 +468,16 @@ version 1.2.1.
     for all [3
     experiments](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Currents.md#26-preliminary-experiments).
 
+  - 03_Post_Process.R: computes balances of *Q* and summarises outputs
+    in preparation for building arrows.
+
+  - 04_Build_Arrows.R: uses flow estimates to build arrows.
+
+  - Functions.R: all helper functions including *Get_edge_values()* and
+    *Get_depth_values()*, as mentioned in Figure 2.
+
 - [Demos](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Demos/Demos.md)
-  Demo scripts mentioned in this page
+  Demo scripts mentioned in this page and used to make Figures 3–5.
 
 - [Figs](https://github.com/ccamlr/geospatial_operations/tree/main/Scripts/Currents/Figs)
-  All the figures shown in this page
+  All the figures shown in this page.
