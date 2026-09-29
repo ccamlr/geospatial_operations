@@ -3,7 +3,7 @@ library(dplyr)
 library(terra)
 
 #Load Functions (to load Get_depth_values())
-source("Scripts/Functions.R")
+source("Scripts/Currents/Code/Functions.R")
 
 #Set depths of integration (in meters)
 Dmin=0    #From
@@ -11,12 +11,12 @@ Dmax=5727 #To (max=5727)
 Di=1      #Interval
 Dx=seq(Dmin,Dmax,by=Di) #Vector of regularly spaced depths
 
-#Load model outputs (download from: https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030/files?subdataset=cmems_mod_glo_phy_my_0.083deg-climatology_P1M-m_202311 )
+#Load model outputs (see https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Inputs/InputsForCurrents.md)
 #Bathymetry
-BM=sds("Inputs/GLO-MFC_001_030_mask_bathy.nc")
+BM=sds("Scripts/Currents/Code/Inputs/GLO-MFC_001_030_mask_bathy.nc")
 Bmod=BM["deptho"]
 #Velocities (here, june for the example)
-UV=sds("Inputs/mercatorglorys12v1_gl12_mean_1993_2016_06.nc") 
+UV=sds("Scripts/Currents/Code/Inputs/mercatorglorys12v1_gl12_mean_1993_2016_06.nc") 
 #Extract model values
 #Eastward velocity (m/s)
 Umod=UV["uo"]
@@ -59,7 +59,7 @@ Iu=GetDs$Iu
 Iv=GetDs$Iv
 
 
-png(filename="Scripts/Demos/Get_Depths.png",width=3000,height=4000,res=400)
+png(filename="Scripts/Currents/Demos/Get_Depths.png",width=3000,height=4000,res=400)
 par(mai=c(0.5,0.5,0.1,0.15),lend=1,xpd=T,xaxs="i",yaxs="i")
 layout(cbind(c(1,1,2,4,6),c(1,1,3,5,7)))
 # layout.show(7) #Check layout

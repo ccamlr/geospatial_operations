@@ -27,7 +27,7 @@ Yv=Cen[2]+dUV*sin(beta)
 
 
 
-png(filename="Scripts/Demos/Get_Angles_and_UV_CW.png",width=2000,height=2000,res=300)
+png(filename="Scripts/Currents/Demos/Get_Angles_and_UV_CW.png",width=2000,height=2000,res=300)
 par(mai=c(0.3,0.6,0,0.5),lend=1,xpd=T)
 
 d=0.4 #Arbitrary length of arrows
@@ -100,7 +100,7 @@ df=df[(seq(nrow(df),1,by=-1)),] #flip vertices order to go counterclockwise
 
 
 
-png(filename="Scripts/Demos/Get_Angles_and_UV_CCW.png",width=2000,height=2000,res=300)
+png(filename="Scripts/Currents/Demos/Get_Angles_and_UV_CCW.png",width=2000,height=2000,res=300)
 par(mai=c(0.3,0.6,0,0.5),lend=1,xpd=T)
 
 d=0.4 #Arbitrary length of arrows

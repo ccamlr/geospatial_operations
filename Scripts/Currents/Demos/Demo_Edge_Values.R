@@ -1,10 +1,10 @@
 #Demo of along-edge data extraction from Raster
 library(terra)
 library(CCAMLRGIS)
-source("Scripts/Functions.R")
+source("Scripts/Currents/Code/Functions.R")
 
-#Load raster (download from: https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030/files?subdataset=cmems_mod_glo_phy_my_0.083deg-climatology_P1M-m_202311 )
-Ra=sds("Inputs/mercatorglorys12v1_gl12_mean_1993_2016_06.nc") #June example
+#Load raster https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Inputs/InputsForCurrents.md
+Ra=sds("Scripts/Currents/Code/Inputs/mercatorglorys12v1_gl12_mean_1993_2016_06.nc") #June example
 U=Ra["uo"]
 U=project(U,"EPSG:4326")
 
@@ -31,7 +31,7 @@ Cs=Cs$cell
 xy=xyFromCell(U,Cs)
 
 #Plot
-png(filename="Scripts/Demos/Get_Edge_Values_Step1.png",width=2000,height=2200,res=300)
+png(filename="Scripts/Currents/Demos/Get_Edge_Values_Step1.png",width=2000,height=2200,res=300)
 par(mai=c(0.6,0.6,0.2,0.2),lend=1,xpd=T,mgp=c(3,0.7,0),xaxs="i",yaxs="i")
 #Set plot limits
 
@@ -83,7 +83,7 @@ if(nrow(cells)!=nrow(xy)){stop("Mismatch between the count of cells and the coun
 
 
 #Plot
-png(filename="Scripts/Demos/Get_Edge_Values_Step2.png",width=2000,height=2200,res=300)
+png(filename="Scripts/Currents/Demos/Get_Edge_Values_Step2.png",width=2000,height=2200,res=300)
 par(mai=c(0.6,0.6,0.2,0.2),lend=1,xpd=T,mgp=c(3,0.7,0),xaxs="i",yaxs="i")
 plot(L,xlab="",ylab="",xlim=XL,ylim=YL,main="Step 2",lwd=1,axes=F,asp=1,cex.main=1.5)
 points(Lxy[,1],Lxy[,2],pch=21,bg="green",col="green",cex=0.5)
@@ -117,7 +117,7 @@ Cols=add_col(Cl,cuts = 6)
 
 
 #Plot
-png(filename="Scripts/Demos/Get_Edge_Values_Step3.png",width=2000,height=2200,res=300)
+png(filename="Scripts/Currents/Demos/Get_Edge_Values_Step3.png",width=2000,height=2200,res=300)
 par(mai=c(0.6,0.6,0.2,0.2),lend=1,xpd=T,mgp=c(3,0.7,0),xaxs="i",yaxs="i")
 plot(st_geometry(Int),xlab="",ylab="",xlim=XL,ylim=YL,main="Step 3",lwd=3,col=Cols$varcol,axes=F,asp=1,cex.main=1.5)
 axis(1,pos=YL[1],at=seq(XL[1],XL[2],by=0.1))
