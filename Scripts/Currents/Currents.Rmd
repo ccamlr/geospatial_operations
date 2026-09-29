@@ -72,7 +72,7 @@ Having described the operations pertaining to a single polygon edge (*i.e.*, a f
 <br>
 
 
-```{r fig.align="center",out.width="60%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 2. Diagram of the workflow used to build georeferenced arrows that are scaled by the volumetric flow rate (*Q*) passing through a prism of ocean defined by a given polygon at the surface. All computations are done using R, and specific R functions are identified in italics and with brackets (*e.g.*, *Calculate_flow()LINK*)."}
+```{r fig.align="center",out.width="60%",message=F,dpi=300,echo=F,eval=T,fig.cap="Figure 2. Diagram of the workflow used to build georeferenced arrows that are scaled by the volumetric flow rate (*Q*) passing through a prism of ocean defined by a given polygon at the surface. All computations are done using R, and specific R functions are identified in italics and with brackets (*e.g.*, *[Calculate_flow()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)*)."}
 include_graphics("Figs/Diagram.png")
 ```
 
@@ -274,9 +274,9 @@ Pebesma, E., 2018. Simple Features for R: Standardized Support for Spatial Vecto
 
 Pebesma, E., and Bivand, R., 2023. Spatial Data Science: With Applications in R. Chapman and Hall/CRC. https://doi.org/10.1201/9780429459016.
 
-Thanassekos S, et al., 2026. CCAMLRGIS: Antarctic Spatial Data Manipulation. doi:10.32614/CRAN.package.CCAMLRGIS. R package version 4.3.1.
+Thanassekos S, et al., 2026. CCAMLRGIS: Antarctic Spatial Data Manipulation. https://doi:10.32614/CRAN.package.CCAMLRGIS. R package version 4.3.1.
 
-Wickham H, et al., 2026. dplyr: A Grammar of Data Manipulation. doi:10.32614/CRAN.package.dplyr. R package version 1.2.1.
+Wickham H, et al., 2026. dplyr: A Grammar of Data Manipulation. https://doi:10.32614/CRAN.package.dplyr. R package version 1.2.1.
 
 <br>
 

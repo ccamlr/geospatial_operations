@@ -96,14 +96,15 @@ edges), and use *Q* to scale georeferenced arrows for that polygon.
 
 <div class="figure" style="text-align: center">
 
-<img src="Figs/Diagram.png" alt="Figure 2. Diagram of the workflow used to build georeferenced arrows that are scaled by the volumetric flow rate (*Q*) passing through a prism of ocean defined by a given polygon at the surface. All computations are done using R, and specific R functions are identified in italics and with brackets (*e.g.*, *Calculate_flow()LINK*)." width="60%" />
+<img src="Figs/Diagram.png" alt="Figure 2. Diagram of the workflow used to build georeferenced arrows that are scaled by the volumetric flow rate (*Q*) passing through a prism of ocean defined by a given polygon at the surface. All computations are done using R, and specific R functions are identified in italics and with brackets (*e.g.*, *[Calculate_flow()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)*)." width="60%" />
 <p class="caption">
 
 Figure 2. Diagram of the workflow used to build georeferenced arrows
 that are scaled by the volumetric flow rate (*Q*) passing through a
 prism of ocean defined by a given polygon at the surface. All
 computations are done using R, and specific R functions are identified
-in italics and with brackets (*e.g.*, *Calculate_flow()LINK*).
+in italics and with brackets (*e.g.*,
+*[Calculate_flow()](https://github.com/ccamlr/geospatial_operations/blob/main/Scripts/Currents/Code/Functions.R)*).
 </p>
 
 </div>
@@ -426,11 +427,14 @@ Applications in R. Chapman and Hall/CRC.
 <https://doi.org/10.1201/9780429459016>.
 
 Thanassekos S, et al., 2026. CCAMLRGIS: Antarctic Spatial Data
-Manipulation. <doi:10.32614/CRAN.package.CCAMLRGIS>. R package version
-4.3.1.
+Manipulation. <a href="https://doi:10.32614/CRAN.package.CCAMLRGIS"
+class="uri">https://doi:10.32614/CRAN.package.CCAMLRGIS</a>. R package
+version 4.3.1.
 
 Wickham H, et al., 2026. dplyr: A Grammar of Data Manipulation.
-<doi:10.32614/CRAN.package.dplyr>. R package version 1.2.1.
+<a href="https://doi:10.32614/CRAN.package.dplyr"
+class="uri">https://doi:10.32614/CRAN.package.dplyr</a>. R package
+version 1.2.1.
 
 <br>
 
