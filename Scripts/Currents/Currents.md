@@ -59,14 +59,14 @@ faces extending from the surface to the seabed (or alternatively to a
 chosen depth), the goal becomes the calculation of volumetric flow rate
 (or transport) across the vertical faces of this prism. Volumetric flow
 rate (volume per unit time), denoted *Q*, will be here expressed in
-Sverdrup (10$^6$ m$^3$.s$^{-1}$) and calculated for each prism face
-bounded by a given polygon edge and depth range (*N.B.*, dividing *Q* by
-area results in calculating flux, expressed in units of volume per time
-per area). To account for the orientation of the flow relative to the
-orientation of a given polygon edge, the normal (*i.e.*, perpendicular)
-to this edge must be calculated. That is because only the part of the
-current that is normal to the polygon edge carries water across it. A
-schematic of these concepts is given in Figure 1.
+Sverdrup (10<sup>6</sup> m$^3$.s$^{-1}$) and calculated for each prism
+face bounded by a given polygon edge and depth range (*N.B.*, dividing
+*Q* by area results in calculating flux, expressed in units of volume
+per time per area). To account for the orientation of the flow relative
+to the orientation of a given polygon edge, the normal (*i.e.*,
+perpendicular) to this edge must be calculated. That is because only the
+part of the current that is normal to the polygon edge carries water
+across it. A schematic of these concepts is given in Figure 1.
 
 <br>
 
@@ -447,4 +447,4 @@ version 1.2.1.
 
 <br>
 
-# List of available R scripts
+# Folders and R scripts
